@@ -1,0 +1,22 @@
+.section {
+	height: 500px;
+}
+
+.header {
+}
+
+.menu {
+	display: flex;
+}
+
+a {
+	padding: 10px;
+	border: 1px solid silver;
+}
+
+.active {
+	background: grey;
+	color: white;
+}
+
+.active {}
