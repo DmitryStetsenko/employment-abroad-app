@@ -3,6 +3,8 @@ import Worker from './Worker';
 import Account from './Account';
 import Vacancy from './Vacancy';
 import Notfound from './Notfound';
+import Contacts from './Contacts';
+import About from './About';
 
 
 export {
@@ -11,4 +13,6 @@ export {
   Account,
   Vacancy,
   Notfound,
+  Contacts,
+  About
 };

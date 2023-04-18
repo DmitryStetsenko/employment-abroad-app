@@ -126,7 +126,7 @@ fieldset {
         font-size: 12px;
     } 
 
-    &_active {
+    &.active {
         $mainColor: darken($color1, 10);
     
         background: $mainColor;

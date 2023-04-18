@@ -26,6 +26,24 @@
             object-position: center bottom;
         }
     }
+    &__tabs {
+        @include flex(center, center);
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+    &_employer {
+        // background-color: darken($color1, 10);
+        background-color: darken($color3, 10);
+    }
+    &_contacts {
+        
+    }
+    &_other {
+        background-color: $color4;
+    }
 }
 .hero {
     @include flex(flex-start, center);
@@ -97,13 +115,6 @@
                 margin-right: 0;
             }
         }
-    }
-    &__tabs {
-        @include flex(center, center);
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        transform: translateX(-50%);
     }
 }
 

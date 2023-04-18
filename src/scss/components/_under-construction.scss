@@ -1,0 +1,6 @@
+.under-construction {
+  @include flex(center, center);
+  &__img {
+    width: 100%;
+  }
+}
