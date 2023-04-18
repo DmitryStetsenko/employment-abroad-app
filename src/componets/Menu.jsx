@@ -1,15 +1,15 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Menu = ({children}) => {
   return (
-    <nav className="menu">
-      <Link to="/">Главная</Link>
-
-      { children }
-      
-      <Link to="/employer">Работодателю</Link>
-      <Link to="/">Соискателю</Link>
-      <Link to="/account">Личный кабинет</Link>
+    <nav className="menu-header__menu">
+    <ul className="menu-list">
+      <li className="menu-list__item"><NavLink to="/" className="menu-list__link">Соискателю</NavLink></li>
+      <li className="menu-list__item"><NavLink to="/employer" className="menu-list__link">Работодателю</NavLink></li>
+      <li className="menu-list__item"><NavLink to="/contacts" className="menu-list__link">Контакты</NavLink></li>
+      <li className="menu-list__item"><NavLink to="/about" className="menu-list__link">О нас</NavLink></li>
+    </ul>
+    { children }
     </nav>
   );
 };

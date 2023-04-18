@@ -1,0 +1,96 @@
+.top-header-block {
+    background: $color1;
+}
+.top-header {
+    @include flex(flex-start, center);
+
+    padding: 10px 0;
+    &__item {
+        &:first-child {
+            margin-right: 40px;
+        }
+        &:nth-child(2) {
+            margin-right: auto;
+        }
+    }
+    &__action {
+        @include flex(flex-start, center);
+    }
+    &__addit-features {
+        @include flex(flex-start, center);
+    }
+}
+
+.action-item {
+    cursor: pointer;
+    margin-right: 20px;
+    color: $color4;
+    transition: color .3s;
+    &:hover {
+        color: $color2;
+        a {
+            color: $color2;
+        }
+    }
+}
+.language {
+    @include flex;
+    &__item {
+        text-transform: uppercase;
+        padding-right: 10px;
+        color: $color4;
+        transition: color 0.3s;
+        cursor: pointer;
+        &:hover {
+            color: $color2;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+.social {
+    $item-size: 20px;
+    $font-size: 16px;
+    @include flex;
+
+    font-size: $font-size;
+    &__item {
+        margin-right: 5px;
+        a {
+            @include flex(center, center);
+
+            color: $color2;
+            transition: color .3s;
+            width: $item-size;
+            height: $item-size;
+            &:hover {
+                color: white;
+            }
+            i {
+                display: block;
+            }
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        &_instagram {
+            font-size: $font-size + 4px;
+        }
+    }
+}
+
+.user-account {
+    @include flex(flex-start, center);
+    position: relative;
+    padding-right: 20px;
+    border-right: 2px solid $color4;
+    a {
+        margin-left: 5px;
+        color: $color4;
+    }
+}
+.phone {}
+.notifications {}
+.user-menu {}

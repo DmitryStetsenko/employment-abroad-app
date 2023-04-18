@@ -1,19 +1,19 @@
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
-import { 
-	EmployerPage, WorkerPage, AccountPage, VacancyPage, NotfoundPage
-} from './pages';
+import { Employer, Worker, Account, Vacancy, Notfound } from './componets/pages';
+import Layout from './componets/Layout';
 
 function App() {
 	return (
 		<>
 			<Routes>
-				<Route path="/" element={ <WorkerPage /> }/>
-				<Route path="/employer" element={ <EmployerPage /> }/>
-				<Route path="/account" element={ <AccountPage /> }/>
-				<Route path="/vacancy" element={ <VacancyPage /> }/>
-				<Route path="*" element={ <NotfoundPage /> }/>
+				<Route path="/" element={ <Layout />}>
+					<Route index element={ <Worker /> }/>
+					<Route path="/employer" element={ <Employer /> }/>
+					<Route path="/account" element={ <Account /> }/>
+					<Route path="/vacancy" element={ <Vacancy /> }/>
+					<Route path="*" element={ <Notfound /> }/>
+				</Route>
 			</Routes>
 		</>
 	);
