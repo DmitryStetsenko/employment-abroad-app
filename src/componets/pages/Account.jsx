@@ -1,9 +1,7 @@
+import UnderConstuction from "../UnderConstuction";
+
 const AccountPage = () => {
-  return (
-    <div>
-      <h1>Account Page</h1>
-    </div>
-  );
+  return <UnderConstuction />;
 };
 
 export default AccountPage;

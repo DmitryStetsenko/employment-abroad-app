@@ -4,7 +4,6 @@ import {
 	Employer, 
 	Worker, 
 	Account, 
-	Vacancy,
 	Contacts,
 	About,
 	Notfound 
@@ -21,7 +20,6 @@ function App() {
 					<Route path="/contacts" element={ <Contacts /> }/>
 					<Route path="/about" element={ <About/> }/>
 					<Route path="/account" element={ <Account /> }/>
-					<Route path="/vacancy" element={ <Vacancy /> }/>
 					<Route path="*" element={ <Notfound /> }/>
 				</Route>
 			</Routes>
