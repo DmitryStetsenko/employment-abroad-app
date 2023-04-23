@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { 
 	Employer, 
@@ -11,6 +13,10 @@ import {
 import Layout from './componets/Layout';
 
 function App() {
+	useEffect(() => {
+
+	});
+
 	return (
 		<>
 			<Routes>
