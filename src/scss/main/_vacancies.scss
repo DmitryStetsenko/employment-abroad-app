@@ -32,7 +32,11 @@ $marginTitle: 10px;
 }
 
 .vacancies {
-    
+    &__title-block  {
+        margin-bottom: 20px;
+    }
+    &__title {}
+    &__subtitle {}
 
     &__header {
         @include flex(flex-start, center);
@@ -61,7 +65,12 @@ $marginTitle: 10px;
     }
     &__content {}
     &__list {}
-    &__item {}
+    &__item {
+        margin-bottom: 10px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .vacancy {

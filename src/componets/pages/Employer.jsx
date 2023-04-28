@@ -1,7 +1,7 @@
 import UnderConstuction from "../UnderConstuction";
 
-const EmployerPage = () => {
+const Employer = () => {
   return <UnderConstuction />
 };
 
-export default EmployerPage;
+export default Employer;

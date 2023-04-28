@@ -40,17 +40,18 @@ const vacanciesSlice = createSlice({
     error: null,
   },
   reducers: {},
-  extraReducers: {
-    [fetchVacancies.pending]: (action, payload) => {
-      state.error = null;
-      state.status = 'loading';
+  extraReducers: 
+    (builder) => {
+      builder.addCase(fetchVacancies.pending, (state) => {
+        state.error = null;
+        state.status = 'loading';
+      });
+      builder.addCase(fetchVacancies.fulfilled, (state, action) => {
+        state.status = 'resolved';
+        state.list = action.payload;
+      });
+      builder.addCase(fetchVacancies.rejected, setError);
     },
-    [fetchVacancies.fulfilled]: (action, payload) => {
-      state.status = 'resolved';
-      state.list = action.payload;
-    },
-    [fetchVacancies.rejected]: setError,
-  }
 });
 
 export default vacanciesSlice.reducer;

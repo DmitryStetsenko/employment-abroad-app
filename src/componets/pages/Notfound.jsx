@@ -1,4 +1,4 @@
-const NotfoundPage = () => {
+const Notfound = () => {
   return (
     <div>
       <h1>Not found</h1>
@@ -6,4 +6,4 @@ const NotfoundPage = () => {
   );
 };
 
-export default NotfoundPage;
+export default Notfound;

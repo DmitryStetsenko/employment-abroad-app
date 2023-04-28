@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchVacancies } from './store/vacanciesSlice'; 
 
 import { 
 	Employer, 
@@ -13,9 +14,11 @@ import {
 import Layout from './componets/Layout';
 
 function App() {
-	useEffect(() => {
+	const dispatch = useDispatch();
 
-	});
+	useEffect(() => {
+		dispatch(fetchVacancies());
+	}, [dispatch]);
 
 	return (
 		<>
