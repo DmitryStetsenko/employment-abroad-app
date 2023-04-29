@@ -8,12 +8,14 @@ export const fetchVacancies = createAsyncThunk(
   'vacancies/fetchVacancies',
   async function(_, {rejectWithValue}) {
     try {
-
-      const response = await fetch(vacancyUrls['all']);
+      const getParams = '?sort=["id", "DESC"]&join';
+      const response = await fetch(vacancyUrls['all'] + getParams);
       
       if (!response.ok) {
         throw new Error('Server error!');
       }
+
+      console.log(response.headers.get('Content-range'));
 
       const data = await response.json();
       return data;
