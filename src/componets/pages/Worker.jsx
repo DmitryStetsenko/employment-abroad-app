@@ -1,7 +1,11 @@
+import { useSelector } from "react-redux";
 import FilterBlock from "../forms/filter/FilterBlock";
 import { VacancyList } from "../vacancy";
 
 const Worker = () => {
+	const { data, status, error } = useSelector(state => state.filters);
+	console.log(data);
+
 	return (
 		<section className="section section_vacancies">
 			<div className="container">

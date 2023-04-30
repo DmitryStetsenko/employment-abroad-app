@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Vacancy = ({ data }) => {
-	console.log(data);
 	const { id, created, title, description, country_name, employer_name, salary,speciality_name } = data;
 	return (
 		<div className="vacancy">

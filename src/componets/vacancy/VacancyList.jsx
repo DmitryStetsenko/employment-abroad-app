@@ -3,9 +3,8 @@ import { useSelector } from 'react-redux';
 import Vacancy from './Vacancy';
 
 const VacancyList = () => {
-	const { list, status, error } = useSelector(state => state.vacancies);
-
-	console.log(list, status, error);
+	const { data, status, error } = useSelector(state => state.vacancies);
+	console.log(data);
 
 	return (
 		<>
@@ -17,8 +16,9 @@ const VacancyList = () => {
 					<div className="vacancies__header">
 						<div className="vacancies__info-block">
 							<p className="vacancies__info">
-								<span>279</span>
-								вакансий по зароботной плате от 450$ к 7000$
+								<span>{ data.contentRange?.count }</span>
+								вакансий
+								{/* по зароботной плате от 450$ к 7000$ */}
 							</p>
 						</div>
 						<div className="vacancies__sort-block">
@@ -39,7 +39,7 @@ const VacancyList = () => {
 							</li> */}
 							
 							{
-								list.map(vacancy => <li className="vacancies__item" key={ vacancy.id }><Vacancy data={ vacancy }/></li>)
+								data.body?.map(vacancy => <li className="vacancies__item" key={ vacancy.id }><Vacancy data={ vacancy }/></li>)
 							}
 
 						</ul>

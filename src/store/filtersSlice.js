@@ -1,18 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getContentRangeHeaderValue } from './functions';
 
-const vacancyUrls = {
-  all: 'http://rest-api-simple.local/vacancy',
+const filterUrls = {
+  all: 'http://rest-api-simple.local/filter',
 }
 
-export const fetchVacancies = createAsyncThunk(
-  'vacancies/fetchVacancies',
+export const fetchFilters = createAsyncThunk(
+  'filters/fetchFilters',
   async function(_, {rejectWithValue}) {
     try {
-      const getParams = '?sort=["id", "DESC"]&join';
-      const response = await fetch(vacancyUrls['all'] + getParams);
+      const getParams = '';
+      const response = await fetch(filterUrls['all'] + getParams);
       let contentRange;
-
+      
       if (!response.ok) {
         throw new Error('Server error!');
       }
@@ -37,8 +37,8 @@ const setError = (state, action) => {
   state.error = action.payload;
 }
 
-const vacanciesSlice = createSlice({
-  name: 'vacancies',
+const filtersSlice = createSlice({
+  name: 'filters',
   initialState: {
     data: {},
     status: null,
@@ -47,16 +47,16 @@ const vacanciesSlice = createSlice({
   reducers: {},
   extraReducers: 
     (builder) => {
-      builder.addCase(fetchVacancies.pending, (state) => {
+      builder.addCase(fetchFilters.pending, (state) => {
         state.error = null;
         state.status = 'loading';
       });
-      builder.addCase(fetchVacancies.fulfilled, (state, action) => {
+      builder.addCase(fetchFilters.fulfilled, (state, action) => {
         state.status = 'resolved';
         state.data = action.payload;
       });
-      builder.addCase(fetchVacancies.rejected, setError);
+      builder.addCase(fetchFilters.rejected, setError);
     },
 });
 
-export default vacanciesSlice.reducer;
+export default filtersSlice.reducer;

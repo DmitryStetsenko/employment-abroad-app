@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchVacancies } from './store/vacanciesSlice'; 
+import { fetchFilters } from './store/filtersSlice'; 
 
 import { 
 	Employer, 
@@ -18,6 +19,7 @@ function App() {
 
 	useEffect(() => {
 		dispatch(fetchVacancies());
+		dispatch(fetchFilters());
 	}, [dispatch]);
 
 	return (
