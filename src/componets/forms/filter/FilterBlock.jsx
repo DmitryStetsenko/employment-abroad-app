@@ -1,18 +1,20 @@
 import FilterItem from "./FilterItem";
 
-const FilterBlock = () => {
+
+const FilterBlock = ({ filter }) => {
+	const { name, tablename, fields } = filter;
+
 	return (
 		<fieldset className="filter-block" name="filter-item">
-			<h4 className="filter-block__title">Кому подходит</h4>
+			<h4 className="filter-block__title">{ name }</h4>
 			<div className="filter-block__content">
 				<ul className="filter-block__list">
-					<FilterItem />
-					<FilterItem />
-					<FilterItem />
-					<FilterItem />
+
+					{ fields.map( field => <FilterItem key={ field.id } tableName={ tablename } field={ field }/>) }
+
 				</ul>
 			</div>
-			<button className="filter-block__show-more" type="button">показать больше</button>
+			{/* <button className="filter-block__show-more" type="button">показать больше</button> */}
 		</fieldset>
 	);
 };

@@ -4,7 +4,6 @@ import Vacancy from './Vacancy';
 
 const VacancyList = () => {
 	const { data, status, error } = useSelector(state => state.vacancies);
-	console.log(data);
 
 	return (
 		<>

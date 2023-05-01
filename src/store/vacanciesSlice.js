@@ -7,9 +7,13 @@ const vacancyUrls = {
 
 export const fetchVacancies = createAsyncThunk(
   'vacancies/fetchVacancies',
-  async function(_, {rejectWithValue}) {
+  async function(_, {rejectWithValue, getState}) {
     try {
-      const getParams = '?sort=["id", "DESC"]&join';
+      const { queryStr } = getState().filters;
+      const getParams = `?sort=["id", "DESC"]&join${queryStr}`;
+
+      console.log(queryStr);
+
       const response = await fetch(vacancyUrls['all'] + getParams);
       let contentRange;
 

@@ -43,8 +43,16 @@ const filtersSlice = createSlice({
     data: {},
     status: null,
     error: null,
+    query: {},
+    queryStr: '',
   },
-  reducers: {},
+  reducers: {
+    addParams(state, action) {
+      const { param, tableName } = action.payload;
+      state.query[tableName] = param;
+      state.queryStr = `&filter=${JSON.stringify(state.query)}`;
+    },
+  },
   extraReducers: 
     (builder) => {
       builder.addCase(fetchFilters.pending, (state) => {
@@ -59,4 +67,5 @@ const filtersSlice = createSlice({
     },
 });
 
+export const { addParams } = filtersSlice.actions;
 export default filtersSlice.reducer;
