@@ -52,6 +52,13 @@ const filtersSlice = createSlice({
       state.query[tableName] = param;
       state.queryStr = `&filter=${JSON.stringify(state.query)}`;
     },
+    delParam(state, action) {
+      const { tableName } = action.payload;
+      delete state.query[tableName];
+      console.log(state.query);
+      // console.log(tableName);
+      state.queryStr = `&filter=${JSON.stringify(state.query)}`;
+    },
   },
   extraReducers: 
     (builder) => {
@@ -67,5 +74,5 @@ const filtersSlice = createSlice({
     },
 });
 
-export const { addParams } = filtersSlice.actions;
+export const { addParams, delParam } = filtersSlice.actions;
 export default filtersSlice.reducer;

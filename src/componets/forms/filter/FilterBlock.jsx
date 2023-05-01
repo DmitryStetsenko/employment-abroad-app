@@ -9,6 +9,7 @@ const FilterBlock = ({ filter }) => {
 			<h4 className="filter-block__title">{ name }</h4>
 			<div className="filter-block__content">
 				<ul className="filter-block__list">
+					<FilterItem key={ 0 } tableName={ tablename } field={ {id: 0, name: 'все'} } />
 
 					{ fields.map( field => <FilterItem key={ field.id } tableName={ tablename } field={ field }/>) }
 
