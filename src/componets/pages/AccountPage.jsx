@@ -1,7 +1,7 @@
 import UnderConstuction from "../UnderConstuction";
 
-const Account = () => {
+const AccountPage = () => {
   return <UnderConstuction />;
 };
 
-export default Account;
+export default AccountPage;

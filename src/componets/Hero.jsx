@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import HeroTabs from './HeroTabs';
 
 const Hero = () => {
@@ -33,13 +33,19 @@ const Hero = () => {
       break;
   }
 
+  if (pathname.includes('vacancies')) {
+    component = <WorkerHero />;
+    workerOrEmployer = true;
+    heroBlockModifClassName = 'hero-block_worker';
+  }
+
   return (
     <div className={`hero-block ${heroBlockModifClassName}`}>
 
-      {component}
+      { component }
 
       <div className="hero-block__tabs">
-        {workerOrEmployer && <HeroTabs />}
+        { workerOrEmployer && <HeroTabs /> }
       </div>
     </div>
   );
@@ -51,7 +57,7 @@ const WorkerHero = () => {
   return (
     <>
       <div className="hero-block__img">
-        <img src="./img/main-bg.jpg" alt="" />
+        <img src="/img/main-bg.jpg" alt="" />
       </div>
       <div className="container container_full-height">
         <div className="hero">
@@ -80,7 +86,7 @@ const EmployerHero = () => {
   return (
     <>
       <div className="hero-block__img">
-        <img src="./img/hero-employer-bg.jpg" alt="" />
+        <img src="/img/hero-employer-bg.jpg" alt="" />
       </div>
       <div className="container container_full-height">
         <div className="hero">
@@ -109,7 +115,7 @@ const ContactsHero = () => {
   return (
     <>
       <div className="hero-block__img">
-        <img src="./img/hero-contact-bg.jpg" alt="" />
+        <img src="/img/hero-contact-bg.jpg" alt="" />
       </div>
       <div className="container container_full-height">
         <div className="hero">
@@ -141,7 +147,7 @@ const AboutUsHero = () => {
   return (
     <>
       <div className="hero-block__img">
-        <img src="./img/main-bg.jpg" alt="" />
+        <img src="/img/main-bg.jpg" alt="" />
       </div>
       <div className="container container_full-height">
         <div className="hero">

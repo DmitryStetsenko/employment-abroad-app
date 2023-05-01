@@ -1,7 +1,7 @@
 import UnderConstuction from '../UnderConstuction';
 
-const About = () => {
+const AboutPage = () => {
   return <UnderConstuction />;
 };
 
-export default About;
+export default AboutPage;

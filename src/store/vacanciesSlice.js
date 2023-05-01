@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getContentRangeHeaderValue } from './functions';
 
 const vacancyUrls = {
-  all: 'http://rest-api-simple.local/vacancy',
+  base: 'http://rest-api-simple.local/vacancy',
 }
 
 export const fetchVacancies = createAsyncThunk(
@@ -14,7 +14,7 @@ export const fetchVacancies = createAsyncThunk(
 
       console.log(queryStr);
 
-      const response = await fetch(vacancyUrls['all'] + getParams);
+      const response = await fetch(vacancyUrls['base'] + getParams);
       let contentRange;
 
       if (!response.ok) {

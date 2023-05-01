@@ -19,7 +19,7 @@ $marginTitle: 10px;
 }
 
 .filter-item {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     cursor: pointer;
     &__element {
         @include flex(flex-start, center);
@@ -29,6 +29,12 @@ $marginTitle: 10px;
         margin-right: 10px;
     }
     &__title {}
+
+    &:first-child {
+        font-weight: bold;
+        padding-bottom: 3px;
+        
+    }
 }
 
 .vacancies {

@@ -1,12 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Vacancy = ({ data }) => {
-	const { id, created, title, description, country_name, employer_name, salary,speciality_name } = data;
+	const { 
+		id, 
+		created, 
+		title, 
+		description, 
+		country_name,
+		country_id, 
+		employer_name,
+		employer_id,
+		salary,
+		speciality_name,
+		speciality_id,
+	} = data;
 	return (
 		<div className="vacancy">
 			<div className="vacancy__content-block">
 				<div className="vacancy__thumbnail">
-					<img src="./img/vacancy-thumb.jpg" alt="" />
+					<img src="/img/vacancy-thumb.jpg" alt="" />
 				</div>
 				<div className="vacancy__content">
 					<h3 className="vacancy__title">{ title }</h3>
@@ -15,21 +28,21 @@ const Vacancy = ({ data }) => {
 							<li className="meta-info__item">
 								<i className="meta-info__item-icon fa-solid fa-location-dot"></i>
 								<div className="meta-info__item-value">
-									<a href="#">{ country_name }</a>
+								<Link to={`/vacancies/country/${country_name}`} state={ country_id }>{ country_name }</Link>
 									{/* <a href="#">Катовице</a> */}
 								</div>
 							</li>
 							<li className="meta-info__item">
 								<i className="meta-info__item-icon fa-solid fa-suitcase"></i>
 								<div className="meta-info__item-value">
-									<a href="#">{ speciality_name }</a>
+								<Link to={`/vacancies/speciality/${speciality_name}`} state={ speciality_id }>{ speciality_name }</Link>
 									{/* <a href="#">Разнорабочий</a> */}
 								</div>
 							</li>
 							<li className="meta-info__item">
 								<i className="meta-info__item-icon fa-solid fa-gear"></i>
 								<div className="meta-info__item-value">
-									<a href="#">{ employer_name }</a>
+									<Link to={`/vacancies/employer/${employer_name}`} state={ employer_id }>{ employer_name }</Link>
 								</div>
 							</li>
 							<li className="meta-info__item">

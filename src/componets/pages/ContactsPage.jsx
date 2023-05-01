@@ -1,7 +1,7 @@
 import UnderConstuction from '../UnderConstuction';
 
-const Contacts = () => {
+const ContactsPage = () => {
   return <UnderConstuction />;
 };
 
-export default Contacts;
+export default ContactsPage;

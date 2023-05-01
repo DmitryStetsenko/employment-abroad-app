@@ -7,7 +7,8 @@ const filterUrls = {
 
 export const fetchFilters = createAsyncThunk(
   'filters/fetchFilters',
-  async function(_, {rejectWithValue}) {
+  async function({ exclude }, {rejectWithValue}) {
+    console.log(exclude);
     try {
       const getParams = '';
       const response = await fetch(filterUrls['all'] + getParams);
@@ -21,7 +22,14 @@ export const fetchFilters = createAsyncThunk(
         response.headers.get('Content-range')
       );
 
-      const body = await response.json();
+      let body = await response.json();
+
+      console.log(body);
+
+      if (exclude) {
+        body = body.filter(item => item.tablename !== exclude);
+      }
+
       return { body, contentRange };
 
     } catch(error) {
@@ -55,9 +63,18 @@ const filtersSlice = createSlice({
     delParam(state, action) {
       const { tableName } = action.payload;
       delete state.query[tableName];
-      console.log(state.query);
-      // console.log(tableName);
       state.queryStr = `&filter=${JSON.stringify(state.query)}`;
+    },
+    clearAndSetParam(state, action) {
+      const { param, tableName } = action.payload;
+      state.query = {};
+      state.query[tableName] = param;
+      state.queryStr = `&filter=${JSON.stringify(state.query)}`;
+    },
+    clear(state) {
+      state.query = {};
+      state.queryStr = '';
+      console.log('clear');
     },
   },
   extraReducers: 
@@ -74,5 +91,5 @@ const filtersSlice = createSlice({
     },
 });
 
-export const { addParams, delParam } = filtersSlice.actions;
+export const { addParams, delParam, clear, clearAndSetParam } = filtersSlice.actions;
 export default filtersSlice.reducer;

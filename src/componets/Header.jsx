@@ -49,7 +49,7 @@ const Header = () => {
             <div className="container">
                 <div className="menu-header">
                     <Link to="/" className="logo">
-                        <img src="./img/logo-full-dark.svg" alt="logo liftron" />
+                        <img src="/img/logo-full-dark.svg" alt="logo liftron" />
                     </Link>
                     <div className="menu-header__search-block">
                         <div className="search-form">

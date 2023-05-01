@@ -8,7 +8,6 @@ const FilterItem = ({ field, tableName }) => {
   // const { query } = useSelector(state => state.filters);
 
   const onChangeHandler = (param, tableName) => {
-    console.log(param);
     if (param === 0) {
       dispatch(delParam({ tableName: `${tableName}_id` }));
       dispatch(fetchVacancies());
@@ -22,7 +21,7 @@ const FilterItem = ({ field, tableName }) => {
   return (
     <li className="filter-item">
       <label className="filter-item__element">
-        <input 
+        <input
           type="radio" 
           name={ tableName } 
           className="filter-item__checkbox"

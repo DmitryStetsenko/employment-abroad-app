@@ -6,9 +6,6 @@ const FilterList = () => {
 	const { data, status, error } = useSelector(state => state.filters);
   const filters = data.body;
 
-  console.log(status);
-  console.log(filters);
-
   return (
     <form className="filter section__sidebar" name="filter">
       

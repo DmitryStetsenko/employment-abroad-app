@@ -1,16 +1,18 @@
-import Employer from './Employer';
-import Worker from './Worker';
-import Account from './Account';
-import Notfound from './Notfound';
-import Contacts from './Contacts';
-import About from './About';
+import EmployerPage from './EmployerPage';
+import WorkerPage from './WorkerPage';
+import AccountPage from './AccountPage';
+import NotfoundPage from './NotfoundPage';
+import ContactsPage from './ContactsPage';
+import AboutPage from './AboutPage';
+import VacanciesPage from './VacanciesPage';
 
 
 export {
-  Employer, 
-  Worker, 
-  Account,
-  Notfound,
-  Contacts,
-  About
+  EmployerPage, 
+  WorkerPage, 
+  AccountPage,
+  NotfoundPage,
+  ContactsPage,
+  AboutPage,
+  VacanciesPage,
 };
