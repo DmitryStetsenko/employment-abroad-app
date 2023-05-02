@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { VacancyList } from "../vacancy";
 import { FilterList } from "../forms/filter";
 import { fetchVacancies } from './../../store/vacanciesSlice'; 
-import { clear, clearAndSetParam, fetchFilters } from './../../store/filtersSlice'; 
+import { clearFilters, clearAndSetParam, fetchFilters } from './../../store/filtersSlice'; 
 
 const WorkerPage = ({ filter }) => {
 	const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const WorkerPage = ({ filter }) => {
 		if ( filter ) {
 			dispatch(clearAndSetParam({ param: filter.id, tableName: `${filter.table}_id` }));
 		} else {
-			dispatch(clear());
+			dispatch(clearFilters());
 		}
 		
 		dispatch(fetchVacancies());
@@ -22,7 +22,7 @@ const WorkerPage = ({ filter }) => {
 	}, [filter]);
 
 	return (
-		<section className="section section_vacancies">
+		<section id="vacancy" className="section section_vacancies">
 			<div className="container">
 				<div className="section__inner">
 

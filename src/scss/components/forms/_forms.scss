@@ -38,15 +38,28 @@ fieldset {
     color: white;
     font-weight: bold;
     cursor: pointer;
+    transition: transform .3s, box-shadow .3s, background .3s;
+
+    &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 2px 2px 5px rgba(black, .5);
+        background: rgba($color1, .7);
+    }
 
     &_stroke {
         border: 1px solid $color2;
         background: none;
         color: $color2;
+        &:hover {
+            background: rgba($color1, .7);
+        }
     }
     &_start {}
     &_full {
         width: 100%;
+    }
+    &_filter {
+        background: $color1;
     }
 }
 

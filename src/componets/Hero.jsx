@@ -72,8 +72,8 @@ const WorkerHero = () => {
               </div>
             </div>
             <div className="hero__action-block">
-              <button className="btn">Начать поиск работы</button>
-              <button className="btn btn_stroke">Смотреть вакансии</button>
+              <a href="#vacancy" className="btn">Начать поиск работы</a>
+              <a href="#vacancy" className="btn btn_stroke">Смотреть вакансии</a>
             </div>
           </div>
         </div>

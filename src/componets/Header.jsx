@@ -58,7 +58,7 @@ const Header = () => {
                         </div>
                     </div>
                     <Menu />
-                    <button className="btn btn_start">Начать поиск работы</button>
+                    <a href="#vacancy" className="btn btn_start">Начать поиск работы</a>
                 </div>
             </div>
         </div>

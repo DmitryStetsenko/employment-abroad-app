@@ -1,6 +1,10 @@
 $marginTitle: 10px;
 
-.filter {}
+.filter {
+    &__all-btn {
+        margin-bottom: 20px;
+    }
+}
 
 .filter-block {
     margin-bottom: 20px;

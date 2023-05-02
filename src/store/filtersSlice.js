@@ -7,7 +7,7 @@ const filterUrls = {
 
 export const fetchFilters = createAsyncThunk(
   'filters/fetchFilters',
-  async function({ exclude }, {rejectWithValue}) {
+  async function({ exclude } = {}, {rejectWithValue}) {
     console.log(exclude);
     try {
       const getParams = '';
@@ -71,7 +71,7 @@ const filtersSlice = createSlice({
       state.query[tableName] = param;
       state.queryStr = `&filter=${JSON.stringify(state.query)}`;
     },
-    clear(state) {
+    clearFilters(state) {
       state.query = {};
       state.queryStr = '';
       console.log('clear');
@@ -91,5 +91,5 @@ const filtersSlice = createSlice({
     },
 });
 
-export const { addParams, delParam, clear, clearAndSetParam } = filtersSlice.actions;
+export const { addParams, delParam, clearFilters, clearAndSetParam } = filtersSlice.actions;
 export default filtersSlice.reducer;

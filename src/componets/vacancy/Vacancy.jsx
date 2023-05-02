@@ -28,21 +28,21 @@ const Vacancy = ({ data }) => {
 							<li className="meta-info__item">
 								<i className="meta-info__item-icon fa-solid fa-location-dot"></i>
 								<div className="meta-info__item-value">
-								<Link to={`/vacancies/country/${country_name}`} state={ country_id }>{ country_name }</Link>
+								<Link to={`/vacancies/country/${country_name}`} state={ country_id } preventScrollReset={true}>{ country_name }</Link>
 									{/* <a href="#">Катовице</a> */}
 								</div>
 							</li>
 							<li className="meta-info__item">
 								<i className="meta-info__item-icon fa-solid fa-suitcase"></i>
 								<div className="meta-info__item-value">
-								<Link to={`/vacancies/speciality/${speciality_name}`} state={ speciality_id }>{ speciality_name }</Link>
+								<Link to={`/vacancies/speciality/${speciality_name}`} state={ speciality_id } preventScrollReset={true}>{ speciality_name }</Link>
 									{/* <a href="#">Разнорабочий</a> */}
 								</div>
 							</li>
 							<li className="meta-info__item">
 								<i className="meta-info__item-icon fa-solid fa-gear"></i>
 								<div className="meta-info__item-value">
-									<Link to={`/vacancies/employer/${employer_name}`} state={ employer_id }>{ employer_name }</Link>
+									<Link to={`/vacancies/employer/${employer_name}`} state={ employer_id } preventScrollReset={true}>{ employer_name }</Link>
 								</div>
 							</li>
 							<li className="meta-info__item">
