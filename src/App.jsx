@@ -7,7 +7,8 @@ import {
 	ContactsPage,
 	AboutPage,
 	NotfoundPage, 
-	VacanciesPage
+	VacanciesPage,
+	VacancyPage,
 } from './componets/pages';
 import Layout from './componets/Layout';
 
@@ -19,6 +20,7 @@ function App() {
 					<Route index element={ <WorkerPage /> }/>
 					<Route path="/employer" element={ <EmployerPage /> }/>
 					<Route path="vacancies/:table/:name" element={ <VacanciesPage /> } />
+					<Route path="vacancy/*" element={ <VacancyPage /> }/>
 					<Route path="/contacts" element={ <ContactsPage /> }/>
 					<Route path="/about" element={ <AboutPage/> }/>
 					<Route path="/account" element={ <AccountPage /> }/>

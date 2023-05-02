@@ -8,11 +8,10 @@ const filterUrls = {
 export const fetchFilters = createAsyncThunk(
   'filters/fetchFilters',
   async function({ exclude } = {}, {rejectWithValue}) {
-    console.log(exclude);
     try {
       const getParams = '';
       const response = await fetch(filterUrls['all'] + getParams);
-      let contentRange;
+      let body, contentRange;
       
       if (!response.ok) {
         throw new Error('Server error!');
@@ -22,10 +21,7 @@ export const fetchFilters = createAsyncThunk(
         response.headers.get('Content-range')
       );
 
-      let body = await response.json();
-
-      console.log(body);
-
+      body = await response.json();
       if (exclude) {
         body = body.filter(item => item.tablename !== exclude);
       }

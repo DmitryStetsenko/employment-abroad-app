@@ -43,7 +43,8 @@ fieldset {
     &:hover {
         transform: translate(-2px, -2px);
         box-shadow: 2px 2px 5px rgba(black, .5);
-        background: rgba($color1, .7);
+        background: $color1;
+        
     }
 
     &_stroke {
@@ -54,12 +55,18 @@ fieldset {
             background: rgba($color1, .7);
         }
     }
-    &_start {}
+    &_start {
+        border-color: $color2;
+    }
     &_full {
         width: 100%;
     }
     &_filter {
         background: $color1;
+    }
+    &_detail {
+        padding: 10px 40px;
+        font-size: 0.8rem;
     }
 }
 

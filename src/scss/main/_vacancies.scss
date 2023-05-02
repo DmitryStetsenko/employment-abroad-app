@@ -114,6 +114,15 @@ $marginTitle: 10px;
     &__title {
         margin-bottom: 5px;
     }
+    &__link {
+        // padding-bottom: 5px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid transparent;
+        transition: border .3s;
+        &:hover {
+            border-color: $color1;
+        }
+    }
     &__meta {
         margin-bottom: 20px;
     }
@@ -128,9 +137,6 @@ $marginTitle: 10px;
         margin-bottom: 10px;
     }
     &__details {
-        padding: 10px 40px;
-        background: $color2;
-        color: white;
     }
 }
 
@@ -155,6 +161,113 @@ $marginTitle: 10px;
                 color: $color4;
                 margin-right: 5px;
                 transition: color .3s;
+
+                &:hover {
+                    color: $color2;
+                }
+                &::after {
+                    content: ','
+                }
+                &:last-child {
+                    margin-right: 0;
+                    &::after {
+                        content: '';
+                    }
+                }
+            }
+        }
+    }
+}
+
+.vacancy-single {
+    margin-bottom: 20px;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__content-block {
+        @include flex;
+    }
+    &__thumbnail {
+        $size: 300px;
+        width: $size;
+        min-width: $size;
+        height: $size;
+        margin-right: 15px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    &__content {
+        width: 100%;
+    }
+    &__title {
+        font-size: 2rem;
+        
+    }
+    &__text {
+        padding: 20px;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        border-bottom: 1px solid silver;
+    }
+    &__link {
+        // padding-bottom: 5px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid transparent;
+        transition: border .3s;
+        &:hover {
+            border-color: $color1;
+        }
+    }
+    &__meta {
+        margin-bottom: 20px;
+    }
+    &__salary {
+        margin-bottom: 10px;
+        padding: 20px;
+        background: $color6;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    &__details {
+    }
+}
+
+.single-meta-info {
+    &__item {
+        @include flex;
+
+        color: $color1;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        padding: 10px;
+
+        &:nth-child(odd) {
+            background: $color6;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+        &-icon {
+            margin-right: 5px;
+        }
+        &-text {
+            min-width: 150px;
+            margin-right: 5px;
+        }
+        &-value {
+            @include flex(space-between);
+            a {
+                color: black;
+                margin-right: 5px;
+                transition: color .3s;
+                font-size: 1.2rem;
 
                 &:hover {
                     color: $color2;

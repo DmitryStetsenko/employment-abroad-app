@@ -36,6 +36,30 @@ export const fetchVacancies = createAsyncThunk(
   }
 );
 
+export const fetchSingleVacancy = createAsyncThunk(
+  'vacancies/fetchSingleVacancy',
+  async function(id, {rejectWithValue}) {
+    try {
+      const response = await fetch(vacancyUrls['base'] + '/' + id);
+
+      if (!response.ok) {
+        throw new Error('Server error!');
+      }
+
+      const body = await response.json();
+      return body;
+
+    } catch(error) {
+
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+const setPending = (state, action) => {
+  state.error = null;
+  state.status = 'loading';
+}
 const setError = (state, action) => {
   state.status = 'rejected';
   state.error = action.payload;
@@ -51,15 +75,20 @@ const vacanciesSlice = createSlice({
   reducers: {},
   extraReducers: 
     (builder) => {
-      builder.addCase(fetchVacancies.pending, (state) => {
-        state.error = null;
-        state.status = 'loading';
-      });
+      // fetchVacancies
+      builder.addCase(fetchVacancies.pending, setPending);
       builder.addCase(fetchVacancies.fulfilled, (state, action) => {
         state.status = 'resolved';
         state.data = action.payload;
       });
       builder.addCase(fetchVacancies.rejected, setError);
+      // fetchSingleVacancy
+      builder.addCase(fetchSingleVacancy.pending, setPending);
+      builder.addCase(fetchSingleVacancy.fulfilled, (state, action) => {
+        state.status = 'resolved';
+        state.data = action.payload;
+      });
+      builder.addCase(fetchSingleVacancy.rejected, setError);
     },
 });
 

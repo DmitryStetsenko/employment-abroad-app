@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import Footer from './Footer';
 
 import Header from './Header';
 import Hero from './Hero';
@@ -13,7 +14,7 @@ const Layout = () => {
         <Outlet />
       </main>
 
-      <footer>Footer 2023</footer>
+      <Footer />
     </>
   );
 };

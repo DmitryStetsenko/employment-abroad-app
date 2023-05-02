@@ -5,6 +5,7 @@ import NotfoundPage from './NotfoundPage';
 import ContactsPage from './ContactsPage';
 import AboutPage from './AboutPage';
 import VacanciesPage from './VacanciesPage';
+import VacancyPage from './VacancyPage';
 
 
 export {
@@ -15,4 +16,5 @@ export {
   ContactsPage,
   AboutPage,
   VacanciesPage,
+  VacancyPage,
 };

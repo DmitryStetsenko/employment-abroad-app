@@ -22,7 +22,9 @@ const Vacancy = ({ data }) => {
 					<img src="/img/vacancy-thumb.jpg" alt="" />
 				</div>
 				<div className="vacancy__content">
-					<h3 className="vacancy__title">{ title }</h3>
+					<h3 className="vacancy__title">
+						<Link className="vacancy__link" to={`/vacancy/${title}`} state={ id }>{ title }</Link>
+					</h3>
 					<div className="vacancy__meta">
 						<ul className="meta-info">
 							<li className="meta-info__item">
@@ -58,7 +60,7 @@ const Vacancy = ({ data }) => {
 			</div>
 			<div className="vacancy__salary-block">
 				<div className="vacancy__salary">USD: { salary }</div>
-				<button className="vacancy__details">Подробнее</button>
+				<Link to={`/vacancy/${title}`} state={ id } className="vacancy__details btn btn_detail">Подробнее</Link>
 			</div>
 		</div>
 	);

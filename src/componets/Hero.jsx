@@ -7,6 +7,7 @@ const Hero = () => {
   let component = null;
   let workerOrEmployer = true;
   let heroBlockModifClassName = '';
+  let showHero = true;
 
   switch (pathname) {
     case '/':
@@ -34,20 +35,28 @@ const Hero = () => {
   }
 
   if (pathname.includes('vacancies')) {
-    component = <WorkerHero />;
-    workerOrEmployer = true;
-    heroBlockModifClassName = 'hero-block_worker';
+    showHero = false;
+  }
+
+  if (pathname.includes('vacancy')) {
+    showHero = false;
   }
 
   return (
-    <div className={`hero-block ${heroBlockModifClassName}`}>
+    <>
+      {
+        showHero &&
+        <div className={`hero-block ${heroBlockModifClassName}`}>
 
-      { component }
+          { component }
 
-      <div className="hero-block__tabs">
-        { workerOrEmployer && <HeroTabs /> }
-      </div>
-    </div>
+          <div className="hero-block__tabs">
+            { workerOrEmployer && <HeroTabs /> }
+          </div>
+        </div>
+      }
+    </>
+    
   );
 };
 
@@ -72,7 +81,7 @@ const WorkerHero = () => {
               </div>
             </div>
             <div className="hero__action-block">
-              <a href="#vacancy" className="btn">Начать поиск работы</a>
+              <a href="#vacancy" className="btn btn_start">Начать поиск работы</a>
               <a href="#vacancy" className="btn btn_stroke">Смотреть вакансии</a>
             </div>
           </div>
