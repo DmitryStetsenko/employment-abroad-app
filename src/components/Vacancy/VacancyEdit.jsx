@@ -3,7 +3,8 @@ import {
     CountryRefInput,
     EmployerRefInput,
     SpecialityRefInput,
-    ExpirienceRefInput
+    ExpirienceRefInput,
+    HousingRefInput
 } from '../RefInput';
 
 import RecordTitle from '../RecordTitle';
@@ -18,6 +19,7 @@ const VacancyEdit = () => (
             <CountryRefInput />
             <SpecialityRefInput />
             <ExpirienceRefInput />
+            <HousingRefInput />
         </SimpleForm>
     </Edit>
 );

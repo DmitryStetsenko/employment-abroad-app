@@ -3,7 +3,8 @@ import {
     CountryRefInput,
     EmployerRefInput,
     SpecialityRefInput,
-    ExpirienceRefInput
+    ExpirienceRefInput,
+    HousingRefInput
 } from '../RefInput';
 
 const VacancyCreate = () => (
@@ -16,6 +17,7 @@ const VacancyCreate = () => (
             <CountryRefInput required />
             <SpecialityRefInput required />
             <ExpirienceRefInput required />
+            <HousingRefInput required />
         </SimpleForm>
     </Create>
 );
