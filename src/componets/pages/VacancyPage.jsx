@@ -33,7 +33,7 @@ const VacancyPage = () => {
 
   useEffect(() => {
     dispatch(fetchSingleVacancy(vacancyId));
-  }, [dispatch]);
+  }, [dispatch, vacancyId]);
 
   return (
     <section className="section section_vacancy">
