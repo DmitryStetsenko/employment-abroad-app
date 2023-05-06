@@ -4,7 +4,7 @@ const CountryCreate = () => (
     <Create>
         <SimpleForm>
             <TextInput source="id" disabled/>
-            <TextInput source="name" fullWidth/>
+            <TextInput required source="name" fullWidth/>
         </SimpleForm>
     </Create>
 );

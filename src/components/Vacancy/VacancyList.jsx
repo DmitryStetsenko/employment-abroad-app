@@ -19,6 +19,7 @@ const VacancyList = () => {
             <ReferenceField source="country_id" reference="country" />
             <ReferenceField source="housing_id" reference="housing" />
             <ReferenceField source="employer_id" reference="employer" />
+            <ReferenceField source="expirience_id" reference="expirience" />
 
             <EditButton />
           </Datagrid>

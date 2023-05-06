@@ -6,7 +6,7 @@ const HousingEdit = () => (
     <Edit title={<RecordTitle />}>
         <SimpleForm>
             <TextInput source="id" disabled/>
-            <TextInput source="name" fullWidth/>
+            <TextInput required source="name" fullWidth/>
         </SimpleForm>
     </Edit>
 );

@@ -6,7 +6,7 @@ const FilterEdit = () => (
     <Edit title={<RecordTitle />}>
         <SimpleForm>
             <TextInput source="id" disabled/>
-            <TextInput source="name" />
+            <TextInput required source="name" />
         </SimpleForm>
     </Edit>
 );

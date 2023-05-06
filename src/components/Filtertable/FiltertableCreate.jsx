@@ -4,7 +4,7 @@ const FiltertableCreate = () => (
     <Create>
         <SimpleForm>
             <TextInput source="id" disabled/>
-            <TextInput source="name"/>
+            <TextInput required source="name"/>
         </SimpleForm>
     </Create>
 );
