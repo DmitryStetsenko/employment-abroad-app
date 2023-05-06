@@ -23,7 +23,7 @@ function App() {
 					<Route path="vacancy/*" element={ <VacancyPage /> }/>
 					<Route path="/contacts" element={ <ContactsPage /> }/>
 					<Route path="/about" element={ <AboutPage/> }/>
-					<Route path="/account" element={ <AccountPage /> }/>
+					{/* <Route path="/account" element={ <AccountPage /> }/> */}
 					<Route path="*" element={ <NotfoundPage /> }/>
 				</Route>
 			</Routes>

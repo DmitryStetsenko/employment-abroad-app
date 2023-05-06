@@ -29,7 +29,8 @@ const Header = () => {
                     <div className="top-header__action">
                         <div className="user-account action-item">
                             <i className="fa-solid fa-right-to-bracket"></i>
-                            <Link to="/account">Личный кабинет</Link>
+                            {/* <Link to="/account">Личный кабинет</Link> */}
+                            <a href="http://admin.liftron.com.ua" target="_blank">Личный кабинет</a>
                         </div>
                         <div className="top-header__addit-features">
                             <Link to="tel: +380991112233" className="phone action-item">+38 099 111 22 33</Link>

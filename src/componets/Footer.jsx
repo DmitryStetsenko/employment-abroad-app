@@ -5,12 +5,13 @@ import Menu from './Menu';
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="menu-header-block">
+      <div className="menu-footer-block">
             <div className="container">
-                <div className="menu-header">
-                    <Menu />
-                    <Link to="/" className="logo">
-                        <img src="/img/logo-full-dark.svg" alt="logo liftron" />
+                <div className="menu-footer">
+                    <Menu modificator="-footer"/>
+
+                    <Link to="/" className="logo logo_footer">
+                        <img src="/img/logo-full-text-white.svg" alt="logo liftron" />
                     </Link>
                 </div>
             </div>

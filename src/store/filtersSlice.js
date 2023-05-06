@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getContentRangeHeaderValue } from './functions';
+import { urls } from './urls';
 
-const filterUrls = {
-  all: 'http://rest-api-simple.local/filter',
-}
+const filterUrls = urls.filter; 
 
 export const fetchFilters = createAsyncThunk(
   'filters/fetchFilters',
@@ -21,6 +20,7 @@ export const fetchFilters = createAsyncThunk(
         response.headers.get('Content-range')
       );
 
+      
       body = await response.json();
       if (exclude) {
         body = body.filter(item => item.tablename !== exclude);

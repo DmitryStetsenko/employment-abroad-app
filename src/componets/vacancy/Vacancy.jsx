@@ -14,6 +14,8 @@ const Vacancy = ({ data }) => {
 		salary,
 		speciality_name,
 		speciality_id,
+		housing_id,
+		housing_name,
 	} = data;
 	return (
 		<div className="vacancy">
@@ -48,9 +50,9 @@ const Vacancy = ({ data }) => {
 								</div>
 							</li>
 							<li className="meta-info__item">
-								<i className="meta-info__item-icon fa-regular fa-calendar"></i>
+								<i className="meta-info__item-icon fa-solid fa-house"></i>
 								<div className="meta-info__item-value">
-									<a href="#">Пн-Сб - 8-12ч</a>
+									<Link to={`/vacancies/housing/${housing_name}`} state={ housing_id } preventScrollReset={true}>{ housing_name }</Link>
 								</div>
 							</li>
 						</ul>

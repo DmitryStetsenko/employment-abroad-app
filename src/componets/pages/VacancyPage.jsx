@@ -27,6 +27,8 @@ const VacancyPage = () => {
     speciality_id,
     expirience_name,
     expirience_id,
+    housing_id,
+    housing_name
   } = data;
 
   useEffect(() => {
@@ -98,10 +100,10 @@ const VacancyPage = () => {
                     </div>
                   </li>
                   <li className="single-meta-info__item">
-                    <i className="single-meta-info__item-icon fa-regular fa-calendar"></i>
-                    <span className="single-meta-info__item-text">График: </span>
+                    <i className="single-meta-info__item-icon fa-solid fa-house"></i>
+                    <span className="single-meta-info__item-text">Жилье: </span>
                     <div className="single-meta-info__item-value">
-                      <a href="#">Пн-Сб - 8-12ч</a>
+                      <Link to={`/vacancies/housing/${housing_name}`} state={ housing_id } preventScrollReset={true}>{ housing_name }</Link>
                     </div>
                   </li>
                 </ul>

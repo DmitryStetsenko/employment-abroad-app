@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getContentRangeHeaderValue } from './functions';
+import { urls } from './urls';
 
-const vacancyUrls = {
-  base: 'http://rest-api-simple.local/vacancy',
-}
+const vacancyUrls = urls.vacancy; 
 
 export const fetchVacancies = createAsyncThunk(
   'vacancies/fetchVacancies',
@@ -14,7 +13,7 @@ export const fetchVacancies = createAsyncThunk(
 
       console.log(queryStr);
 
-      const response = await fetch(vacancyUrls['base'] + getParams);
+      const response = await fetch(vacancyUrls.base + getParams);
       let contentRange;
 
       if (!response.ok) {
@@ -40,7 +39,8 @@ export const fetchSingleVacancy = createAsyncThunk(
   'vacancies/fetchSingleVacancy',
   async function(id, {rejectWithValue}) {
     try {
-      const response = await fetch(vacancyUrls['base'] + '/' + id);
+      // const response = await fetch(vacancyUrls['base'] + '/' + id + 'full');
+      const response = await fetch(`${vacancyUrls['base']}/${id}/full`);
 
       if (!response.ok) {
         throw new Error('Server error!');
