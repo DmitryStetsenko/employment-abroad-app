@@ -14,8 +14,10 @@ const VacancyList = () => {
             <TextField source="title" />
             {/* <TextField source="description" /> */}
             <DateField source="created" />
+            <TextField source="additionally" />
 
             <ReferenceField source="speciality_id" reference="speciality" />
+            <ReferenceField source="language_id" reference="language" />
             <ReferenceField source="country_id" reference="country" />
             <ReferenceField source="housing_id" reference="housing" />
             <ReferenceField source="employer_id" reference="employer" />

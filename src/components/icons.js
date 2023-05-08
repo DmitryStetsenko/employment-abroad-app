@@ -8,5 +8,6 @@ import user from "@mui/icons-material/AccountCircle";
 import filter from '@mui/icons-material/FilterAlt';
 import filtertable from '@mui/icons-material/FilterList';
 import expirience from '@mui/icons-material/PersonAdd';
+import language from '@mui/icons-material/GTranslate';
 
-export {vacancy, employer, country, housing, speciality, role, user, filter, filtertable, expirience};
+export {vacancy, employer, country, housing, speciality, role, user, filter, filtertable, expirience, language};
