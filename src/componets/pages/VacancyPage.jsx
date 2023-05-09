@@ -1,8 +1,12 @@
 import React from 'react';
 import {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import {useLocation, Link} from 'react-router-dom';
+
+import {useDispatch, useSelector} from 'react-redux';
 import {fetchSingleVacancy} from '../../store/vacanciesSlice';
+
+import { getMetaDataList, getVacancyMetaItemsList } from '../../store/functions';
+import { vacancyUIinfoList } from '../../store/vacancyUIinfoList';
 
 const VacancyPage = () => {
   const location = useLocation();
@@ -11,25 +15,37 @@ const VacancyPage = () => {
   const dispatch = useDispatch();
   const {data} = useSelector(state => state.vacancies);
 
-  console.log(data);
-
   const {
     id,
     created,
     title,
     description,
-    country_name,
-    country_id,
-    employer_name,
-    employer_id,
     salary,
-    speciality_name,
-    speciality_id,
-    expirience_name,
-    expirience_id,
-    housing_id,
-    housing_name
   } = data;
+
+  const metaDataList = getMetaDataList(data);
+  const metaItemList = getVacancyMetaItemsList(metaDataList, vacancyUIinfoList, 'single', (dataObj) => {
+		const {
+			tableName, tableUiName, recordName, recordId, recordSlug, recordIcon
+		} = dataObj;
+
+    return (
+			<li key={ recordSlug } className="single-meta-info__item">
+        <i className={`single-meta-info__item-icon ${ recordIcon }`}></i>
+        <span className="single-meta-info__item-text">{ tableUiName }: </span>
+        <div className="single-meta-info__item-value">
+          <Link to={
+              `/vacancies/${ tableName }/${ recordSlug }`
+            }
+            state={ recordId }
+            preventScrollReset={ true }
+          >
+            { recordName }
+          </Link>
+        </div>
+      </li>
+		);
+	});
 
   useEffect(() => {
     dispatch(fetchSingleVacancy(vacancyId));
@@ -51,61 +67,7 @@ const VacancyPage = () => {
               </div>
               <div className="vacancy-single__meta">
                 <ul className="single-meta-info">
-                  <li className="single-meta-info__item">
-                    <i className="single-meta-info__item-icon fa-solid fa-location-dot"></i>
-                    <span className="single-meta-info__item-text">Страна: </span>
-                    <div className="single-meta-info__item-value">
-                      <Link to={
-                          `/vacancies/country/${country_name}`
-                        }
-                        state={country_id}
-                        preventScrollReset={true}>
-                        {country_name}</Link>
-                      {/* <a href="#">Катовице</a> */} </div>
-                  </li>
-                  <li className="single-meta-info__item">
-                    <i className="single-meta-info__item-icon fa-solid fa-suitcase"></i>
-                    <span className="single-meta-info__item-text">Специальность: </span>
-                    <div className="single-meta-info__item-value">
-                      <Link to={
-                          `/vacancies/speciality/${speciality_name}`
-                        }
-                        state={speciality_id}
-                        preventScrollReset={true}>
-                        {speciality_name}</Link>
-                      {/* <a href="#">Разнорабочий</a> */} </div>
-                  </li>
-                  <li className="single-meta-info__item">
-                    <i className="single-meta-info__item-icon fa-solid fa-suitcase"></i>
-                    <span className="single-meta-info__item-text">Опыт работы: </span>
-                    <div className="single-meta-info__item-value">
-                      <Link to={
-                          `/vacancies/speciality/${expirience_name}`
-                        }
-                        state={expirience_id}
-                        preventScrollReset={true}>
-                        {expirience_name} мес.</Link>
-                      {/* <a href="#">Разнорабочий</a> */} </div>
-                  </li>
-                  <li className="single-meta-info__item">
-                    <i className="single-meta-info__item-icon fa-solid fa-gear"></i>
-                    <span className="single-meta-info__item-text">Работодатель: </span>
-                    <div className="single-meta-info__item-value">
-                      <Link to={
-                          `/vacancies/employer/${employer_name}`
-                        }
-                        state={employer_id}
-                        preventScrollReset={true}>
-                        {employer_name}</Link>
-                    </div>
-                  </li>
-                  <li className="single-meta-info__item">
-                    <i className="single-meta-info__item-icon fa-solid fa-house"></i>
-                    <span className="single-meta-info__item-text">Жилье: </span>
-                    <div className="single-meta-info__item-value">
-                      <Link to={`/vacancies/housing/${housing_name}`} state={ housing_id } preventScrollReset={true}>{ housing_name }</Link>
-                    </div>
-                  </li>
+                  { metaItemList }
                 </ul>
               </div>
             </div>

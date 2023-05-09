@@ -62,3 +62,40 @@ export function strToSlug(str) {
   
   return str;
 }
+
+export function getVacancyMetaItemsList(metaDataList, dataUIlist, showType, render) {
+  const itemList = [];
+
+  for (let key in metaDataList) {
+    const metaItem = metaDataList[key];
+
+    if (!metaItem.name) {
+      continue;
+    }
+
+    const uiProps = dataUIlist[key] ?? null;
+
+    if (!uiProps) {
+      continue;
+    }
+
+    if (!uiProps.show.includes(showType)) {
+      continue;
+    }
+
+    const tableName = key;
+    const tableUiName = uiProps.name;
+    const tableValue = metaItem;
+    const recordName = tableValue.name;
+    const recordId = tableValue.id;
+    const recordSlug = strToSlug(recordName);
+    const recordIcon = uiProps.icon;
+
+    const renderDataObj = { tableName, tableUiName, tableValue, recordName, recordId, recordSlug, recordIcon };
+    const item = render(renderDataObj);
+
+    itemList.push(item);
+  }
+
+  return itemList;
+}

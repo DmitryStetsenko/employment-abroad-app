@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { strToSlug, getMetaDataList } from '../../store/functions';
+import { strToSlug, getMetaDataList, getVacancyMetaItemsList } from '../../store/functions';
+import { vacancyUIinfoList } from '../../store/vacancyUIinfoList';
 
 const Vacancy = ({ data }) => {
 	const { 
@@ -10,47 +11,24 @@ const Vacancy = ({ data }) => {
 		description, 
 		salary,
 		additionally,
-		country_id, 
-		country_name,
-		employer_id,
-		employer_name,
-		speciality_id,
-		speciality_name,
-		housing_id,
-		housing_name,
 	} = data;
 
-	const metaDataUIinfoList = {
-		country: {
-			name: 'Страна',
-			icon: 'fa-solid fa-location-dot',
-		},
-		employer: {
-			name: 'Работодатель',
-			icon: 'fa-solid fa-gear',
-		},
-		expirience: {
-			name: 'Опыт работы (мес)',
-			icon: 'fa-solid fa-suitcase',
-		},
-		housing: {
-			name: 'Жилье',
-			icon: 'fa-solid fa-house',
-		},
-		language: {
-			name: 'Знание языка',
-			icon: 'fa-solid fa-globe"',
-		},
-		speciality: {
-			name: 'Специальность',
-			icon: 'fa-solid fa-suitcase"',
-		},
-	}
-
 	const metaDataList = getMetaDataList(data);
-	console.log(metaDataList);
 
-	console.log(strToSlug(title));
+	const metaItemList = getVacancyMetaItemsList(metaDataList, vacancyUIinfoList, 'list', (dataObj) => {
+		const {
+			tableName, recordName, recordId, recordSlug, recordIcon
+		} = dataObj;
+
+		return (
+			<li key={ tableName } data-id={ recordId } className="meta-info__item">
+				<i className={`meta-info__item-icon ${recordIcon}`}></i>
+				<div className="meta-info__item-value">
+					<Link to={`/vacancies/${tableName}/${recordSlug}`} state={ recordId } preventScrollReset={true}>{ recordName }</Link>
+				</div>
+			</li>
+		);
+	});
 
 	return (
 		<div className="vacancy">
@@ -63,32 +41,8 @@ const Vacancy = ({ data }) => {
 						<Link className="vacancy__link" to={`/vacancy/${strToSlug(title)}`} state={ id }>{ title }</Link>
 					</h3>
 					<div className="vacancy__meta">
-						<ul className="meta-info">
-							<li className="meta-info__item">
-								<i className="meta-info__item-icon fa-solid fa-location-dot"></i>
-								<div className="meta-info__item-value">
-									<Link to={`/vacancies/country/${strToSlug(country_name)}`} state={ country_id } preventScrollReset={true}>{ country_name }</Link>
-								</div>
-							</li>
-							<li className="meta-info__item">
-								<i className="meta-info__item-icon fa-solid fa-suitcase"></i>
-								<div className="meta-info__item-value">
-									<Link to={`/vacancies/speciality/${strToSlug(speciality_name)}`} state={ speciality_id } preventScrollReset={true}>{ speciality_name }</Link>
-								</div>
-							</li>
-							<li className="meta-info__item">
-								<i className="meta-info__item-icon fa-solid fa-gear"></i>
-								<div className="meta-info__item-value">
-									<Link to={`/vacancies/employer/${strToSlug(employer_name)}`} state={ employer_id } preventScrollReset={true}>{ employer_name }</Link>
-								</div>
-							</li>
-							<li className="meta-info__item">
-								<i className="meta-info__item-icon fa-solid fa-house"></i>
-								<div className="meta-info__item-value">
-									<Link to={`/vacancies/housing/${strToSlug(housing_name)}`} state={ housing_id } preventScrollReset={true}>{ housing_name }</Link>
-								</div>
-							</li>
-						</ul>
+						
+						<ul className="meta-info">{ metaItemList }</ul>
 
 						{
 							additionally &&
