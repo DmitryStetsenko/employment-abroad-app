@@ -70,7 +70,6 @@ const filtersSlice = createSlice({
     clearFilters(state) {
       state.query = {};
       state.queryStr = '';
-      console.log('clear');
     },
   },
   extraReducers: 

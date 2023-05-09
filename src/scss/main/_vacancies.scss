@@ -88,7 +88,7 @@ $marginTitle: 10px;
     @include flex(space-between);
     box-shadow: 3px 3px 15px rgba(black, .1);
     margin-bottom: 20px;
-    
+    width: 100%;
     &:last-child {
         margin-bottom: 0;
     }
@@ -125,6 +125,9 @@ $marginTitle: 10px;
     }
     &__meta {
         margin-bottom: 20px;
+    }
+    &__additionally {
+        margin-top: 10px;
     }
     &__salary-block {
         @include flex(center, center);
@@ -175,6 +178,18 @@ $marginTitle: 10px;
                     }
                 }
             }
+        }
+    }
+}
+.additionally {
+    @include flex(flex-start, center);
+    font-weight: bold;
+    font-size: 14px;
+    color: $color1;
+    &__item {
+        &:first-child {
+            font-size: 1rem;
+            margin-right: 5px;
         }
     }
 }

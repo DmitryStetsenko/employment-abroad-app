@@ -11,8 +11,6 @@ export const fetchVacancies = createAsyncThunk(
       const { queryStr } = getState().filters;
       const getParams = `?sort=["id", "DESC"]&join${queryStr}`;
 
-      console.log(queryStr);
-
       const response = await fetch(vacancyUrls.base + getParams);
       let contentRange;
 
