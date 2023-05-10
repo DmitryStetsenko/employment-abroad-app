@@ -21,6 +21,7 @@ const VacancyPage = () => {
     title,
     description,
     salary,
+    additionally,
   } = data;
 
   const metaDataList = getMetaDataList(data);
@@ -62,6 +63,22 @@ const VacancyPage = () => {
             <div className="vacancy-single__content">
               <h1 className="vacancy-single__title">{title}</h1>
               <div className="vacancy-single__salary">Зарплата: {salary} USD</div>
+
+              {
+                additionally &&
+                <div className="vacancy-single__additionally">
+                  <div className="additionally additionally_single-page">
+                    <span className="additionally__item">
+                      <i className="fa-solid fa-circle-exclamation"></i>
+                    </span>
+                    <span className="additionally__item">
+                      Обязательные требования: 
+                    </span>
+                    <span className="additionally__item additionally__item_upper">{ additionally }</span>
+                  </div>
+                </div>
+						  }
+
               <div className="vacancy-single__text">
                 {description}
               </div>

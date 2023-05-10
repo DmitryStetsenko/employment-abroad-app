@@ -5,8 +5,6 @@ const VacanciesPage = () => {
 	const { table } = useParams();
 	const { state } = useLocation();
 
-	console.log(state);
-
 	return <WorkerPage filter={{ table, id: state }}/>
 };
 

@@ -3,7 +3,7 @@ import FilterItem from "./FilterItem";
 
 const FilterBlock = ({ filter }) => {
 	const { name, tablename, fields } = filter;
-
+	
 	return (
 		<fieldset className="filter-block" name="filter-item">
 			<h4 className="filter-block__title">{ name }</h4>

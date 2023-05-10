@@ -17,7 +17,7 @@ const FilterList = () => {
     dispatch(fetchFilters());
     navigate('/');
   }
-
+  
   return (
     <div className="filter section__sidebar" >
       <button className="btn btn_filter filter__all-btn" onClick={ btnClickHandler }>Все вакансии</button>

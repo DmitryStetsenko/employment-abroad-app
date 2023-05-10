@@ -18,6 +18,8 @@ const FilterItem = ({ field, tableName }) => {
     dispatch(fetchVacancies());
   }
 
+  const fieldName = field.level ? `${field.name} (${field.level})` : field.name;
+
   return (
     <li className="filter-item">
       <label className="filter-item__element">
@@ -27,7 +29,7 @@ const FilterItem = ({ field, tableName }) => {
           className="filter-item__checkbox"
           onChange={() => onChangeHandler(field.id, tableName)}
         />
-        <span className="filter-item__title">{ field.name }</span>
+        <span className="filter-item__title">{ fieldName }</span>
       </label>
     </li>
   );

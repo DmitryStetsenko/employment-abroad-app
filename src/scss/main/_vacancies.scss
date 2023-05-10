@@ -187,10 +187,22 @@ $marginTitle: 10px;
     font-size: 14px;
     color: $color1;
     &__item {
+        margin-right: 5px;
         &:first-child {
             font-size: 1rem;
-            margin-right: 5px;
         }
+        &:last-child {
+            margin-right: 0;
+        }
+        &_upper {
+            text-transform: uppercase;
+        }
+    }
+
+    &_single-page {
+        background: $color1;
+        color: white;
+        padding: 10px;
     }
 }
 
@@ -223,6 +235,9 @@ $marginTitle: 10px;
     &__title {
         font-size: 2rem;
         
+    }
+    &__additionally {
+        // padding: 10px;
     }
     &__text {
         padding: 20px;
