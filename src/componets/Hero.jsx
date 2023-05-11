@@ -161,10 +161,8 @@ const AboutUsHero = () => {
         <div className="hero">
           <div className="hero__content">
             <div className="hero__title-block">
-              <h1 className="hero__title">Liftron - надежный партнер</h1>
-              <p className="hero__subtitle">
-                Гарантия качества и добросовестности
-              </p>
+              <h1 className="hero__title">Liftron</h1>
+              <p className="hero__subtitle">Recruting company</p>
               <div className="hero__video-block">
                 <i className="fa-solid fa-play"></i>
               </div>
