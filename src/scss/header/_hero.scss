@@ -92,6 +92,17 @@
         font-size: 2rem;
         max-width: 500px;
     }
+    &__slogan {
+        margin-bottom: 100px;
+        font-size: 2rem;
+        max-width: 500px;
+
+        color: #E6DCC6;
+        font-size: 50px;
+        font-family: "MoonTime", cursive;
+        font-weight: 400;
+        text-shadow: 5px 2px 9px #E6DCC6;
+    }
     &__video-block {
         @include flex(center, center);
         $size: 80px;

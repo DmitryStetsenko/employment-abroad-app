@@ -24,7 +24,11 @@ a {
     color: $color1;
 }
 
-h1, h2 {
+h1 {
+    font-family: $fontTitle;
+}
+
+h2, p {
     font-family: $fontTitle;
 }
 

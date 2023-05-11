@@ -72,10 +72,10 @@ const WorkerHero = () => {
         <div className="hero">
           <div className="hero__content">
             <div className="hero__title-block">
-              <h1 className="hero__title">Легальная работа за границей</h1>
-              <p className="hero__subtitle">
-                Бесплатные вакансии от европейских работодателей
-              </p>
+              <h1 className="hero__title">Liftron</h1>
+              <p className="hero__subtitle">Recruting company</p>
+              
+              <p className="hero__slogan">Light your way</p>
               <div className="hero__video-block">
                 <i className="fa-solid fa-play"></i>
               </div>
