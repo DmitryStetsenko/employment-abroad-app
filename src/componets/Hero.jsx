@@ -111,7 +111,6 @@ const EmployerHero = () => {
             </div>
             <div className="hero__action-block">
               <button className="btn">Подать вакансию</button>
-              <button className="btn btn_stroke">Смотреть вакансии</button>
             </div>
           </div>
         </div>

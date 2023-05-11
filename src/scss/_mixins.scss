@@ -7,7 +7,7 @@
 @mixin addFont($path, $fontFamily, $fontWeight: normal, $fontStyle: normal) {
     @font-face {
         font-family: $fontFamily;
-        src: url($path + '.eot');
+        src: url($path + '.eot') format('embedded-opentype');
         src: url($path + '.eot?#iefix') format('embedded-opentype'),
             url($path + '.woff2') format('woff2'),
             url($path + '.woff') format('woff'),
@@ -16,5 +16,4 @@
         font-style: $fontStyle;
         font-display: swap;
     }
-    
 }

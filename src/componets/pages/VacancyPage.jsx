@@ -15,6 +15,8 @@ const VacancyPage = () => {
   const dispatch = useDispatch();
   const {data} = useSelector(state => state.vacancies);
 
+  console.log(data);
+
   const {
     id,
     created,

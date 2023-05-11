@@ -1,7 +1,15 @@
+@font-face {
+  font-family: "Seasons";
+  src:url(./fonts/theseasons/TheSeasonsRegular.ttf) format("truetype");
+  // font-weight: 400;
+  // font-style: normal;
+  // font-display: swap;
+}
+
 @import "./scss/vars";
 @import "./scss/mixins";
 
-@import "./scss/fonts";
+// @import "./scss/fonts";
 @import "./scss/common";
 @import "./scss/components/forms/forms";
 
@@ -12,4 +20,5 @@
 @import "./scss/main/vacancies";
 
 @import "./scss/components/under-construction";
+
 

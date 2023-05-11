@@ -1,7 +1,9 @@
-@include addFont('/fonts/theseasons/TheSeasonsRegular', 'Seasons');
-@include addFont('/fonts/moontime/MoonTime-Regular', 'MoonTime');
+$fontPathBase: '/fonts';
 
-@include addFont('/fonts/dmsans/DMSans-Regular', 'DM Sans');
-@include addFont('/fonts/dmsans/DMSans-Bold', 'DM Sans', bold);
+@include addFont($fontPathBase + '/theseasons/TheSeasonsRegular', 'Seasons');
+@include addFont($fontPathBase + '/moontime/MoonTime-Regular', 'MoonTime');
+
+@include addFont($fontPathBase + '/dmsans/DMSans-Regular', 'DM Sans');
+@include addFont($fontPathBase + '/dmsans/DMSans-Bold', 'DM Sans', bold);
 
 
