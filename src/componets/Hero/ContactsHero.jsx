@@ -1,8 +1,13 @@
+import ContactsForm from "../forms/ContactsForm";
+
 const ContactsHero = () => {
     return (
         <>
             <div className="hero-block__img">
                 <img src="/img/hero-contact-bg.jpg" alt="" />
+
+                <ContactsForm />
+
             </div>
             <div className="container container_full-height">
                 <div className="hero">
@@ -21,7 +26,6 @@ const ContactsHero = () => {
                         </div>
                         <div className="hero__action-block">
                             <button className="btn">Заказать звонок</button>
-                            <button className="btn btn_stroke">Отправить сообщение</button>
                         </div>
                     </div>
                 </div>

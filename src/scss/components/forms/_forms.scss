@@ -15,6 +15,96 @@ fieldset {
     border: none;
 }
 
+$mainFormColor: white;
+$formBgColor: rgba(white, .3);
+$formTitleColor: $mainFormColor;
+$formLabelColor: $color4;
+$formInputColor: $mainFormColor;
+$formPHColor: $color4;
+$formErrorColor: tomato;
+
+.form {
+    background: $formBgColor;
+    padding: 40px;
+
+    &__title {
+        color: $formTitleColor;
+        margin-bottom: 30px;
+    }
+    &__fields {
+        margin-bottom: 40px;
+    }
+    &__btns {
+        @include flex(center, center);
+    }
+
+    &_contacts {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+    }
+}
+.form-item {
+    @include flex;
+    flex-direction: column;
+
+    position: relative;
+    margin-bottom: 20px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    
+    &__labelText {
+        color: $formLabelColor;
+        @include flex(flex-start, center);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        &::before,
+        &::after {
+            content: '';
+            height: 1px;
+            background: $inputBorderColor;
+            transform: translateY(-50%);
+            display: block;
+        }
+        &::before {
+            width: 10px;
+            margin-right: 5px;
+        }
+        &::after {
+            width: 100%;
+            margin-left: 5px;
+        }
+    }
+    &__input {
+        padding: $inputPadding;
+        border-left: 1px solid $inputBorderColor;
+        border-right: 1px solid $inputBorderColor;
+        border-bottom: 1px solid $inputBorderColor;
+        font-size: 1rem;
+        color: $formInputColor;
+        &::placeholder {
+            color: $formPHColor;
+            font-size: 0.8em;
+        }
+    }
+    &__error-area {
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+        color: white;
+        background: $formErrorColor;
+        padding: 2px;
+        transform: translateY(50%);
+    }
+}
+
 .search-form {
     @include flex(center, center);
     padding: 15px;
@@ -61,6 +151,17 @@ fieldset {
     &_full {
         width: 100%;
     }
+
+    &_form {
+        background: $color1;
+        color: white;
+        margin: 2px;
+        &-stroke {
+            border-color: $color1;
+            background: transparent;
+        }
+    }
+    
     &_filter {
         background: $color1;
     }

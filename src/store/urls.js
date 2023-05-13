@@ -1,5 +1,5 @@
-const baseUrl = 'http://api.liftron.com.ua';
-// const baseUrl = 'http://rest-api-simple.local';
+// const baseUrl = 'http://api.liftron.com.ua';
+const baseUrl = 'http://rest-api-simple.local';
 
 export const urls = {
   vacancy: {

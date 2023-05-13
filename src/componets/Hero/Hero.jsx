@@ -1,5 +1,5 @@
-import { Link, useLocation, useParams } from 'react-router-dom';
-import HeroTabs from '../HeroTabs';
+import { useLocation } from 'react-router-dom';
+import HeroTabs from './HeroTabs';
 
 import { WorkerHero, ContactsHero, AboutUsHero, EmployerHero } from './index'
 
