@@ -1,4 +1,5 @@
 input,
+textarea,
 button,
 label {
     display: block;
@@ -7,8 +8,14 @@ label {
 }
 
 input:focus,
+textarea:focus,
 button:focus {
     outline: none;
+}
+
+textarea {
+    min-height: 100px;
+    resize: none;
 }
 
 fieldset {

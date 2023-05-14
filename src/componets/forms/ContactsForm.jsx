@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Input } from "../UI/form";
+import TextArea from "../UI/form/TextArea";
 
 const ContactsForm = () => {
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
@@ -18,6 +19,12 @@ const ContactsForm = () => {
 			<h2 className="form__title">Заполните форму</h2>
 
 			<fieldset className="form__fields">
+			<Input 
+					name="name" type="text" label="name" placeholder="Введите имя"
+					validateOptions={{}}
+					className="form-item" 
+					formProps={ formProps }
+				/>
 				<Input 
 					name="email" type="text" label="email*" placeholder="name@domain.com"
 					validateOptions={{
@@ -30,14 +37,10 @@ const ContactsForm = () => {
 					className="form-item" 
 					formProps={ formProps }
 				/>
-				<Input 
-					name="email1" type="text" label="email*" placeholder="name@domain.com"
+				<TextArea 
+					name="subject" label="subject*" placeholder="enter text"
 					validateOptions={{
 						required: "Заполните поле",
-						pattern: {
-							message: "неправильный формат",
-							value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-						}
 					}}
 					className="form-item" 
 					formProps={ formProps }
