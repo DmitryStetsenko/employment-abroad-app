@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Menu from './Menu';
+import Menu from './Header/Menu';
 
 const Footer = () => {
   return (

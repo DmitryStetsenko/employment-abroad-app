@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Input } from "../UI/form";
-import TextArea from "../UI/form/TextArea";
+import { Input, TextArea } from "../UI/form";
 
 const ContactsForm = () => {
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
@@ -16,7 +15,13 @@ const ContactsForm = () => {
 
 	return (
 		<form className="form form_contacts" onSubmit={handleSubmit(submit)}>
-			<h2 className="form__title">Заполните форму</h2>
+			<div className="form__title-block">
+				<h2 className="form__title">Заполните форму</h2>
+				<p className="form__subtitle">
+					Наш менеджер свяжется с вами
+					в течении 30 минут.
+				</p>
+			</div>
 
 			<fieldset className="form__fields">
 			<Input 

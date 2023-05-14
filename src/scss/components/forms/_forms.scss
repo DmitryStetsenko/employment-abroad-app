@@ -33,10 +33,16 @@ $formErrorColor: tomato;
 .form {
     background: $formBgColor;
     padding: 40px;
+    color: $mainFormColor;
 
-    &__title {
-        color: $formTitleColor;
+    &__title-block {
         margin-bottom: 30px;
+    }
+    &__title {
+        margin-bottom: 10px;
+    }
+    &__subtitle {
+        max-width: 250px;
     }
     &__fields {
         margin-bottom: 40px;
