@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Input, TextArea } from "../UI/form";
 
-const ContactsForm = () => {
+const EmployerForm = () => {
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -14,9 +14,9 @@ const ContactsForm = () => {
 	}
 
 	return (
-		<form className="form form_contacts" onSubmit={handleSubmit(submit)}>
+		<form className="form form_employer" onSubmit={handleSubmit(submit)}>
 			<div className="form__title-block">
-				<h2 className="form__title">Заповніть форму</h2>
+				<h2 className="form__title">Заповніть данні по вакансії</h2>
 				<p className="form__subtitle">
 					Наш менеджер зв'яжеться з вами
 					протягом 30 хвилин.
@@ -80,4 +80,4 @@ const ContactsForm = () => {
 	)
 }
 
-export default ContactsForm;
+export default EmployerForm;

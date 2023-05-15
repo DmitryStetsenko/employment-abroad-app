@@ -11,7 +11,7 @@ const Header = () => {
 		},
 		headerBtn: {
 			link: '/account',
-			text: 'Начать поиск работы',
+			text: 'Розпочати пошук роботи',
 		},
 	};
 
@@ -22,7 +22,7 @@ const Header = () => {
 		routingData.account.link = '/account';
 		routingData.account.isOuter = false;
 		routingData.headerBtn.link = '/account';
-		routingData.headerBtn.text = 'Начать поиск работы'
+		routingData.headerBtn.text = 'Розпочати пошук роботи'
 	}
 
 	if (pathname.includes('employer')) {
@@ -30,7 +30,7 @@ const Header = () => {
 		routingData.account.link = '/account/employer';
 		routingData.account.isOuter = false;
 		routingData.headerBtn.link = '/account/employer';
-		routingData.headerBtn.text = 'Разместить вакансию'
+		routingData.headerBtn.text = 'Розмістити вакансію'
   }
 
 	return (

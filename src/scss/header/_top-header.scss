@@ -38,14 +38,18 @@
     &__item {
         text-transform: uppercase;
         padding-right: 10px;
-        color: $color4;
+        color: darken($color4, 30);
         transition: color 0.3s;
-        cursor: pointer;
-        &:hover {
-            color: $color2;
-        }
+        cursor: default;
+        // &:hover {
+        //     cursor: pointer;
+        //     color: $color2;
+        // }
         &:last-child {
             padding-right: 0;
+        }
+        &_active {
+            color: $color2;
         }
     }
 }

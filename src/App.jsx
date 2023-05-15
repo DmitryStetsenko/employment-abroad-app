@@ -25,6 +25,7 @@ function App() {
 				<Route path="/" element={ <Layout />}>
 					<Route index element={ <WorkerPage /> }/>
 					<Route path="employer" element={ <EmployerPage /> }/>
+					<Route path="vacancies" element={ <VacanciesPage /> } />
 					<Route path="vacancies/:table/:name" element={ <VacanciesPage /> } />
 					<Route path="vacancy/*" element={ <VacancyPage /> }/>
 					<Route path="contacts" element={ <ContactsPage /> }/>

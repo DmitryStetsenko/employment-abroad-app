@@ -4,8 +4,12 @@ import WorkerPage from "./WorkerPage";
 const VacanciesPage = () => {
 	const { table } = useParams();
 	const { state } = useLocation();
+	
+	if (!state) {
+		return <WorkerPage filter={ { table: 'vacancy' }} />
+	}
 
-	return <WorkerPage filter={{ table, id: state }}/>
+	return <WorkerPage filter={ { table, id: state }}/>
 };
 
 export default VacanciesPage;

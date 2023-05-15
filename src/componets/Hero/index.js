@@ -3,6 +3,7 @@ import WorkerHero from './WorkerHero';
 import ContactsHero from './ContactsHero';
 import EmployerHero from './EmployerHero';
 import AboutUsHero from './AboutUsHero';
+import About from './About';
 
 
 export {
@@ -10,5 +11,6 @@ export {
     WorkerHero,
     ContactsHero,
     EmployerHero,
-    AboutUsHero, 
+    AboutUsHero,
+    About
 }

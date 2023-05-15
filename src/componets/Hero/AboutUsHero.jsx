@@ -1,22 +1,35 @@
+import { Link } from 'react-router-dom';
+import About from './About';
+
 const AboutUsHero = () => {
     return (
         <>
       <div className="hero-block__img">
+
+        <div className="hero-block__img-content">
+          <About />
+        </div>
+        
+
         <img src="/img/main-bg.jpg" alt="" />
+
       </div>
       <div className="container container_full-height">
         <div className="hero">
           <div className="hero__content">
             <div className="hero__title-block">
               <h1 className="hero__title">Liftron</h1>
-              <p className="hero__subtitle">Recruting company</p>
+              <div className="hero__subtitle-block">
+                <p className="hero__subtitle">Recruting company</p>
+              </div>
+
               <div className="hero__video-block">
                 <i className="fa-solid fa-play"></i>
               </div>
             </div>
             <div className="hero__action-block">
-              <button className="btn">Начать поиск работы</button>
-              <button className="btn btn_stroke">Смотреть вакансии</button>
+              <Link to="account" className="btn btn_start">Розпочати пошук роботи</Link>
+              <Link to="vacancies" className="btn btn_stroke">Перегляд вакансий</Link>
             </div>
           </div>
         </div>

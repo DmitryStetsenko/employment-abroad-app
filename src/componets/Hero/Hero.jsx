@@ -44,6 +44,10 @@ const Hero = () => {
     showHero = false;
   }
 
+  if (pathname.includes('account')) {
+    showHero = false;
+  }
+
   return (
     <>
       {

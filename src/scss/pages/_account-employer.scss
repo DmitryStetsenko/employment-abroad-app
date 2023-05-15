@@ -1,0 +1,27 @@
+.account {
+  padding-top: 50px;
+  background: $color1;
+  height: calc(100vh - 140px);
+
+  &__title {
+    color: $color4;
+    margin-bottom: 50px;
+  }
+  &__content {
+    @include flex;
+  }
+  &__content-block {
+    width: 100%;
+    &_sidebar {
+      min-width: 40%;
+      width: 40%;
+    }
+  }
+  
+}
+
+.account-aside {
+  &__title {
+    color: $color4;
+  }
+}

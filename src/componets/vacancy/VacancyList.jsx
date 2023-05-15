@@ -16,11 +16,11 @@ const VacancyList = () => {
 						<div className="vacancies__info-block">
 							<p className="vacancies__info">
 								<span>{ data.contentRange?.count }</span>
-								вакансий
+								вакансій
 								{/* по зароботной плате от 450$ к 7000$ */}
 							</p>
 						</div>
-						<div className="vacancies__sort-block">
+						{/* <div className="vacancies__sort-block">
 							<label className="vacancies__sorted">
 								<span>сортировка</span>
 								<select>
@@ -29,7 +29,7 @@ const VacancyList = () => {
 									<option value="2">Жилье</option>
 								</select>
 							</label>
-						</div>
+						</div> */}
 					</div>
 					<div className="vacancies__content">
 						<ul className="vacancies__list">

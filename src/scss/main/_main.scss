@@ -1,4 +1,8 @@
-.main {}
+.main {
+    &_employer {
+        background: $color3;
+    }
+}
 .section {
     padding: 50px 0;
     &__inner {

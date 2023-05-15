@@ -7,7 +7,7 @@ const TopHeader = ({ routingData }) => {
     <div className="top-header">
       <ul className="language top-header__item">
         <li className="language__item">ru</li>
-        <li className="language__item">ua</li>
+        <li className="language__item language__item_active">ua</li>
         <li className="language__item">pl</li>
         <li className="language__item">en</li>
         <li className="language__item">cz</li>
@@ -28,7 +28,7 @@ const TopHeader = ({ routingData }) => {
         <div className="user-account action-item">
           <i className="fa-solid fa-right-to-bracket"></i>
           {/* <Link to="/account">Личный кабинет</Link> */}
-          <Link to={ account.link } target={ account.isOuter ? '_blank' : '_self' }>Личный кабинет</Link>
+          <Link to={ account.link } target={ account.isOuter ? '_blank' : '_self' }>Власний кабінет</Link>
         </div>
         <div className="top-header__addit-features">
           <Link to="tel: +380991112233" className="phone action-item">+38 099 111 22 33</Link>

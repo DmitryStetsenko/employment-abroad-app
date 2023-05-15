@@ -1,0 +1,51 @@
+.about {
+  @include flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background: rgba(white, .6);
+  padding: 40px;
+  color: $color1;
+  &__title {
+      text-align: center;
+      margin-bottom: 40px;
+      text-transform: capitalize;
+  }
+  &__content {
+      width: 100%;
+      height: 100%;
+      line-height: 1.7;
+      font-size: 1.2rem;
+  }
+  &__content-part {
+      margin-bottom: 20px;
+      color: $color1;
+  }
+  &__link {
+    display: inline-block;
+    text-decoration: underline;
+    &:hover {
+      color: $color2;
+    }
+  }
+  &__advantages {}
+}
+
+.advantages {
+  padding: 20px;
+  background: rgba(darken($color1, 5), 0.8);
+  color: $color4;
+  &__item {
+      margin-bottom: 20px;
+      span {
+          &:first-child {
+              margin-right: 10px;
+          }
+      }
+      &:last-child {
+          margin-bottom: 0;
+      }
+  }
+}

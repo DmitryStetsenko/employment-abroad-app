@@ -63,7 +63,7 @@ const Vacancy = ({ data }) => {
 			</div>
 			<div className="vacancy__salary-block">
 				<div className="vacancy__salary">USD: { salary }</div>
-				<Link to={`/vacancy/${title}`} state={ id } className="vacancy__details btn btn_detail">Подробнее</Link>
+				<Link to={`/vacancy/${title}`} state={ id } className="vacancy__details btn btn_detail">Датальніше</Link>
 			</div>
 		</div>
 	);

@@ -30,8 +30,8 @@ const WorkerPage = ({ filter }) => {
 
 					<div className="section__content">
 						<div className="section__title-block">
-							<h2 className="section__title section-title">Работа за границей</h2>
-							<p className="section__subtitle">Бесплатные вакансии</p>
+							<h2 className="section__title section-title">Робота за кордоном</h2>
+							<p className="section__subtitle">Безкоштовні вакансії</p>
 						</div>
 
 						<VacancyList />

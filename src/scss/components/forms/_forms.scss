@@ -58,6 +58,10 @@ $formErrorColor: tomato;
         transform: translate(-50%, -50%);
         width: 500px;
     }
+    &_employer,
+    &_worker {
+        
+    }
 }
 .form-item {
     @include flex;
@@ -142,6 +146,7 @@ $formErrorColor: tomato;
     font-weight: bold;
     cursor: pointer;
     transition: transform .3s, box-shadow .3s, background .3s;
+    white-space: nowrap;
 
     &:hover {
         transform: translate(-2px, -2px);

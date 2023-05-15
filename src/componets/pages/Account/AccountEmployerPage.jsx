@@ -1,11 +1,25 @@
 import React from 'react';
-import ContactsForm from '../../forms/ContactsForm';
+import EmployerForm from '../../forms/EmployerForm';
 
 const AccountEmployerPage = () => {
   return (
-    <div>
-      <h1>Employer Account page</h1>
-      <ContactsForm />
+    <div className="account">
+      <div className="container">
+        <h2 className="account__title">Власний кабінет роботодавця</h2>
+        <div className="account__content">
+          <div className="account__content-block account__content-block_sidebar">
+            <div className="account-aside">
+              <h3 className="account-aside__title">Подані вакансії</h3>
+            </div>
+          </div>
+          <div className="account__content-block">
+            <div className="form-block">
+              <EmployerForm />
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
   );
 };
