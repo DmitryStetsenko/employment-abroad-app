@@ -68,7 +68,7 @@
         position: relative;
         color: white;
         &::before {
-            $substraitSize: 300px;
+            $substraitSize: 250px;
             content: "";
             display: block;
             width: $substraitSize;
@@ -81,7 +81,10 @@
                     $color5, 
                     transparent 2px, 
                     transparent 7px
-                );
+                ),
+                url(./../../../public/img/logo-img-only.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
             position: absolute;
             top: -50px;
             right: 0;
