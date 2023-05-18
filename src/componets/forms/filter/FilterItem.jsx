@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchVacancies } from '../../../store/vacanciesSlice';
-import { addParams, delParam } from './../../../store/filtersSlice';
+import { fetchVacancies } from './../../../store/slices/vacanciesSlice';
+import { addParams, delParam } from './../../../store/slices/filtersSlice';
 
 const FilterItem = ({ field, tableName }) => {
   const dispatch = useDispatch();

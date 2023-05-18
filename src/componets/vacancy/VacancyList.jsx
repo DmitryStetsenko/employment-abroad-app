@@ -2,8 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Vacancy from './Vacancy';
 
-const VacancyList = () => {
-	const { data, status, error } = useSelector(state => state.vacancies);
+const VacancyList = ({ slice, type }) => {
+	const sliceName = slice ? slice : 'vacancies';
+	const fetchData = useSelector(state => state[sliceName]);
+	const { data, status, error } = fetchData;
+
+	console.log(data);
 
 	return (
 		<>
@@ -38,7 +42,7 @@ const VacancyList = () => {
 							</li> */}
 							
 							{
-								data.body?.map(vacancy => <li className="vacancies__item" key={ vacancy.id }><Vacancy data={ vacancy }/></li>)
+								data.body?.map(vacancy => <li className="vacancies__item" key={ vacancy.id }><Vacancy data={ vacancy } type={ type }/></li>)
 							}
 
 						</ul>

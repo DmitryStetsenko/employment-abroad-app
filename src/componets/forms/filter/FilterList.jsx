@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { useDispatch, useSelector } from "react-redux";
 import FilterBlock from "./FilterBlock";
-import { clearFilters, fetchFilters } from '../../../store/filtersSlice';
-import { fetchVacancies } from '../../../store/vacanciesSlice';
+import { clearFilters, fetchFilters } from './../../../store/slices/filtersSlice';
+import { fetchVacancies } from './../../../store/slices/vacanciesSlice';
 
 const FilterList = () => {
 	const { data, status, error } = useSelector(state => state.filters);

@@ -1,0 +1,11 @@
+.modal-window {
+  position: fixed;
+  top: 300px;
+  right: 50px;
+
+  & > button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}

@@ -34,6 +34,10 @@ export function getMetaDataList(recordDataList) {
       name: recordDataList[`${fieldName}_name`],
     }
 
+    if (fieldName === 'language') {
+      metaItem.level = recordDataList[`${fieldName}_level`];
+    }
+
     result[fieldName] = metaItem;
   }
 
@@ -86,7 +90,8 @@ export function getVacancyMetaItemsList(metaDataList, dataUIlist, showType, rend
     const tableName = key;
     const tableUiName = uiProps.name;
     const tableValue = metaItem;
-    const recordName = tableValue.name;
+    const recordLevel = metaItem.level ?? null; // for language add level
+    const recordName = recordLevel ? `${tableValue.name} ${recordLevel}` : tableValue.name;
     const recordId = tableValue.id;
     const recordSlug = strToSlug(recordName);
     const recordIcon = uiProps.icon;

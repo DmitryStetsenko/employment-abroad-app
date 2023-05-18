@@ -6,7 +6,7 @@ const ContactsHero = () => {
 			<div className="hero-block__img">
 				<img src="/img/hero-contact-bg.jpg" alt="" />
 
-				<ContactsForm />
+				<ContactsForm type="medium"/>
 
 			</div>
 			<div className="container container_full-height">
@@ -32,7 +32,7 @@ const ContactsHero = () => {
 										<div className="contacts__social contacts__item">
 											<span className="contacts__block-text">Social</span>
 											<ul className="social">
-												<li className="social__item">
+												<li className="social__item social__item_insta">
 													<a target="_blank" href="https://www.instagram.com/liftroncompany/?igshid=YmMyMTA2M2Y%3D" className="social__link">
 														<i className="fa-brands fa-instagram"></i>
 													</a>

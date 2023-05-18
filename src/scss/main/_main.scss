@@ -20,5 +20,10 @@
     &__title-block  {
         margin-bottom: 20px;
     }
-    &_vacancies {}
+    &_vacancies {
+        
+    }
+    &_vacancy {
+        min-height: calc(100vh - 140px);
+    }
 }

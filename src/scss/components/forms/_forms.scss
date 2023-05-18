@@ -2,277 +2,279 @@ input,
 textarea,
 button,
 label {
-    display: block;
-    border: none;
-    background: transparent;
+  display: block;
+  border: none;
+  background: transparent;
 }
 
 input:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 textarea {
-    min-height: 100px;
-    resize: none;
+  min-height: 100px;
+  resize: none;
 }
 
 fieldset {
-    border: none;
+  border: none;
 }
 
-$mainFormColor: white;
-$formBgColor: rgba(white, .3);
-$formTitleColor: $mainFormColor;
-$formLabelColor: $color4;
-$formInputColor: $mainFormColor;
-$formPHColor: $color4;
-$formErrorColor: tomato;
 
 .form {
-    background: $formBgColor;
-    padding: 40px;
-    color: $mainFormColor;
+  // ligth
+  --mainFormColor: white;
+  --formBgColor: rgba(255, 255, 255, 0.3);
+  --formTitleColor: var(--mainFormColor);
+  --formLabelColor: #{$color4};
+  --formInputColor: var(--mainFormColor);
+  --formPHColor: #{$color4};
+  --formErrorColor: tomato;
 
-    &__title-block {
-        margin-bottom: 30px;
-    }
-    &__title {
-        margin-bottom: 10px;
-    }
-    &__subtitle {
-        max-width: 250px;
-    }
-    &__fields {
-        margin-bottom: 40px;
-    }
-    &__btns {
-        @include flex(center, center);
-    }
+  --inputPadding: 15px;
+  --inputBorderColor: #{$color5};
+  --inputBorder: 1px solid #{$inputBorderColor};
 
-    &_contacts {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 500px;
-    }
-    &_employer,
-    &_worker {
-        
-    }
-}
-.form-item {
-    @include flex;
-    flex-direction: column;
+  // dark
+  &_medium {
+    --formBgColor: #{rgba(black, 0.3)};
+  }
+  &_dark {
+    --formBgColor: #{rgba($color1, 0.8)};
+  }
+  &_full {
+    --formBgColor: #{$color1};
+  }
 
-    position: relative;
+
+  background: var(--formBgColor);
+  padding: 40px;
+  color: var(--mainFormColor);
+
+  &__title-block {
+    margin-bottom: 30px;
+  }
+  &__title {
+    margin-bottom: 10px;
+  }
+  &__subtitle {
+    max-width: 250px;
+  }
+  &__fields {
+    margin-bottom: 40px;
+  }
+  &__data-block {
     margin-bottom: 20px;
     &:last-child {
-        margin-bottom: 0;
+      margin-bottom: 0;
     }
-    
-    &__labelText {
-        color: $formLabelColor;
-        @include flex(flex-start, center);
+  }
+  &__block-title {
+    margin-bottom: 20px;
+  }
+  &__btns {
+    @include flex(center, center);
+  }
 
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(-50%);
-        width: 100%;
-        &::before,
-        &::after {
-            content: '';
-            height: 1px;
-            background: $inputBorderColor;
-            transform: translateY(-50%);
-            display: block;
-        }
-        &::before {
-            width: 10px;
-            margin-right: 5px;
-        }
-        &::after {
-            width: 100%;
-            margin-left: 5px;
-        }
+  &_contacts {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+  }
+  &_employer,
+  &_worker {}
+}
+.form-item {
+  @include flex;
+  flex-direction: column;
+
+  position: relative;
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__labelText {
+    color: var(--formLabelColor);
+    @include flex(flex-start, center);
+
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    &::before,
+    &::after {
+      content: '';
+      height: 1px;
+      background: var(--inputBorderColor);
+      transform: translateY(-50%);
+      display: block;
     }
-    &__input {
-        padding: $inputPadding;
-        border-left: 1px solid $inputBorderColor;
-        border-right: 1px solid $inputBorderColor;
-        border-bottom: 1px solid $inputBorderColor;
-        font-size: 1rem;
-        color: $formInputColor;
-        &::placeholder {
-            color: $formPHColor;
-            font-size: 0.8em;
-        }
+    &::before {
+      width: 10px;
+      margin-right: 5px;
     }
-    &__error-area {
-        position: absolute;
-        bottom: 0;
-        right: 10px;
-        color: white;
-        background: $formErrorColor;
-        padding: 2px;
-        transform: translateY(50%);
+    &::after {
+      width: 100%;
+      margin-left: 5px;
     }
+  }
+  &__input {
+    padding: var(--inputPadding);
+    border-left: 1px solid var(--inputBorderColor);
+    border-right: 1px solid var(--inputBorderColor);
+    border-bottom: 1px solid var(--inputBorderColor);
+    font-size: 1rem;
+    color: var(--formInputColor);
+    &::placeholder {
+      color: var(--formPHColor);
+      font-size: 0.8em;
+    }
+  }
+  &__error-area {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    color: white;
+    background: var(--formErrorColor);
+    padding: 2px;
+    transform: translateY(50%);
+  }
 }
 
 .search-form {
-    @include flex(center, center);
-    padding: 15px;
-    border: 1px solid $color5;
-    max-width: 400px;
-    width: 400px;
-    color: $color4;
-    &__icon {
-        margin-right: 10px;
-    }
-    &__input {
-        width: 100%;
-    }
+  @include flex(center, center);
+  padding: 15px;
+  border: 1px solid $color5;
+  max-width: 400px;
+  width: 400px;
+  color: $color4;
+  &__icon {
+    margin-right: 10px;
+  }
+  &__input {
+    width: 100%;
+  }
 }
 
 .btn {
-    padding: 15px 25px;
-    display: inline-block;
-    background: $color2;
-    border: 1px solid transparent;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform .3s, box-shadow .3s, background .3s;
-    white-space: nowrap;
+  padding: 15px 25px;
+  display: inline-block;
+  background: $color2;
+  border: 1px solid transparent;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  white-space: nowrap;
 
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 5px rgba(black, 0.5);
+    background: $color1;
+
+  }
+
+  &_stroke {
+    border: 1px solid $color2;
+    background: none;
+    color: $color2;
     &:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 2px 2px 5px rgba(black, .5);
-        background: $color1;
-        
+      background: rgba($color1, 0.7);
     }
+  }
+  &_start {
+    border-color: $color2;
+  }
+  &_full {
+    width: 100%;
+  }
 
-    &_stroke {
-        border: 1px solid $color2;
-        background: none;
-        color: $color2;
-        &:hover {
-            background: rgba($color1, .7);
-        }
+  &_form {
+    background: $color1;
+    color: white;
+    margin: 2px;
+    &-stroke {
+      border-color: $color1;
+      background: transparent;
     }
-    &_start {
-        border-color: $color2;
-    }
-    &_full {
-        width: 100%;
-    }
+  }
 
-    &_form {
-        background: $color1;
-        color: white;
-        margin: 2px;
-        &-stroke {
-            border-color: $color1;
-            background: transparent;
-        }
-    }
-    
-    &_filter {
-        background: $color1;
-    }
-    &_detail {
-        padding: 10px 40px;
-        font-size: 0.8rem;
-    }
-}
-
-.user-action {
-    $size: 50px;
-    $iconSize: 20px;
-    position: fixed;
-    z-index: 100;
-    bottom: 50px;
-    right: 100px;
-    &__item {
-        @include flex(center, center);
-        width: $size;
-        height: $size;
-        color: rgba($color2, 1);
-        font-size: $iconSize;
-        cursor: pointer;
-        background: rgba(white, .2);
-        margin: 2px;
-        box-shadow: 2px 2px 10px rgba(black, .3);
-        &:hover {
-            background: $color2;
-            color: $color1;
-        }
-    }
+  &_filter {
+    background: $color1;
+  }
+  &_detail {
+    padding: 10px 40px;
+    font-size: 0.8rem;
+  }
 }
 
 .toggle-tabs {
-    @include flex(center, center);
+  @include flex(center, center);
 }
 .btn-tab {
+  @include flex(center, center);
+  $mainColor: darken($color1, 10);
+
+  width: 250px;
+  height: 80px;
+  background: white;
+  color: $mainColor;
+  border: 2px solid transparent;
+  transition: color 0.3s, background 0.3s;
+  cursor: pointer;
+  &::before {
     @include flex(center, center);
+    $size: 30px;
+
+    content: attr(data-number);
+    width: $size;
+    height: $size;
+    font-size: 20px;
+    // font-weight: bold;
+    border-radius: 50%;
+    background: $mainColor;
+    color: white;
+    margin-right: 10px
+  }
+  &:hover {
     $mainColor: darken($color1, 10);
-    
-    width: 250px;
-    height: 80px;
-    background: white;
-    color: $mainColor;
-    border: 2px solid transparent;
-    transition: color .3s, background .3s;
-    cursor: pointer;
+
+    background: $mainColor;
+    color: white;
     &::before {
-        @include flex(center, center);
-        $size: 30px;
+      background: white;
+      color: $mainColor;
+    }
+  }
 
-        content: attr(data-number);
-        width: $size;
-        height: $size;
-        font-size: 20px;
-        // font-weight: bold;
-        border-radius: 50%;
-        background: $mainColor;
-        color: white;
-        margin-right: 10px
+  &__content {
+    span {
+      display: block;
     }
-    &:hover {
-        $mainColor: darken($color1, 10);
-    
-        background: $mainColor;
-        color: white;
-        &::before {
-            background: white;
-            color: $mainColor;
-        }
-    }
+  }
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__subscr {
+    font-size: 12px;
+  }
 
-    &__content {
-        span {
-            display: block;
-        }
-    }
-    &__title {
-        font-size: 20px;
-        font-weight: bold;
-    }
-    &__subscr {
-        font-size: 12px;
-    } 
+  &.active {
+    $mainColor: darken($color1, 10);
 
-    &.active {
-        $mainColor: darken($color1, 10);
-    
-        background: $mainColor;
-        color: white;
-        &::before {
-            background: white;
-            color: $mainColor;
-        }
+    background: $mainColor;
+    color: white;
+    &::before {
+      background: white;
+      color: $mainColor;
     }
+  }
 }

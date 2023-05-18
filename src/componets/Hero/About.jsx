@@ -10,6 +10,9 @@ const About = () => {
           <Link to="account" className="about__link">Допомагаємо кандидатам знаходити роботу по спеціальності</Link>, 
           <Link to="account/employer" className="about__link">а компаніям закривати вакансії.</Link>
           <Link to="vacancies" className="about__link">Надаємо безкоштовні вакансії від європейських роботодавців.</Link>
+          <p className="about__content-part">
+            Надаємо інші варіанти роботи в тому випадку, якщо роботодавець порушить правила договору.
+          </p>
         </p>
         <ul className="about__content-part advantages">
           <li className="advantages__item">
@@ -26,8 +29,13 @@ const About = () => {
           </li>
         </ul>
         <p className="about__content-part">
-          Надаємо інші варіанти роботи в тому випадку, якщо роботодавець порушить правила договору.
+          Ми не любимо зайвих слів та хочемо щоб все було максимально просто, доступно та ефективно
+          Якщо у Вас виникли питання, то можете зв'язатися з нами.
         </p>
+        <Link to="contacts" className="about__link">
+          <span><i class="fa-solid fa-file-signature"></i></span>
+          <span>Наші контакти.</span> 
+        </Link>
       </div>
     </div>
   );

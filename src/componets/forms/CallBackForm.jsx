@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Input, TextArea } from "../UI/form";
 
-const ContactsForm = ({ type, ...props }) => {
+const CallBackForm = ({ type, ...props }) => {
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -29,12 +29,12 @@ const ContactsForm = ({ type, ...props }) => {
 
 	return (
 		<form
-			{...props}
+			{...props} 
 			className={`form form_contacts  ${ formTypeClass }`} 
 			onSubmit={handleSubmit(submit)}
 		>
 			<div className="form__title-block">
-				<h2 className="form__title">Заповніть форму</h2>
+				<h2 className="form__title">Замовити дзвінок</h2>
 				<p className="form__subtitle">
 					Наш менеджер зв'яжеться з вами
 					протягом 30 хвилин.
@@ -45,18 +45,6 @@ const ContactsForm = ({ type, ...props }) => {
 			<Input 
 					name="name" type="text" label="name" placeholder="Введіть ім'я"
 					validateOptions={{}}
-					className="form-item" 
-					formProps={ formProps }
-				/>
-				<Input 
-					name="email" type="text" label="email*" placeholder="name@domain.com"
-					validateOptions={{
-						required: "Заповніть поле",
-						pattern: {
-							message: "невірний формат",
-							value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-						}
-					}}
 					className="form-item" 
 					formProps={ formProps }
 				/>
@@ -80,22 +68,14 @@ const ContactsForm = ({ type, ...props }) => {
 					className="form-item" 
 					formProps={ formProps }
 				/>
-				<TextArea 
-					name="subject" label="subject*" placeholder="enter text"
-					validateOptions={{
-						required: "Заповніть поле",
-					}}
-					className="form-item" 
-					formProps={ formProps }
-				/>
 			</fieldset>
 
 			<div className="form__btns">
-				<button className="btn btn_form">Надіслати данні</button>
+				<button className="btn btn_form">Замовити дзвінок</button>
 				<button className="btn btn_form-stroke" onClick={ () => reset() }>Очистити форму</button>
 			</div>
 		</form>
 	)
 }
 
-export default ContactsForm;
+export default CallBackForm;

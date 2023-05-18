@@ -1,0 +1,55 @@
+.user-action-fixed {
+  $size: 50px;
+  $iconSize: 20px;
+  position: fixed;
+  z-index: 100;
+  bottom: 50px;
+  right: 50px;
+  &__item {
+    @include flex(center, center);
+    width: $size;
+    height: $size;
+    color: rgba($color2, 1);
+    font-size: $iconSize;
+    cursor: pointer;
+    background: rgba(white, 0.2);
+    margin: 2px;
+    box-shadow: 2px 2px 10px rgba(black, 0.3);
+    &:hover {
+      background: $color2;
+      color: $color1;
+    }
+    &_active {
+			font-size: $iconSize * 1.5;
+      color: red;
+			position: relative;
+
+			&::before {
+				content: attr(data-count);
+				position: absolute;
+				color: white;
+				font-size: .4em;
+				font-weight: bold;
+				z-index: 1;
+        animation: puls 1s infinite;
+			}
+			i {
+				animation: puls 1s infinite;
+			}
+    }
+  }
+
+  @keyframes puls {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+      transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}

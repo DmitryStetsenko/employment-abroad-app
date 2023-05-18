@@ -19,6 +19,37 @@
     &__addit-features {
         @include flex(flex-start, center);
     }
+
+    .social {
+        $item-size: 20px;
+        $font-size: 16px;
+        @include flex;
+        
+        &__item {
+            font-size: $font-size;
+            margin-right: 5px;
+            a {
+                @include flex(center, center);
+    
+                color: $color2;
+                transition: color .3s;
+                width: $item-size;
+                height: $item-size;
+                &:hover {
+                    color: white;
+                }
+                i {
+                    display: block;
+                }
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+            &_instagram {
+                font-size: calc(#{$font-size} * 1.2);
+            }
+        }
+    }
 }
 
 .action-item {
@@ -50,37 +81,6 @@
         }
         &_active {
             color: $color2;
-        }
-    }
-}
-
-.social {
-    $item-size: 20px;
-    $font-size: 16px;
-    @include flex;
-
-    font-size: $font-size;
-    &__item {
-        margin-right: 5px;
-        a {
-            @include flex(center, center);
-
-            color: $color2;
-            transition: color .3s;
-            width: $item-size;
-            height: $item-size;
-            &:hover {
-                color: white;
-            }
-            i {
-                display: block;
-            }
-        }
-        &:last-child {
-            margin-right: 0;
-        }
-        &_instagram {
-            font-size: $font-size + 4px;
         }
     }
 }

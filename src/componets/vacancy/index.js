@@ -1,4 +1,5 @@
 import VacancyList from "./VacancyList";
 import Vacancy from "./Vacancy";
+import VacancyAction from "./VacancyAction";
 
-export { VacancyList, Vacancy };
+export { VacancyList, Vacancy, VacancyAction };

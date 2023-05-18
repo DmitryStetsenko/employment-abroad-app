@@ -1,6 +1,18 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchVacancyList } from "./../../../store/slices/favVacanciesSlice";
+
 import WorkerForm from "../../forms/WorkerForm";
+import { VacancyList } from "../../vacancy";
 
 const AccountWorkerPage = () => {
+  const dispatch = useDispatch();
+  const fetchData = useSelector(state => state.vacancies);
+
+	useEffect(() => {
+		dispatch(fetchVacancyList([1, 5, 6]));
+	}, [dispatch]);
+
   return (
     <div className="account">
       <div className="container">
@@ -9,11 +21,14 @@ const AccountWorkerPage = () => {
           <div className="account__content-block account__content-block_sidebar">
             <div className="account-aside">
               <h3 className="account-aside__title">Обрані вакансії</h3>
+
+              <VacancyList slice="favVacancies" type="slim" />
+
             </div>
           </div>
           <div className="account__content-block">
             <div className="form-block">
-              <WorkerForm />
+              <WorkerForm type="medium"/>
             </div>
           </div>
         </div>

@@ -3,10 +3,11 @@ import {useEffect} from 'react';
 import {useLocation, Link} from 'react-router-dom';
 
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchSingleVacancy} from '../../store/vacanciesSlice';
+import {fetchSingleVacancy} from './../../store/slices/vacanciesSlice';
 
 import { getMetaDataList, getVacancyMetaItemsList } from '../../store/functions';
 import { vacancyUIinfoList } from '../../store/vacancyUIinfoList';
+import { VacancyAction } from '../vacancy';
 
 const VacancyPage = () => {
   const location = useLocation();
@@ -14,8 +15,6 @@ const VacancyPage = () => {
 
   const dispatch = useDispatch();
   const {data} = useSelector(state => state.vacancies);
-
-  console.log(data);
 
   const {
     id,
@@ -59,8 +58,15 @@ const VacancyPage = () => {
       <div className="container">
         <div className="vacancy-single">
           <div className="vacancy-single__content-block">
-            <div className="vacancy-single__thumbnail">
-              <img src="/img/vacancy-thumb.jpg" alt=""/>
+            <div className="vacancy-single__thumbnail-block">
+              <div className="vacancy-single__thumbnail">
+                <img src="/img/vacancy-thumb.jpg" alt=""/>
+              </div>
+              <div className="vacancy-single__action">
+                
+                <VacancyAction />
+
+              </div>
             </div>
             <div className="vacancy-single__content">
               <h1 className="vacancy-single__title">{title}</h1>

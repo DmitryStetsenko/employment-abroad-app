@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import About from './About';
+import Slogan from './Slogan';
 
 const AboutUsHero = () => {
     return (
@@ -22,6 +23,11 @@ const AboutUsHero = () => {
               <div className="hero__subtitle-block">
                 <p className="hero__subtitle">Recruting company</p>
               </div>
+
+              <Slogan style={{
+                  fontSize: '4rem',
+                  marginBottom: '10px',
+                }} />
 
               <div className="hero__video-block">
                 <i className="fa-solid fa-play"></i>

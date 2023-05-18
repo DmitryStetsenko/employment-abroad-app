@@ -14,7 +14,7 @@ const AccountEmployerPage = () => {
           </div>
           <div className="account__content-block">
             <div className="form-block">
-              <EmployerForm />
+              <EmployerForm type="medium"/>
             </div>
           </div>
         </div>

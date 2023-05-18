@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { VacancyList } from "../vacancy";
 import { FilterList } from "../forms/filter";
-import { fetchVacancies } from './../../store/vacanciesSlice'; 
-import { clearFilters, clearAndSetParam, fetchFilters } from './../../store/filtersSlice'; 
+import { fetchVacancies } from './../../store/slices/vacanciesSlice'; 
+import { clearFilters, clearAndSetParam, fetchFilters } from './../../store/slices/filtersSlice'; 
 
 const WorkerPage = ({ filter }) => {
 	const dispatch = useDispatch();

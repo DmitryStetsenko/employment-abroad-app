@@ -1,7 +1,8 @@
 .account {
   padding-top: 50px;
+  padding-bottom: 50px;
   background: $color1;
-  height: calc(100vh - 140px);
+  min-height: calc(100vh - 140px);
 
   &__title {
     color: $color4;
@@ -11,10 +12,12 @@
     @include flex;
   }
   &__content-block {
-    width: 100%;
+    width: 50%;
     &_sidebar {
-      min-width: 40%;
-      width: 40%;
+      width: 50%;
+      border-right: 1px solid $color4;
+      margin-right: 50px;
+      padding-right: 50px;
     }
   }
   
