@@ -7,7 +7,7 @@ const VacancyList = ({ slice, type }) => {
 	const fetchData = useSelector(state => state[sliceName]);
 	const { data, status, error } = fetchData;
 
-	console.log(data);
+	console.log(fetchData);
 
 	return (
 		<>

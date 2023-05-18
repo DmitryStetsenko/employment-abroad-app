@@ -6,13 +6,6 @@ import WorkerForm from "../../forms/WorkerForm";
 import { VacancyList } from "../../vacancy";
 
 const AccountWorkerPage = () => {
-  const dispatch = useDispatch();
-  const fetchData = useSelector(state => state.vacancies);
-
-	useEffect(() => {
-		dispatch(fetchVacancyList([1, 5, 6]));
-	}, [dispatch]);
-
   return (
     <div className="account">
       <div className="container">

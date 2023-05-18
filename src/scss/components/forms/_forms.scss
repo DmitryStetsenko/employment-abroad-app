@@ -173,6 +173,7 @@ fieldset {
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
   white-space: nowrap;
+  text-align: center;
 
   &:hover {
     transform: translate(-2px, -2px);
@@ -191,6 +192,7 @@ fieldset {
   }
   &_start {
     border-color: $color2;
+    min-width: 250px;
   }
   &_full {
     width: 100%;

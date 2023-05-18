@@ -7,7 +7,6 @@ import CallBackForm from './forms/CallBackForm';
 
 const UserActionFixed = () => {
   const { data, status } = useSelector(state => state.favVacancies);
-  console.log(data);
 
   const count = data.contentRange?.count;
   const [modal, setModal] = useState({isShow: false, component: null});

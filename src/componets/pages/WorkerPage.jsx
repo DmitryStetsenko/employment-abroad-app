@@ -1,12 +1,18 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { VacancyList } from "../vacancy";
 import { FilterList } from "../forms/filter";
 import { fetchVacancies } from './../../store/slices/vacanciesSlice'; 
 import { clearFilters, clearAndSetParam, fetchFilters } from './../../store/slices/filtersSlice'; 
+import { fetchVacancyList } from '../../store/slices/favVacanciesSlice';
 
 const WorkerPage = ({ filter }) => {
 	const dispatch = useDispatch();
+	const { ids } = useSelector(state => state.favVacancies);
+
+	useEffect(() => {
+		dispatch(fetchVacancyList(ids));
+	}, [ids]);
 
 	useEffect(() => {
 		if ( filter ) {
@@ -14,7 +20,6 @@ const WorkerPage = ({ filter }) => {
 		} else {
 			dispatch(clearFilters());
 		}
-		
 		dispatch(fetchVacancies());
 		dispatch(fetchFilters({ 
 			exclude: filter?.table 

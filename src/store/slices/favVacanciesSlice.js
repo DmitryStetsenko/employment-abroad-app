@@ -22,6 +22,11 @@ export const fetchVacancyList = createAsyncThunk(
       );
 
       const body = await response.json();
+
+      console.log(ids);
+      console.log(body);
+      console.log(contentRange);
+
       return { body, contentRange };
 
     } catch(error) {
@@ -45,11 +50,14 @@ const favVacanciesSlice = createSlice({
   name: 'favVacancies',
   initialState: {
     data: {},
+    ids: [1, 5],
     status: null,
     error: null,
   },
   reducers: {
-
+    addFavVacancy(state, action) {
+      state.ids.push(action.payload.id);
+    }
   },
   extraReducers: 
     (builder) => {
@@ -63,4 +71,5 @@ const favVacanciesSlice = createSlice({
     },
 });
 
+export const { addFavVacancy } = favVacanciesSlice.actions;
 export default favVacanciesSlice.reducer;
