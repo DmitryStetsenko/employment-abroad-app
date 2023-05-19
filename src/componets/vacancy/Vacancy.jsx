@@ -1,10 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { strToSlug, getMetaDataList, getVacancyMetaItemsList } from '../../store/functions';
+import { delFavVacancy } from '../../store/slices/favVacanciesSlice';
 import { vacancyUIinfoList } from '../../store/vacancyUIinfoList';
 import VacancyAction from './VacancyAction';
 
 const Vacancy = ({ data, type }) => {
+	const dispatch = useDispatch();
 	const { 
 		id, 
 		created, 
@@ -81,6 +84,11 @@ const Vacancy = ({ data, type }) => {
 					<div className="vacancy__salary">USD: { salary }</div>
 					<Link to={`/vacancy/${title}`} state={ id } className="vacancy__details btn btn_detail">Датальніше</Link>
 				</div>
+			}
+
+			{
+				type === 'slim' &&
+				<button onClick={() => dispatch(delFavVacancy({id: Number(id)}))}  className="btn btn_del"><i className="fa-solid fa-trash-can"></i></button>
 			}
 			
 		</div>

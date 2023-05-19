@@ -1,11 +1,20 @@
 import { useEffect } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
+
 import { fetchVacancyList } from "./../../../store/slices/favVacanciesSlice";
 
 import WorkerForm from "../../forms/WorkerForm";
 import { VacancyList } from "../../vacancy";
 
 const AccountWorkerPage = () => {
+  const { ids } = useSelector(state => state.favVacancies);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+		dispatch(fetchVacancyList(ids));
+	}, [ids]);
+
   return (
     <div className="account">
       <div className="container">
