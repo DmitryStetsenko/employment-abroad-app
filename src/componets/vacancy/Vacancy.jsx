@@ -75,7 +75,7 @@ const Vacancy = ({ data, type }) => {
 				<div className="vacancy__salary-block">
 					<div className="vacancy__action">
 						
-							<VacancyAction id={ Number(id) }/>
+							<VacancyAction id={ Number(id) } vacancyTitle={ title }/>
 
 					</div>
 					<div className="vacancy__salary">USD: { salary }</div>

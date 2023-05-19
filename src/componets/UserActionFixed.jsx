@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import ContactsForm from './forms/ContactsForm';
 import CallBackForm from './forms/CallBackForm';
+import ModalWindow from "./ModalWindow";
 
 const UserActionFixed = () => {
   const { data, status } = useSelector(state => state.favVacancies);
@@ -31,12 +32,3 @@ const UserActionFixed = () => {
 };
 
 export default UserActionFixed;
-
-const ModalWindow = ({ children, setModal }) => {
-  return (
-    <div className="modal-window">
-      { children }
-      <button onClick={() => setModal({isShow: false})} className="btn btn_close">X</button>
-    </div>
-  )
-}
