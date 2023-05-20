@@ -14,8 +14,8 @@ const SearchForm = () => {
   console.log(data);
 
   const closeSearchResultWindow = () => {
+    setSearchStr('');
     setSearchData([]);
-    setSearchData('');
   }
 
   const searchHandler = (str) => {
