@@ -6,8 +6,13 @@
 .menu-header {
     @include flex(flex-start, center);
     padding: 20px 0;
+    width: 100%;
     &__search-block {
+        @include flex;
+        
         margin-right: auto;
+        flex-basis: auto;
+        flex-grow: 2;
     }
     &__menu {
         margin-right: 40px;

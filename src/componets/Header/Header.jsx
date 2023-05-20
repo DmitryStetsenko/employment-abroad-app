@@ -1,5 +1,6 @@
 import { Menu, TopHeader } from './';
 import { Link, useLocation } from 'react-router-dom';
+import SearchForm from '../forms/SearchForm';
 
 const Header = () => {
 	const { pathname } = useLocation();
@@ -54,10 +55,9 @@ const Header = () => {
 							<img src="/img/logo-full-dark.svg" alt="logo liftron" />
 						</Link>
 						<div className="menu-header__search-block">
-							<div className="search-form">
-								<i className="fa-solid fa-magnifying-glass search-form__icon"></i>
-								<input type="text" className="search-form__input" />
-							</div>
+							
+							<SearchForm />
+
 						</div>
 
 						<Menu />
