@@ -1,6 +1,6 @@
 import { Menu, TopHeader } from './';
 import { Link, useLocation } from 'react-router-dom';
-import SearchForm from '../forms/SearchForm';
+import { SearchForm } from '../forms/SearchForm';
 
 const Header = () => {
 	const { pathname } = useLocation();

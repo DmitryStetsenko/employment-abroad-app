@@ -14,7 +14,7 @@ const VacancyPage = () => {
   const vacancyId = Number(location.state);
 
   const dispatch = useDispatch();
-  const {data} = useSelector(state => state.vacancies);
+  const {singleData} = useSelector(state => state.vacancies);
 
   useEffect(() => {
     dispatch(fetchSingleVacancy(vacancyId));
@@ -27,9 +27,9 @@ const VacancyPage = () => {
     description,
     salary,
     additionally,
-  } = data;
+  } = singleData;
 
-  const metaDataList = getMetaDataList(data);
+  const metaDataList = getMetaDataList(singleData);
   const metaItemList = getVacancyMetaItemsList(metaDataList, vacancyUIinfoList, 'single', (dataObj) => {
 		const {
 			tableName, tableUiName, recordName, recordId, recordSlug, recordIcon

@@ -95,6 +95,7 @@ const vacanciesSlice = createSlice({
   name: 'vacancies',
   initialState: {
     data: {},
+    singleData: {},
     status: null,
     error: null,
   },
@@ -112,7 +113,7 @@ const vacanciesSlice = createSlice({
       builder.addCase(fetchSingleVacancy.pending, setPending);
       builder.addCase(fetchSingleVacancy.fulfilled, (state, action) => {
         state.status = 'resolved';
-        state.data = action.payload;
+        state.singleData = action.payload;
       });
       builder.addCase(fetchSingleVacancy.rejected, setError);
       // fetchVacancyList
