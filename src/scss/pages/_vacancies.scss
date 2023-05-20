@@ -1,45 +1,4 @@
-$marginTitle: 10px;
 
-.filter {
-    &__all-btn {
-        margin-bottom: 20px;
-    }
-}
-
-.filter-block {
-    margin-bottom: 20px;
-    &__title {
-        margin-bottom: $marginTitle;
-    }
-    &__content {
-        margin-bottom: 10px;
-    }
-    &__list {}
-    &__show-more {
-        color: $color2;
-        font-weight: bold;
-        cursor: pointer;
-    }
-}
-
-.filter-item {
-    margin-bottom: 3px;
-    cursor: pointer;
-    &__element {
-        @include flex(flex-start, center);
-
-    }
-    &__checkbox {
-        margin-right: 10px;
-    }
-    &__title {}
-
-    &:first-child {
-        font-weight: bold;
-        padding-bottom: 3px;
-        
-    }
-}
 
 .vacancies {
     &__title-block  {
