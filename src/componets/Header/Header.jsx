@@ -8,6 +8,7 @@ const Header = () => {
 		account: {
 			link: 'http://admin.liftron.com.ua',
 			isOuter: true,
+			inPage: false,
 		},
 		headerBtn: {
 			link: '/account',
@@ -32,6 +33,10 @@ const Header = () => {
 		routingData.headerBtn.link = '/account/employer';
 		routingData.headerBtn.text = 'Розмістити вакансію'
   }
+
+	if (pathname.includes('account')) {
+		routingData.account.inPage = true;
+	}
 
 	return (
 		<header className="header">

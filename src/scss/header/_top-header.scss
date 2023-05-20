@@ -63,6 +63,15 @@
             color: $color2;
         }
     }
+    a {
+        color: $color4;
+    }
+    &_active {
+        color: $color2;
+        a {
+            color: $color2;
+        }
+    }
 }
 .language {
     @include flex;
@@ -92,7 +101,6 @@
     border-right: 2px solid $color4;
     a {
         margin-left: 5px;
-        color: $color4;
     }
 }
 .phone {}

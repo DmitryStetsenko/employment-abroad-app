@@ -1,6 +1,13 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Menu = ({children, modificator}) => {
+  // const { pathname } = useLocation();
+
+  // const routingList = {
+  //   worker: [],
+  //   employer: []
+  // }
+
   return (
     <nav className="menu-header__menu">
     <ul className="menu-list">
