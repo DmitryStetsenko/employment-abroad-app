@@ -9,13 +9,14 @@ import VacancyAction from './VacancyAction';
 const Vacancy = ({ data, type }) => {
 	const dispatch = useDispatch();
 	const { 
-		id, 
 		created, 
 		title, 
 		description, 
 		salary,
 		additionally,
 	} = data;
+
+	const id = Number(data.id);
 
 	const metaDataList = getMetaDataList(data);
 
@@ -78,7 +79,7 @@ const Vacancy = ({ data, type }) => {
 				<div className="vacancy__salary-block">
 					<div className="vacancy__action">
 						
-							<VacancyAction id={ Number(id) } vacancyTitle={ title }/>
+							<VacancyAction id={ id } vacancyTitle={ title }/>
 
 					</div>
 					<div className="vacancy__salary">USD: { salary }</div>
@@ -88,7 +89,7 @@ const Vacancy = ({ data, type }) => {
 
 			{
 				type === 'slim' &&
-				<button onClick={() => dispatch(delFavVacancy({id: Number(id)}))}  className="btn btn_del"><i className="fa-solid fa-trash-can"></i></button>
+				<button onClick={() => dispatch(delFavVacancy({id}))}  className="btn btn_del"><i className="fa-solid fa-trash-can"></i></button>
 			}
 			
 		</div>

@@ -186,10 +186,12 @@ $marginTitle: 10px;
                 text-shadow: 2px 2px 2px rgba(black, .5);
             }
         }
-
         i {
             font-size: 30px;
             transition: text-shadow .3s;
+        }
+        &_active {
+            color: red;
         }
     }
 }

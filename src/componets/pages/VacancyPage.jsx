@@ -1,9 +1,9 @@
 import React from 'react';
-import {useEffect} from 'react';
-import {useLocation, Link} from 'react-router-dom';
+import { useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 
-import {useDispatch, useSelector} from 'react-redux';
-import {fetchSingleVacancy} from './../../store/slices/vacanciesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSingleVacancy } from './../../store/slices/vacanciesSlice';
 
 import { getMetaDataList, getVacancyMetaItemsList } from '../../store/functions';
 import { vacancyUIinfoList } from '../../store/vacancyUIinfoList';
@@ -11,10 +11,14 @@ import { VacancyAction } from '../vacancy';
 
 const VacancyPage = () => {
   const location = useLocation();
-  const vacancyId = location.state;
+  const vacancyId = Number(location.state);
 
   const dispatch = useDispatch();
   const {data} = useSelector(state => state.vacancies);
+
+  useEffect(() => {
+    dispatch(fetchSingleVacancy(vacancyId));
+  }, [vacancyId]);
 
   const {
     id,
@@ -49,10 +53,6 @@ const VacancyPage = () => {
 		);
 	});
 
-  useEffect(() => {
-    dispatch(fetchSingleVacancy(vacancyId));
-  }, [dispatch, vacancyId]);
-
   return (
     <section className="section section_vacancy">
       <div className="container">
@@ -64,7 +64,7 @@ const VacancyPage = () => {
               </div>
               <div className="vacancy-single__action">
                 
-                <VacancyAction />
+                <VacancyAction id={ vacancyId } vacancyTitle={ title }/>
 
               </div>
             </div>
