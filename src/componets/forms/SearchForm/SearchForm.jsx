@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import OutsideClickHandler from '../../OutsideClickHandler';
 import SearchFormResults from './SearchFormResults';
 
 const SearchForm = () => {
@@ -10,8 +11,6 @@ const SearchForm = () => {
   const isNarrow = false;
   const isActive = false;
   const resActive = !!searchData.length;
-
-  console.log(data);
 
   const closeSearchResultWindow = () => {
     setSearchStr('');
@@ -26,33 +25,35 @@ const SearchForm = () => {
     }
 
     const res = data.body.filter(vacancy => vacancy.title.includes(str) || vacancy.description.includes(str));
-
     if (res) {
       setSearchData(res);
     }
   }
 
   return (
-    <div className={`search-form ${ isNarrow && 'search-form_narrow'}`}>
-      <label className={`search-form__field ${isActive && 'search-form__field_active'}`}>
-        <i className="fa-solid fa-magnifying-glass search-form__icon"></i>
-        <input
-          onChange={e => searchHandler(e.target.value)}
-          value={ searchStr }
-          type="text" 
-          className="search-form__input"
-          placeholder="почніть пошук..."
-        />
-      </label>
-      <div className="search-form__results">
-        
-        { 
-          resActive && 
-            <SearchFormResults searchData={ searchData } closeMethod={ closeSearchResultWindow }/> 
-        }
+      <OutsideClickHandler
+        onOutsideClick={ closeSearchResultWindow }
+        className={`search-form ${ isNarrow && 'search-form_narrow'}`}
+      >
+        <label className={`search-form__field ${isActive && 'search-form__field_active'}`}>
+          <i className="fa-solid fa-magnifying-glass search-form__icon"></i>
+          <input
+            onChange={e => searchHandler(e.target.value)}
+            value={ searchStr }
+            type="text" 
+            className="search-form__input"
+            placeholder="почніть пошук..."
+          />
+        </label>
+        <div className="search-form__results">
+          
+          { 
+            resActive && 
+              <SearchFormResults searchData={ searchData } closeMethod={ closeSearchResultWindow }/> 
+          }
 
-      </div>
-    </div>
+        </div>
+      </OutsideClickHandler>
   );
 };
 

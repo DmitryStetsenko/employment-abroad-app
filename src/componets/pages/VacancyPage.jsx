@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSingleVacancy } from './../../store/slices/vacanciesSlice';
+import { fetchSingleVacancy, fetchVacancies } from './../../store/slices/vacanciesSlice';
 
 import { getMetaDataList, getVacancyMetaItemsList } from '../../store/functions';
 import { vacancyUIinfoList } from '../../store/vacancyUIinfoList';
@@ -18,6 +18,7 @@ const VacancyPage = () => {
 
   useEffect(() => {
     dispatch(fetchSingleVacancy(vacancyId));
+    dispatch(fetchVacancies());
   }, [vacancyId]);
 
   const {
