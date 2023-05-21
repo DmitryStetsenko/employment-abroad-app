@@ -1,7 +1,15 @@
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 
-const OutsideClickHandler = ({ children, onOutsideClick, ...props }) => {
+const OutsideClickHandler = ({ children, tagName, onOutsideClick, ...props }) => {
   const wrapperRef = useRef(null);
+  const element = React.createElement(
+    tagName, 
+    {
+      ...props,
+      ref: wrapperRef,
+    },
+    children
+  );
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -17,7 +25,7 @@ const OutsideClickHandler = ({ children, onOutsideClick, ...props }) => {
     };
   }, [onOutsideClick]);
 
-  return <div {...props} ref={wrapperRef}>{children}</div>;
+  return element;
 };
 
 export default OutsideClickHandler

@@ -32,6 +32,7 @@ const SearchForm = () => {
 
   return (
       <OutsideClickHandler
+        tagName='div'
         onOutsideClick={ closeSearchResultWindow }
         className={`search-form ${ isNarrow && 'search-form_narrow'}`}
       >
