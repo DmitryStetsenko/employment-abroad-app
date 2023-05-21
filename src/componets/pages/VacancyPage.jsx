@@ -19,11 +19,9 @@ const VacancyPage = () => {
   useEffect(() => {
     dispatch(fetchSingleVacancy(vacancyId));
     dispatch(fetchVacancies());
-  }, [vacancyId]);
+  }, [dispatch, vacancyId]);
 
   const {
-    id,
-    created,
     title,
     description,
     salary,

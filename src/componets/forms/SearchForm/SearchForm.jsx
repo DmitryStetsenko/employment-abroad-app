@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import OutsideClickHandler from '../../OutsideClickHandler';
 import SearchFormResults from './SearchFormResults';
 
 const SearchForm = () => {
+  const [isActive, setIsActive] = useState(false);
   const [searchData, setSearchData] = useState([]);
   const [searchStr, setSearchStr] = useState('');
   const { data } = useSelector(state => state.vacancies);
 
-  const isNarrow = false;
-  const isActive = false;
+  const isNarrow = useMediaQuery({ maxWidth: 1200 });
   const resActive = !!searchData.length;
+
+  console.log(isNarrow);
 
   const closeSearchResultWindow = () => {
     setSearchStr('');
     setSearchData([]);
+    if (isNarrow) {
+      setIsActive(false);
+    }
   }
 
   const searchHandler = (str) => {
@@ -36,16 +42,20 @@ const SearchForm = () => {
         onOutsideClick={ closeSearchResultWindow }
         className={`search-form ${ isNarrow && 'search-form_narrow'}`}
       >
-        <label className={`search-form__field ${isActive && 'search-form__field_active'}`}>
+        <div
+          onClick={ () => setIsActive(!isActive) }
+          className={`search-form__field ${isActive ? 'search-form__field_active' : ''}`}
+        >
           <i className="fa-solid fa-magnifying-glass search-form__icon"></i>
           <input
             onChange={e => searchHandler(e.target.value)}
+            onClick={ e => e.stopPropagation()}
             value={ searchStr }
             type="text" 
             className="search-form__input"
             placeholder="почніть пошук..."
           />
-        </label>
+        </div>
         <div className="search-form__results">
           
           { 

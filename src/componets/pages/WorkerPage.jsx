@@ -12,7 +12,7 @@ const WorkerPage = ({ filter }) => {
 
 	useEffect(() => {
 		dispatch(fetchVacancyList(ids));
-	}, [ids]);
+	}, [dispatch, ids]);
 
 	useEffect(() => {
 		if ( filter ) {
@@ -24,7 +24,7 @@ const WorkerPage = ({ filter }) => {
 		dispatch(fetchFilters({ 
 			exclude: filter?.table 
 		}));
-	}, [filter]);
+	}, [dispatch, filter]);
 
 	return (
 		<section id="vacancy" className="section section_vacancies">

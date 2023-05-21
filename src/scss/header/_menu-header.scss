@@ -10,12 +10,13 @@
     &__search-block {
         @include flex;
         
-        margin-right: auto;
+        margin-right: 40px;
         flex-basis: auto;
         flex-grow: 2;
     }
     &__menu {
         margin-right: 40px;
+        margin-left: auto;
     }
 }
 
