@@ -15,7 +15,7 @@ const VacancyAction = ({ id, vacancyTitle }) => {
 
   useEffect(() => {
     dispatch(fetchVacancyList(ids));
-  }, [ids]);
+  }, [dispatch, ids]);
 
   return (
     <>

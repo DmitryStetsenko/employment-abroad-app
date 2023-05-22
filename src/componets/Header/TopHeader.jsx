@@ -32,13 +32,13 @@ const TopHeader = ({ routingData }) => {
         </div>
         <div className="top-header__addit-features">
           <Link to="tel:+380663340226" className="phone action-item">+38 066 334 02 26</Link>
-          <div className="notifications action-item">
+          {/* <div className="notifications action-item">
             <i className="fa-solid fa-bell"></i>
           </div>
           <div className="user-menu action-item">
             <i className="fa-solid fa-bars"></i>
             <ul className="user-menu-list"></ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

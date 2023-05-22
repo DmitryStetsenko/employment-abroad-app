@@ -23,6 +23,22 @@ $inputBorderColor: $color5;
 $inputBorder: 1px solid $inputBorderColor;
 
 // MEDIA
-$bp1: 1200px;
+/*
+header
+  search
+*/ 
+$bp1: 1200px; 
+
+/*
+header
+  menu
+*/
+$bp2: 1100px;
+
+/*
+footer
+  menu
+*/
+$bp3: 900px;
 
 

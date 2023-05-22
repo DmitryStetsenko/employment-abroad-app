@@ -9,11 +9,11 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <Hero />
+      {/* <Hero /> */}
 
-      <main>
+      {/* <main>
         <Outlet />
-      </main>
+      </main> */}
 
       <Footer />
       <UserActionFixed />

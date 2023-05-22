@@ -57,6 +57,9 @@
     margin-right: 20px;
     color: $color4;
     transition: color .3s;
+    &:last-child {
+        margin-right: 0;
+    }
     &:hover {
         color: $color2;
         a {

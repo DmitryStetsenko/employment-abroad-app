@@ -210,6 +210,13 @@ $searchFormWidth: 400px;
       color: white;
     }
   }
+  &_toggle-menu {
+  }
+  &_toggle-menu-active {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 5px rgba(black, 0.5);
+    background: $color1;
+  }
 }
 
 .toggle-tabs {

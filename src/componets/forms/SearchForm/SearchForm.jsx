@@ -13,8 +13,6 @@ const SearchForm = () => {
   const isNarrow = useMediaQuery({ maxWidth: 1200 });
   const resActive = !!searchData.length;
 
-  console.log(isNarrow);
-
   const closeSearchResultWindow = () => {
     setSearchStr('');
     setSearchData([]);
