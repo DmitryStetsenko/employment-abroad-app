@@ -1,4 +1,4 @@
-import { Create, ReferenceInput, SimpleForm, TextInput } from 'react-admin';
+import { Create, ImageInput, ReferenceInput, SimpleForm, TextInput } from 'react-admin';
 import { LanguageRefInput } from '../RefInput';
 
 const VacancyCreate = () => (
@@ -7,6 +7,7 @@ const VacancyCreate = () => (
             <TextInput source="title" fullWidth required />
             <TextInput source="description" multiline rows={5} fullWidth required />
             <TextInput source="additionally" fullWidth/>
+            <ImageInput source="thumbnails" />
             <TextInput source="salary"required/>
 
             <ReferenceInput source="employer_id" reference="employer" required />

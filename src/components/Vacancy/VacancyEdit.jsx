@@ -1,4 +1,4 @@
-import { Edit, SimpleForm, TextInput, ReferenceInput, choices } from 'react-admin';
+import { Edit, SimpleForm, TextInput, ReferenceInput, choices, FileInput, ImageInput, ImageField } from 'react-admin';
 
 import RecordTitle from '../RecordTitle';
 import { LanguageRefInput } from '../RefInput';
@@ -9,6 +9,9 @@ const VacancyEdit = () => (
             <TextInput source="id" disabled/>
             <TextInput required source="title" fullWidth/>
             <TextInput required source="description" multiline rows={5} fullWidth/>
+            <ImageInput source="thumbnails">
+                <ImageField source="src" title="title" />
+            </ImageInput>
             <TextInput source="additionally" fullWidth/>
 
             <ReferenceInput source="employer_id" reference="employer" required />

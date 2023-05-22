@@ -13,7 +13,7 @@ const LanguageRefInput = () => {
                 label="Language"
                 source="language_id"
                 optionText={ getOptionText }
-                choices={data}
+                // choices={ data }
             />
         </ReferenceInput>
     );
