@@ -81,5 +81,8 @@
 @media (max-width: $bp3) {
   .btn {
     padding: 10px 15px;
+    &_del {
+      font-size: 1rem;
+    }
   }
 }

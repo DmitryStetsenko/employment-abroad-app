@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import { strToSlug, getMetaDataList, getVacancyMetaItemsList } from '../../store/functions';
 import { delFavVacancy } from '../../store/slices/favVacanciesSlice';
@@ -35,8 +36,10 @@ const Vacancy = ({ data, type }) => {
 		);
 	});
 
+	const isMobile = useMediaQuery({ maxWidth: 550 });
+
 	return (
-		<div className={`vacancy ${type == 'slim' && 'vacancy_slim'}`}>
+		<div className={`vacancy ${type == 'slim' ? 'vacancy_slim' : ''}`}>
 			<div className="vacancy__content-block">
 				<div className="vacancy__thumbnail">
 					<img src="/img/vacancy-thumb.jpg" alt="" />
@@ -68,12 +71,16 @@ const Vacancy = ({ data, type }) => {
 					}
 					
 					{
-						type !== 'slim' &&
+						(!isMobile && type !== 'slim') &&
 						<div className="vacancy__text">{ description }</div>
 					}
 					
 				</div>
 			</div>
+			{
+				(isMobile && type !== 'slim') &&
+				<div className="vacancy__text vacancy__text_mobile">{ description }</div>
+			}
 			{
 				type !== 'slim' &&
 				<div className="vacancy__salary-block">

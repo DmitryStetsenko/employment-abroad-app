@@ -28,3 +28,19 @@
     color: $color4;
   }
 }
+
+@media (max-width: $bp3) {
+  .account {
+    &__content {
+      flex-direction: column;
+      &-block {
+        width: 100%;
+        padding: 0;
+        border: none;
+        &_sidebar {
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+}

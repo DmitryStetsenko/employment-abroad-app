@@ -10,3 +10,9 @@
     right: 10px;
   }
 }
+
+@media (max-width: $bp3) {
+  .modal-window {
+    right: 15px;
+  }
+}
