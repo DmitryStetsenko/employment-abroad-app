@@ -46,3 +46,9 @@ h2, p {
     text-transform: uppercase;
     color: $color1;
 }
+
+@media (max-width: $bp4) {
+    .container {
+        padding: 0 15px;
+    }
+}

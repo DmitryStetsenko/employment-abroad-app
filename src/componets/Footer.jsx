@@ -8,11 +8,12 @@ const Footer = () => {
       <div className="menu-footer-block">
             <div className="container">
                 <div className="menu-footer">
-                    <Menu modificator="-footer"/>
+                  <Link to="/" className="logo logo_footer">
+                      <img src="/img/logo-full-text-white.svg" alt="logo liftron" />
+                  </Link>
+                  
+                  <Menu modificator="-footer"/>
 
-                    <Link to="/" className="logo logo_footer">
-                        <img src="/img/logo-full-text-white.svg" alt="logo liftron" />
-                    </Link>
                 </div>
             </div>
         </div>

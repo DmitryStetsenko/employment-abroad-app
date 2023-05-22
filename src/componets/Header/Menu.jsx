@@ -28,7 +28,7 @@ const Menu = ({children, modificator}) => {
 
   return (
     <OutsideClickHandler 
-      className="menu-header__menu"
+      className={`menu-header__menu menu-header__item`}
       tagName='nav'
       onOutsideClick={ closeMenu }
     >

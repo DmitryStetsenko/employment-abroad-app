@@ -51,10 +51,10 @@ const Header = () => {
 			<div className="menu-header-block">
 				<div className="container">
 					<div className="menu-header">
-						<Link to="/" className="logo">
+						<Link to="/" className="logo menu-header__item">
 							<img src="/img/logo-full-dark.svg" alt="logo liftron" />
 						</Link>
-						<div className="menu-header__search-block">
+						<div className="menu-header__search-block menu-header__item">
 							
 							<SearchForm />
 
@@ -62,7 +62,7 @@ const Header = () => {
 
 						<Menu />
 						
-						<Link to={ routingData.headerBtn.link } className="btn btn_start">
+						<Link to={ routingData.headerBtn.link } className="btn btn_start menu-header__item">
 							{ routingData.headerBtn.text }
 						</Link>
 

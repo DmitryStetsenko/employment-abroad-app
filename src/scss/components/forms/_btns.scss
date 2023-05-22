@@ -1,0 +1,74 @@
+.btn {
+  padding: 15px 25px;
+  display: inline-block;
+  background: $color2;
+  border: 1px solid transparent;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  white-space: nowrap;
+  text-align: center;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 5px rgba(black, 0.5);
+    background: $color1;
+
+  }
+
+  &_stroke {
+    border: 1px solid $color2;
+    background: none;
+    color: $color2;
+    &:hover {
+      background: rgba($color1, 0.7);
+    }
+  }
+  &_start {
+    border-color: $color2;
+    min-width: 250px;
+  }
+  &_full {
+    width: 100%;
+  }
+
+  &_form {
+    background: $color1;
+    color: white;
+    margin: 2px;
+    &-stroke {
+      border-color: $color1;
+      background: transparent;
+    }
+  }
+
+  &_filter {
+    background: $color1;
+  }
+  &_detail {
+    padding: 10px 40px;
+    font-size: 0.8rem;
+  }
+  &_del {
+    font-size: 1.5rem;
+    color: $color1;
+    transition: color .3s;
+    &:hover {
+      color: white;
+    }
+  }
+  &_toggle-menu {
+  }
+  &_toggle-menu-active {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 5px rgba(black, 0.5);
+    background: $color1;
+  }
+}
+
+@media (max-width: $bp3) {
+  .btn {
+    padding: 10px 15px;
+  }
+}
