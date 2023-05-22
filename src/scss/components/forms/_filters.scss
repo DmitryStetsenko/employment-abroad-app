@@ -1,40 +1,51 @@
 .filter {
-  &__all-btn {
-      margin-bottom: 20px;
-  }
+	&__all-btn {
+		margin-bottom: 20px;
+	}
 }
 
 .filter-block {
-  margin-bottom: 20px;
-  &__title {
-      margin-bottom: 10px;
-  }
-  &__content {
-      margin-bottom: 10px;
-  }
-  &__list {}
-  &__show-more {
-      color: $color2;
-      font-weight: bold;
-      cursor: pointer;
-  }
+	margin-bottom: 20px;
+
+	&__title {
+		margin-bottom: 10px;
+	}
+
+	&__content {
+		margin-bottom: 10px;
+	}
+
+	&__list {}
+
+	&__show-more {
+		color: $color2;
+		font-weight: bold;
+		cursor: pointer;
+	}
 }
 
 .filter-item {
-  margin-bottom: 3px;
-  cursor: pointer;
-  &__element {
-      @include flex(flex-start, center);
+	margin-bottom: 3px;
+	cursor: pointer;
+	
+	&:hover {
+		color: $color2;
+	}
 
-  }
-  &__checkbox {
-      margin-right: 10px;
-  }
-  &__title {}
+	&__element {
+		@include flex(flex-start, center);
 
-  &:first-child {
-      font-weight: bold;
-      padding-bottom: 3px;
-      
-  }
+	}
+
+	&__checkbox {
+		margin-right: 10px;
+	}
+
+	&__title {}
+
+	&:first-child {
+		font-weight: bold;
+		padding-bottom: 3px;
+
+	}
 }

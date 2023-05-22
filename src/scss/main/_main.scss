@@ -5,6 +5,7 @@
 }
 .section {
     padding: 50px 0;
+    position: relative;
     &__inner {
         @include flex;
     }
@@ -25,5 +26,26 @@
     }
     &_vacancy {
         min-height: calc(100vh - 140px);
+    }
+}
+
+@media (max-width: $bp1) {
+    .section {
+        &__sidebar {
+            border: none;
+            position: fixed;
+            box-shadow: 5px 5px 5px rgba(black, .3);
+            left: 0;
+            top: 0;
+            padding: 50px;
+            z-index: 200;
+            height: 100vh;
+            overflow: scroll;
+            background: rgba(white, .9);
+            width: 350px;
+        }
+        &__content {
+            padding-left: 0;
+        }
     }
 }

@@ -11,9 +11,9 @@ const Layout = () => {
       <Header />
       <Hero />
 
-      {/* <main>
+      <main>
         <Outlet />
-      </main> */}
+      </main>
 
       <Footer />
       <UserActionFixed />
