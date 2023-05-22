@@ -1,7 +1,7 @@
 import FilterItem from "./FilterItem";
 
 
-const FilterBlock = ({ filter }) => {
+const FilterBlock = ({ filter, closeFilters }) => {
 	const { name, tablename, fields } = filter;
 	
 	return (
@@ -11,7 +11,7 @@ const FilterBlock = ({ filter }) => {
 				<ul className="filter-block__list">
 					<FilterItem key={ 0 } tableName={ tablename } field={ {id: 0, name: 'все'} } />
 
-					{ fields.map( field => <FilterItem key={ field.id } tableName={ tablename } field={ field }/>) }
+					{ fields.map( field => <FilterItem key={ field.id } tableName={ tablename } field={ field } closeFilters={ closeFilters }/>) }
 
 				</ul>
 			</div>

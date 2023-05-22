@@ -7,13 +7,14 @@ const Header = () => {
 
 	const routingData = {
 		account: {
-			link: 'http://admin.liftron.com.ua',
-			isOuter: true,
+			// link: 'http://admin.liftron.com.ua',
+			link: '/account',
+			isOuter: false,
 			inPage: false,
 		},
 		headerBtn: {
-			link: '/account',
-			text: 'Розпочати пошук роботи',
+			link: 'vacancies',
+			text: 'Переглянути вакансії',
 		},
 	};
 
@@ -23,8 +24,8 @@ const Header = () => {
 		isEmployer = false;
 		routingData.account.link = '/account';
 		routingData.account.isOuter = false;
-		routingData.headerBtn.link = '/account';
-		routingData.headerBtn.text = 'Розпочати пошук роботи'
+		routingData.headerBtn.link = 'vacancies';
+		routingData.headerBtn.text = 'Переглянути вакансії'
 	}
 
 	if (pathname.includes('employer')) {

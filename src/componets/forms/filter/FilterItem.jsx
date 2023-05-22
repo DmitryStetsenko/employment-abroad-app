@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchVacancies } from './../../../store/slices/vacanciesSlice';
 import { addParams, delParam } from './../../../store/slices/filtersSlice';
 
-const FilterItem = ({ field, tableName }) => {
+const FilterItem = ({ field, tableName, closeFilters }) => {
   const dispatch = useDispatch();
   // const { query } = useSelector(state => state.filters);
 

@@ -21,11 +21,15 @@ const VacancyPage = () => {
     dispatch(fetchVacancies());
   }, [dispatch, vacancyId]);
 
+  const imgPath = '/img/vacancies';
+	const noImg = `${imgPath}/no-img.jpg`;
+
   const {
     title,
     description,
     salary,
     additionally,
+    thumbnails,
   } = singleData;
 
   const metaDataList = getMetaDataList(singleData);
@@ -59,7 +63,7 @@ const VacancyPage = () => {
           <div className="vacancy-single__content-block">
             <div className="vacancy-single__thumbnail-block">
               <div className="vacancy-single__thumbnail">
-                <img src="/img/vacancy-thumb.jpg" alt=""/>
+                <img src={ thumbnails ? `${imgPath}/${thumbnails}` : noImg } alt={ title } />
               </div>
               <div className="vacancy-single__action">
                 
@@ -69,7 +73,8 @@ const VacancyPage = () => {
             </div>
             <div className="vacancy-single__content">
               <h1 className="vacancy-single__title">{title}</h1>
-              <div className="vacancy-single__salary">Зарплата: {salary} USD</div>
+              <div className="vacancy-single__salary">Зарплата: договірна</div>
+              {/* <div className="vacancy-single__salary">Зарплата: {salary} USD</div> */}
 
               {
                 additionally &&
@@ -79,20 +84,19 @@ const VacancyPage = () => {
                       <i className="fa-solid fa-circle-exclamation"></i>
                     </span>
                     <span className="additionally__item">
-                      Обязательные требования: 
+                      Обов'язкові вимоги: 
                     </span>
                     <span className="additionally__item additionally__item_upper">{ additionally }</span>
                   </div>
                 </div>
 						  }
-
-              <div className="vacancy-single__text">
-                {description}
-              </div>
               <div className="vacancy-single__meta">
                 <ul className="single-meta-info">
                   { metaItemList }
                 </ul>
+              </div>
+              <div className="vacancy-single__text">
+                {description}
               </div>
             </div>
           </div>

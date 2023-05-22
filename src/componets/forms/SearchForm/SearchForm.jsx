@@ -28,7 +28,12 @@ const SearchForm = () => {
       return;
     }
 
-    const res = data.body.filter(vacancy => vacancy.title.includes(str) || vacancy.description.includes(str));
+    const res = data.body.filter(
+        vacancy => 
+        vacancy.title.toLowerCase().includes(str.toLowerCase()) || 
+        vacancy.description.toLowerCase().includes(str.toLowerCase())
+      );
+
     if (res) {
       setSearchData(res);
     }

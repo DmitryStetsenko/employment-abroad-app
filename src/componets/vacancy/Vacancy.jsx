@@ -8,6 +8,9 @@ import { vacancyUIinfoList } from '../../store/vacancyUIinfoList';
 import VacancyAction from './VacancyAction';
 
 const Vacancy = ({ data, type }) => {
+	const imgPath = '/img/vacancies';
+	const noImg = `${imgPath}/no-img.jpg`;
+
 	const dispatch = useDispatch();
 	const { 
 		created, 
@@ -15,7 +18,10 @@ const Vacancy = ({ data, type }) => {
 		description, 
 		salary,
 		additionally,
+		thumbnails,
 	} = data;
+
+	console.log(data);
 
 	const id = Number(data.id);
 
@@ -42,7 +48,7 @@ const Vacancy = ({ data, type }) => {
 		<div className={`vacancy ${type == 'slim' ? 'vacancy_slim' : ''}`}>
 			<div className="vacancy__content-block">
 				<div className="vacancy__thumbnail">
-					<img src="/img/vacancy-thumb.jpg" alt="" />
+					<img src={ thumbnails ? `${imgPath}/${thumbnails}` : noImg } alt={ title } />
 				</div>
 				<div className="vacancy__content">
 					<h3 className="vacancy__title">
@@ -89,7 +95,8 @@ const Vacancy = ({ data, type }) => {
 							<VacancyAction id={ id } vacancyTitle={ title }/>
 
 					</div>
-					<div className="vacancy__salary">USD: { salary }</div>
+					{/* <div className="vacancy__salary">USD: { salary }</div> */}
+					<div className="vacancy__salary">договірна</div>
 					<Link to={`/vacancy/${title}`} state={ id } className="vacancy__details btn btn_detail">Датальніше</Link>
 				</div>
 			}

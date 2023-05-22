@@ -9,7 +9,7 @@ export const vacancyUIinfoList = {
     name: 'Работодатель',
     icon: 'fa-solid fa-gear',
     position: 2,
-    show: ['single'],
+    show: [],
   },
   expirience: {
     name: 'Опыт работы (мес)',

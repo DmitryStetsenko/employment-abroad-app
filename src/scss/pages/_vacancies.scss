@@ -93,7 +93,8 @@
         margin-top: 10px;
     }
     &__text {
-        max-height: 90px;
+        max-height: 55px;
+        overflow: hidden;
         &_mobile {
             padding: 15px 0;
         }
@@ -223,6 +224,7 @@
         background: $color1;
         color: white;
         padding: 10px;
+        margin-bottom: 20px;
     }
 }
 

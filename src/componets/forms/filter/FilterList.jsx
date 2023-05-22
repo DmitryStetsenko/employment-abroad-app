@@ -41,7 +41,7 @@ const FilterList = ({ setIsActive }) => {
       {
         status !== 'resolved' 
           ? <h2>Loading ...</h2>
-          : filters.map( filter => <FilterBlock key={ filter.name } filter={ filter }/>)
+          : filters.map( filter => <FilterBlock key={ filter.name } filter={ filter } closeFilters={ closeFilters }/>)
       }
       </form>
     </div>
