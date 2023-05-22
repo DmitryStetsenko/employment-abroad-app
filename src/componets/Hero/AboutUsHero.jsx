@@ -15,7 +15,7 @@ const AboutUsHero = () => {
         <img src="/img/main-bg.jpg" alt="" />
 
       </div>
-      <div className="container container_full-height">
+      <div className="hero-block__main container container_full-height">
         <div className="hero">
           <div className="hero__content">
             <div className="hero__title-block">
@@ -24,10 +24,14 @@ const AboutUsHero = () => {
                 <p className="hero__subtitle">Recruting company</p>
               </div>
 
-              <Slogan style={{
-                  fontSize: '4rem',
-                  marginBottom: '10px',
-                }} />
+              <div className="hero__slogan">
+
+                <Slogan style={{
+                    fontSize: '4rem',
+                    marginBottom: '10px',
+                  }} />
+
+              </div>
 
               <div className="hero__video-block">
                 <i className="fa-solid fa-play"></i>

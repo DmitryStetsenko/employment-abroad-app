@@ -47,7 +47,13 @@ h2, p {
     color: $color1;
 }
 
-@media (max-width: $bp4) {
+@media (max-width: $bp3) {
+    .section-title {
+        font-size: $fz-bp3-SectionTitle;
+    }
+}
+
+@media (max-width: $bp6) {
     .container {
         padding: 0 15px;
     }

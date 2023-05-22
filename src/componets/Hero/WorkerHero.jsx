@@ -1,21 +1,27 @@
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 import Slogan from "./Slogan";
 
 const WorkerHero = () => {
+    const isMobile = useMediaQuery({ maxWidth: 900 });
+
     return (
         <>
             <div className="hero-block__img">
                 
-                <Slogan style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)'
-                }}/>
+                {
+                    !isMobile &&
+                    <Slogan style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)'
+                    }}/>
+                }
 
                 <img src="/img/main-bg.jpg" alt="" />
             </div>
-            <div className="container container_full-height">
+            <div className="hero-block__main container container_full-height">
                 <div className="hero">
                     <div className="hero__content">
                         <div className="hero__title-block">
@@ -24,7 +30,15 @@ const WorkerHero = () => {
                                 <p className="hero__subtitle">Recruting company</p>
                             </div>
                             
-                            <div className="hero__slogan"></div>
+                            {
+                                isMobile &&
+                                <div className="hero__slogan">
+                                    <Slogan style={{
+                                        fontSize: '4rem',
+                                    }}/>
+                                </div>
+
+                            }
                             
                             <div className="hero__video-block">
                                 <i className="fa-solid fa-play"></i>

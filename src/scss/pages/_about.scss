@@ -52,3 +52,27 @@
       }
   }
 }
+
+@media (max-width: $bp1) {
+  .about {
+    padding: 20px;
+  }
+}
+
+@media (max-width: $bp3) {
+  .about {
+    padding: 20px;
+    &__title {
+      margin-bottom: 20px;
+    }
+    &__content {
+      line-height: 1.4;
+    }
+  }
+}
+
+@media (max-width: $bp4) {
+  .about {
+    height: initial;
+  }
+}

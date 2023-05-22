@@ -4,12 +4,16 @@ const ContactsHero = () => {
 	return (
 		<>
 			<div className="hero-block__img">
+				<div className="hero-block__img-content">
+
+					<ContactsForm type="medium"/>
+
+				</div>
+
 				<img src="/img/hero-contact-bg.jpg" alt="" />
 
-				<ContactsForm type="medium"/>
-
 			</div>
-			<div className="container container_full-height">
+			<div className="hero-block__main container container_full-height">
 				<div className="hero">
 					<div className="hero__content">
 						<div className="hero__title-block">

@@ -78,10 +78,6 @@ fieldset {
   }
 
   &_contacts {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 500px;
   }
   &_employer,
@@ -144,5 +140,13 @@ fieldset {
     background: var(--formErrorColor);
     padding: 2px;
     transform: translateY(50%);
+  }
+}
+
+@media (max-width: $bp3) {
+  .form {
+    --inputPadding: 10px;
+
+    padding: 20px;
   }
 }

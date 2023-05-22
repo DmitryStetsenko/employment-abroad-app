@@ -6,7 +6,7 @@ const EmployerHero = () => {
             <div className="hero-block__img">
                 <img src="/img/hero-employer-bg.jpg" alt="" />
             </div>
-            <div className="container container_full-height">
+            <div className="hero-block__main container container_full-height">
                 <div className="hero">
                     <div className="hero__content">
                         <div className="hero__title-block">

@@ -8,7 +8,11 @@ $color5: #E9E9E9;
 $color6: #EFEFEF;
 
 // font-size
+$fzHeroTitle: 4.5rem;
 $fzSectionTitle: 40px;
+//@media
+$fz-bp3-HeroTitle: 4rem;
+$fz-bp3-SectionTitle: 30px;
 
 // font
 // $fontTitle: arial, sans-serif;
@@ -29,5 +33,8 @@ $searchFormWidth: 400px;
 $bp1: 1200px; 
 $bp2: 1100px;
 $bp3: 900px;
-$bp4: 550px;
+$bp4: 800px;
+
+
+$bp6: 550px;
 

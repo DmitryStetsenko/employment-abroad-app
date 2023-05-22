@@ -75,7 +75,7 @@
         position: absolute;
         background: rgba(white, .8);
         flex-direction: column;
-        z-index: 10;
+        z-index: 1000;
         width: 100vw;
         bottom: 0;
         right: 0;
@@ -156,7 +156,7 @@
     }
 }
 
-@media (max-width: $bp4) {
+@media (max-width: $bp6) {
     .menu-header {
         padding: 10px 0;
         flex-wrap: wrap;
