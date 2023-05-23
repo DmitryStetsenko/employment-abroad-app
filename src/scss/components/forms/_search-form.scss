@@ -137,3 +137,31 @@
     }
   }
 }
+
+@media (max-width: $bp7) {
+  .vacancy-search-list {
+    padding: 10px;
+  }
+  .vacancy-search-item {
+    &__thumbnail {
+      width: 45px;
+      min-width: 45px;
+      height: 45px;
+    }
+    &__title {
+      display: block;
+      font-size: .9rem;
+    }
+  }
+  .search-form {
+    $parent: &;
+    &__results {
+      width: 290px;
+    }
+    &_narrow {
+      #{$parent}__input {
+        width: 290px;
+      }
+    }
+  }
+}

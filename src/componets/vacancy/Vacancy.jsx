@@ -35,9 +35,14 @@ const Vacancy = ({ data, type }) => {
 		return (
 			<li key={ tableName } data-id={ recordId } className="meta-info__item">
 				<i className={`meta-info__item-icon ${recordIcon}`}></i>
-				<div className="meta-info__item-value">
-					<Link to={`/vacancies/${tableName}/${recordSlug}`} state={ recordId } preventScrollReset={true}>{ recordName }</Link>
-				</div>
+				<Link 
+					className="meta-info__item-value" 
+					to={`/vacancies/${tableName}/${recordSlug}`} 
+					state={ recordId } 
+					preventScrollReset={true}
+				>
+					{ recordName }
+				</Link>
 			</li>
 		);
 	});
@@ -62,7 +67,7 @@ const Vacancy = ({ data, type }) => {
 							<ul className="meta-info">{ metaItemList }</ul>
 
 							{
-								additionally &&
+								(additionally && !isMobile) &&
 								<div className="vacancy__additionally">
 									<div className="additionally">
 										<span className="additionally__item">
@@ -75,7 +80,7 @@ const Vacancy = ({ data, type }) => {
 							
 						</div>
 					}
-					
+
 					{
 						(!isMobile && type !== 'slim') &&
 						<div className="vacancy__text">{ description }</div>
@@ -83,6 +88,18 @@ const Vacancy = ({ data, type }) => {
 					
 				</div>
 			</div>
+			{/* on mobile move blocks */}
+			{
+				(additionally && isMobile && type !== 'slim') &&
+				<div className="vacancy__additionally">
+					<div className="additionally">
+						<span className="additionally__item">
+							<i className="fa-solid fa-circle-exclamation"></i>
+						</span>
+						<span className="additionally__item">{ additionally }</span>
+					</div>
+				</div>
+			}
 			{
 				(isMobile && type !== 'slim') &&
 				<div className="vacancy__text vacancy__text_mobile">{ description }</div>

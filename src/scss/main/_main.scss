@@ -49,3 +49,9 @@
         }
     }
 }
+
+@media (max-width: $bp6) {
+    .section {
+        padding-top: 20px;
+    }
+}

@@ -42,16 +42,14 @@ const VacancyPage = () => {
 			<li key={ recordSlug } className="single-meta-info__item">
         <i className={`single-meta-info__item-icon ${ recordIcon }`}></i>
         <span className="single-meta-info__item-text">{ tableUiName }: </span>
-        <div className="single-meta-info__item-value">
-          <Link to={
-              `/vacancies/${ tableName }/${ recordSlug }`
-            }
-            state={ recordId }
-            preventScrollReset={ true }
-          >
-            { recordName }
-          </Link>
-        </div>
+        <Link 
+					className="single-meta-info__item-value" 
+					to={`/vacancies/${tableName}/${recordSlug}`} 
+					state={ recordId } 
+					preventScrollReset={true}
+				>
+					{ recordName }
+				</Link>
       </li>
 		);
 	});

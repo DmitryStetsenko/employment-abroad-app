@@ -86,3 +86,17 @@
     }
   }
 }
+
+@media (max-width: $bp6) {
+  .btn {
+    &_start {
+      min-width: initial;
+    } 
+  }
+}
+
+@media (max-width: $bp7) {
+  .btn {
+    font-size: .7rem;
+  }
+}

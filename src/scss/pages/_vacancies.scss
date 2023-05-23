@@ -181,22 +181,20 @@
         }
         &-value {
             @include flex;
-            a {
-                color: $color4;
-                margin-right: 5px;
-                transition: color .3s;
+            color: $color4;
+            margin-right: 5px;
+            transition: color .3s;
 
-                &:hover {
-                    color: $color2;
-                }
+            &:hover {
+                color: $color2;
+            }
+            &::after {
+                content: ','
+            }
+            &:last-child {
+                margin-right: 0;
                 &::after {
-                    content: ','
-                }
-                &:last-child {
-                    margin-right: 0;
-                    &::after {
-                        content: '';
-                    }
+                    content: '';
                 }
             }
         }
@@ -375,6 +373,9 @@
             margin-bottom: 0;
             margin-right: 10px;
         }
+        &__salary-block {
+            border-bottom: 2px solid grey;
+        }
         &_slim {
             flex-direction: row;
         }
@@ -402,6 +403,70 @@
             width: 100px;
             height: 100px;
             min-width: 100px;
+        }
+    }
+    .vacancy-single {
+        &__content {
+            font-size: 1rem;
+        }
+        &__title {
+            font-size: 1.5em;
+        }
+        &__salary {
+            font-size: 1em;
+            padding: 10px;
+        }
+        &__text {
+            font-size: 1em;
+            padding: 0;
+        }
+    }
+    .single-meta-info {
+        &__item {
+            font-size: 1em;
+            &-text {
+                min-width: 150px;
+            }
+        }
+    }
+}
+
+@media (max-width: $bp7) {
+    .vacancy {
+        &__title {
+            font-size: 1rem;
+        }
+        &__additionally {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        &__text {
+            &_mobile {
+                padding: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .vacancy-action {
+        &__btn {
+            i {
+                font-size: 20px;
+                transition: text-shadow .3s;
+            }
+        }
+    }
+    .additionally {
+        flex-wrap: wrap;
+        &__item {
+            &_upper {
+                width: 100%;
+                margin-top: 5px;
+            }
+        }
+    }
+    .vacancy-single {
+        &__content {
+            font-size: 0.9rem;
         }
     }
 }

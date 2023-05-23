@@ -1,6 +1,6 @@
 const Slogan = ({...props}) => {
   return (
-    <p className="slogan" { ...props }>
+    <p translate="no" className="slogan" { ...props }>
       Light your way
     </p>
   );

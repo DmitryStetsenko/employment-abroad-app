@@ -127,3 +127,16 @@
         }
     }
 }
+
+@media (max-width: $bp7) {
+    .user-account {
+        font-size: .9rem;
+        padding-right: 10px;
+        a {
+            margin-left: 5px;
+        }
+    }
+    .action-item {
+        margin-right: 10px;
+    }
+}

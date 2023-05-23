@@ -19,9 +19,9 @@ const AboutUsHero = () => {
         <div className="hero">
           <div className="hero__content">
             <div className="hero__title-block">
-              <h1 className="hero__title">Liftron</h1>
+              <h1 className="hero__title" translate="no">Liftron</h1>
               <div className="hero__subtitle-block">
-                <p className="hero__subtitle">Recruting company</p>
+                <p className="hero__subtitle" translate="no">Recruting company</p>
               </div>
 
               <div className="hero__slogan">
