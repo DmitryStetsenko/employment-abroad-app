@@ -1,13 +1,75 @@
 .toggle-tabs {
   @include flex(center, center);
 }
+// .btn-tab {
+//   @include flex(center, center);
+//   $mainColor: darken($color1, 10);
+
+//   width: 250px;
+//   height: 80px;
+//   background: white;
+//   color: $mainColor;
+//   border: 2px solid transparent;
+//   transition: color 0.3s, background 0.3s;
+//   cursor: pointer;
+//   &::before {
+//     @include flex(center, center);
+//     $size: 30px;
+
+//     content: attr(data-number);
+//     width: $size;
+//     height: $size;
+//     font-size: 20px;
+//     // font-weight: bold;
+//     border-radius: 50%;
+//     background: $mainColor;
+//     color: white;
+//     margin-right: 10px
+//   }
+//   &:hover {
+//     $mainColor: darken($color1, 10);
+
+//     background: $mainColor;
+//     color: white;
+//     &::before {
+//       background: white;
+//       color: $mainColor;
+//     }
+//   }
+
+//   &__content {
+//     span {
+//       display: block;
+//     }
+//   }
+//   &__title {
+//     font-size: 20px;
+//     font-weight: bold;
+//   }
+//   &__subscr {
+//     font-size: 12px;
+//   }
+
+//   &.active {
+//     $mainColor: darken($color1, 10);
+
+//     background: $mainColor;
+//     color: white;
+//     &::before {
+//       background: white;
+//       color: $mainColor;
+//     }
+//   }
+// }
+
 .btn-tab {
   @include flex(center, center);
-  $mainColor: darken($color1, 10);
+  $mainColor: white;
+  $activeColor: darken($color1, 10);
 
   width: 250px;
   height: 80px;
-  background: white;
+  background: $activeColor;
   color: $mainColor;
   border: 2px solid transparent;
   transition: color 0.3s, background 0.3s;
@@ -23,16 +85,17 @@
     // font-weight: bold;
     border-radius: 50%;
     background: $mainColor;
-    color: white;
+    color: $activeColor;
     margin-right: 10px
   }
   &:hover {
-    $mainColor: darken($color1, 10);
+    $mainColor: white;
+    $activeColor: darken($color1, 10);
 
     background: $mainColor;
-    color: white;
+    color: $activeColor;
     &::before {
-      background: white;
+      background: $activeColor;
       color: $mainColor;
     }
   }
@@ -51,12 +114,13 @@
   }
 
   &.active {
-    $mainColor: darken($color1, 10);
+    $mainColor: white;
+    $activeColor: darken($color1, 10);
 
     background: $mainColor;
-    color: white;
+    color: $activeColor;
     &::before {
-      background: white;
+      background: $activeColor;
       color: $mainColor;
     }
   }
