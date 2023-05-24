@@ -46,7 +46,7 @@ const favVacanciesSlice = createSlice({
   name: 'favVacancies',
   initialState: {
     data: {},
-    ids: [1, 5],
+    ids: [],
     status: null,
     error: null,
   },

@@ -1,9 +1,13 @@
 import FilterItem from "./FilterItem";
+import { vacancyUIinfoList } from '../../../store/vacancyUIinfoList';
+
 
 
 const FilterBlock = ({ filter, closeFilters }) => {
 	const { name, tablename, fields } = filter;
 	
+	
+
 	return (
 		<fieldset className="filter-block" name="filter-item">
 			<h4 className="filter-block__title">{ name }</h4>

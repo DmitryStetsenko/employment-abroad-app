@@ -31,7 +31,7 @@ const ContactsHero = () => {
 										</div>
 										<div className="contacts__email contacts__item">
 											<span className="contacts__block-text">Email</span>
-											<a href="mailto:anna.liftron@gmail.com">anna.liftron@gmail.com</a>
+											<a href="mailto:liftron.company@gmail.com">liftron.company@gmail.com</a>
 										</div>
 										<div className="contacts__social contacts__item">
 											<span className="contacts__block-text">Social</span>
