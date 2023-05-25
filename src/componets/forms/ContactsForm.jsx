@@ -11,7 +11,7 @@ const ContactsForm = ({ type, ...props }) => {
 	let formTypeClass = '';
 
 	const submit = data => {
-		console.log(data);
+		// console.log(data);
 		reset();
 	}
 

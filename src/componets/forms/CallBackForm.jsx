@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
-import { Input, TextArea } from "../UI/form";
+import { Input } from "../UI/form";
+import { urls } from "../../store/urls";
 
 const CallBackForm = ({ type, ...props }) => {
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
@@ -10,8 +11,23 @@ const CallBackForm = ({ type, ...props }) => {
 
 	let formTypeClass = '';
 
-	const submit = data => {
+	const submit = async data => {
 		console.log(data);
+		const mailData = new FormData();
+		for (let name in data) {
+			mailData.append(name, data[name]);
+		}
+
+		const response = await fetch(urls.mail, {
+      method: 'POST',
+			mode: "no-cors",
+      body: mailData,
+    });
+
+		console.log(response);
+
+    const result = await response.json();
+		console.log(result);
 		reset();
 	}
 

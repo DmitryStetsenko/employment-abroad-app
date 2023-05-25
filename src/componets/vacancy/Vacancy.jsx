@@ -21,8 +21,6 @@ const Vacancy = ({ data, type }) => {
 		thumbnails,
 	} = data;
 
-	console.log(data);
-
 	const id = Number(data.id);
 
 	const metaDataList = getMetaDataList(data);
