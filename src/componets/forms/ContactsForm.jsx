@@ -1,7 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Input, TextArea } from "../UI/form";
+import SendFormMessage from "../SendFormMessage";
+import { useState } from "react";
 
-const ContactsForm = ({ type, ...props }) => {
+const ContactsForm = ({ setModal, type, ...props }) => {
+	const [sendMessage, setSendMessage] = useState(false);
+	const [isSendForm, setIsSendForm] = useState(false);
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -12,7 +16,8 @@ const ContactsForm = ({ type, ...props }) => {
 
 	const submit = data => {
 		// console.log(data);
-		reset();
+		setSendMessage(true);
+		isSendForm && reset();
 	}
 
 	switch (type) {
@@ -94,6 +99,8 @@ const ContactsForm = ({ type, ...props }) => {
 				<button className="btn btn_form">Надіслати данні</button>
 				<button className="btn btn_form-stroke" onClick={ () => reset() }>Очистити форму</button>
 			</div>
+
+			{ sendMessage && <SendFormMessage isSend={ isSendForm } setModal={ setModal } setSendMessage={ setSendMessage }/>}
 		</form>
 	)
 }

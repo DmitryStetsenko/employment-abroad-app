@@ -1,4 +1,4 @@
-const SendFormMessage = ({setModal, isSend}) => {
+const SendFormMessage = ({setModal, setSendMessage, isSend}) => {
     const resIcon = isSend
         ? <i className="send-form-message__icon send-form-message__icon_success fa-solid fa-envelope-circle-check"></i>
         : <i className="send-form-message__icon send-form-message__icon_fail fa-sharp fa-solid fa-circle-exclamation"></i>
@@ -15,8 +15,9 @@ const SendFormMessage = ({setModal, isSend}) => {
 
     return (
         <div className="send-form-message">
-            <button 
-                onClick={ () => setModal({isShow: false, component: null}) } 
+            <button
+                type="button" 
+                onClick={ () => setModal ? setModal({isShow: false, component: null}) : setSendMessage(false) } 
                 className="send-form-message__btn"
             >   { resText }
                 { resIcon }

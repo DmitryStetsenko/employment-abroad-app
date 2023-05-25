@@ -20,7 +20,7 @@ const UserActionFixed = () => {
         <button onClick={ () => setModal({isShow: true, component: <CallBackForm setModal={ setModal } style={{transform: 'none'}} type="full"/>}) } className="user-action-fixed__item">
             <i className="fa-solid fa-phone-volume"></i>
         </button>
-        <button onClick={ () => setModal({isShow: true, component: <ContactsForm style={{transform: 'none'}} type="full"/>}) } className="user-action-fixed__item">
+        <button onClick={ () => setModal({isShow: true, component: <ContactsForm setModal={ setModal } style={{transform: 'none'}} type="full"/>}) } className="user-action-fixed__item">
             <i className="fa-solid fa-envelope"></i>
         </button>
 

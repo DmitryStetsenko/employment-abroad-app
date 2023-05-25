@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Input } from "../UI/form";
-import { urls } from "../../store/urls";
 import SendFormMessage from "../SendFormMessage";
 import { useState } from "react";
 
 const CallBackForm = ({ setModal, type, ...props }) => {
 	const [sendMessage, setSendMessage] = useState(false);
+	const [isSendForm, setIsSendForm] = useState(true);
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -31,8 +31,9 @@ const CallBackForm = ({ setModal, type, ...props }) => {
 
 		// const result = await response.json();
 		// console.log(result);
+		
 		setSendMessage(true);
-		reset();
+		isSendForm && reset();
 	}
 
 	switch (type) {
@@ -95,7 +96,7 @@ const CallBackForm = ({ setModal, type, ...props }) => {
 				<button className="btn btn_form-stroke" onClick={() => reset()}>Очистити форму</button>
 			</div>
 
-			{ sendMessage && <SendFormMessage isSend={true} setModal={ setModal }/>}
+			{ sendMessage && <SendFormMessage isSend={isSendForm} setModal={ setModal } setSendMessage={ setSendMessage }/>}
 		</form>
 	)
 }
