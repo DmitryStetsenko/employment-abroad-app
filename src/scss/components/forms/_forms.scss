@@ -51,6 +51,7 @@ fieldset {
   background: var(--formBgColor);
   padding: 40px;
   color: var(--mainFormColor);
+  position: relative;
 
   &__title-block {
     margin-bottom: 30px;
@@ -141,6 +142,41 @@ fieldset {
     padding: 2px;
     transform: translateY(50%);
   }
+}
+
+.send-form-message {
+  $successColor: #acffac;
+  $failColor: #ffacac;
+  @include flex(center, center);
+
+  background-color: darken($color1, 1.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  &__btn {
+  }
+  &__icon {
+    font-size: 4rem;
+    &_success {
+      color: $successColor;
+    }
+    &_fail {
+      color: $failColor
+    }
+  }
+  &__text {
+    margin-bottom: 20px;
+    &_success {
+      color: $successColor
+    }
+    &_fail {
+      color: $failColor
+    }
+  }
+
 }
 
 @media (max-width: $bp3) {

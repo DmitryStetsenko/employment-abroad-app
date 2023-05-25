@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Input } from "../UI/form";
 import { urls } from "../../store/urls";
+import SendFormMessage from "../SendFormMessage";
+import { useState } from "react";
 
-const CallBackForm = ({ type, ...props }) => {
+const CallBackForm = ({ setModal, type, ...props }) => {
+	const [sendMessage, setSendMessage] = useState(false);
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -12,22 +15,23 @@ const CallBackForm = ({ type, ...props }) => {
 	let formTypeClass = '';
 
 	const submit = async data => {
-		console.log(data);
-		const mailData = new FormData();
-		for (let name in data) {
-			mailData.append(name, data[name]);
-		}
+		console.log('callbackfrom');
+		// const mailData = new FormData();
+		// for (let name in data) {
+		// 	mailData.append(name, data[name]);
+		// }
 
-		const response = await fetch(urls.mail, {
-      method: 'POST',
-			mode: "no-cors",
-      body: mailData,
-    });
+		// const response = await fetch(urls.mail, {
+		// 	method: 'POST',
+		// 	mode: "no-cors",
+		// 	body: mailData,
+		// });
 
-		console.log(response);
+		// console.log(response);
 
-    const result = await response.json();
-		console.log(result);
+		// const result = await response.json();
+		// console.log(result);
+		setSendMessage(true);
 		reset();
 	}
 
@@ -45,8 +49,8 @@ const CallBackForm = ({ type, ...props }) => {
 
 	return (
 		<form
-			{...props} 
-			className={`form form_contacts  ${ formTypeClass }`} 
+			{...props}
+			className={`form form_contacts  ${formTypeClass}`}
 			onSubmit={handleSubmit(submit)}
 		>
 			<div className="form__title-block">
@@ -58,13 +62,13 @@ const CallBackForm = ({ type, ...props }) => {
 			</div>
 
 			<fieldset className="form__fields">
-			<Input 
+				<Input
 					name="name" type="text" label="name" placeholder="Введіть ім'я"
 					validateOptions={{}}
-					className="form-item" 
-					formProps={ formProps }
+					className="form-item"
+					formProps={formProps}
 				/>
-				<Input 
+				<Input
 					name="phone" type="text" label="phone*" placeholder="лише цифри 0993332211"
 					validateOptions={{
 						required: "Заповніть поле",
@@ -81,15 +85,17 @@ const CallBackForm = ({ type, ...props }) => {
 							value: 10
 						}
 					}}
-					className="form-item" 
-					formProps={ formProps }
+					className="form-item"
+					formProps={formProps}
 				/>
 			</fieldset>
 
 			<div className="form__btns">
 				<button className="btn btn_form">Замовити дзвінок</button>
-				<button className="btn btn_form-stroke" onClick={ () => reset() }>Очистити форму</button>
+				<button className="btn btn_form-stroke" onClick={() => reset()}>Очистити форму</button>
 			</div>
+
+			{ sendMessage && <SendFormMessage isSend={true} setModal={ setModal }/>}
 		</form>
 	)
 }

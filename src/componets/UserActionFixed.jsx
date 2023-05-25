@@ -17,10 +17,10 @@ const UserActionFixed = () => {
         <Link to="account" data-count={ count } className={`user-action-fixed__item ${ count && 'user-action-fixed__item_active'}`}>
           <i className="fa-solid fa-heart"></i>
         </Link>
-        <button onClick={ () => setModal({isShow: true, component: <CallBackForm style={{position: 'static', transform: 'none'}} type="full"/>}) } className="user-action-fixed__item">
+        <button onClick={ () => setModal({isShow: true, component: <CallBackForm setModal={ setModal } style={{transform: 'none'}} type="full"/>}) } className="user-action-fixed__item">
             <i className="fa-solid fa-phone-volume"></i>
         </button>
-        <button onClick={ () => setModal({isShow: true, component: <ContactsForm style={{position: 'static', transform: 'none'}} type="full"/>}) } className="user-action-fixed__item">
+        <button onClick={ () => setModal({isShow: true, component: <ContactsForm style={{transform: 'none'}} type="full"/>}) } className="user-action-fixed__item">
             <i className="fa-solid fa-envelope"></i>
         </button>
 
