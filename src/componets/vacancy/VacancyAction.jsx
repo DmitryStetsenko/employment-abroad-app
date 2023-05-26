@@ -39,7 +39,7 @@ const VacancyAction = ({ id, vacancyTitle }) => {
         </li>
       </ul>
       {
-        modal.isShow && <ModalWindow setModal={setModal}>{ modal.component }</ModalWindow>
+        modal.isShow && <ModalWindow className="modal-window" setModal={setModal}>{ modal.component }</ModalWindow>
       }
     </>
   );

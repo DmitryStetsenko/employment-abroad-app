@@ -14,16 +14,21 @@ const SendFormMessage = ({setModal, setSendMessage, isSend}) => {
         </h3>
 
     return (
-        <div className="send-form-message">
-            <button
-                type="button" 
-                onClick={ () => setModal ? setModal({isShow: false, component: null}) : setSendMessage(false) } 
-                className="send-form-message__btn"
-            >   { resText }
-                { resIcon }
-            </button>
-        </div>
+        <button 
+            className="send-form-message send-form-message_btn"
+            type="button" 
+            onClick={ () => setModal ? setModal({isShow: false, component: null}) : setSendMessage(false) } 
+        >
+            { resText }
+            { resIcon }
+        </button>
     );
 }
+
+
+SendFormMessage.defaultProps = {
+    setModal: null,
+    setSendMessage: null
+  };
 
 export default SendFormMessage;

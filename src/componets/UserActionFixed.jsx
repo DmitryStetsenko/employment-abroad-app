@@ -25,7 +25,7 @@ const UserActionFixed = () => {
         </button>
 
         {
-          modal.isShow && <ModalWindow setModal={setModal}>{ modal.component }</ModalWindow>
+          modal.isShow && <ModalWindow className="modal-window" setModal={setModal}>{ modal.component }</ModalWindow>
         }
     </div>
   );

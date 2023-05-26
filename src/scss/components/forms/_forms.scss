@@ -148,6 +148,7 @@ fieldset {
   $successColor: #acffac;
   $failColor: #ffacac;
   @include flex(center, center);
+  flex-direction: column;
 
   background-color: darken($color1, 1.2);
   position: absolute;
@@ -155,8 +156,9 @@ fieldset {
   left: 0;
   right: 0;
   bottom: 0;
+  cursor: pointer;
   
-  &__btn {
+  &_btn {
   }
   &__icon {
     font-size: 4rem;
