@@ -186,10 +186,6 @@ const WorkerForm = ({ type }) => {
 					<button className="btn btn_form-stroke" onClick={() => reset()}>Очистити форму</button>
 				</div>
 			</form>
-
-			{/* <ModalWindow className="modal-window modal-window_center" setModal={setModal}>
-				<SendFormMessage isSend={isSendForm} setModal={ setModal }/>
-			</ModalWindow> */}
 		</>
 
 	)

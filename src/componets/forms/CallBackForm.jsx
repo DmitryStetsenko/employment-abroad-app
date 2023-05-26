@@ -4,8 +4,7 @@ import SendFormMessage from "../SendFormMessage";
 import { useState } from "react";
 
 const CallBackForm = ({ setModal, type, ...props }) => {
-	const [sendMessage, setSendMessage] = useState(false);
-	const [isSendForm, setIsSendForm] = useState(true);
+	const [isSendForm, setIsSendForm] = useState(false);
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -32,7 +31,7 @@ const CallBackForm = ({ setModal, type, ...props }) => {
 		// const result = await response.json();
 		// console.log(result);
 		
-		setSendMessage(true);
+		setIsSendForm(true);
 		isSendForm && reset();
 	}
 
@@ -96,7 +95,7 @@ const CallBackForm = ({ setModal, type, ...props }) => {
 				<button className="btn btn_form-stroke" onClick={() => reset()}>Очистити форму</button>
 			</div>
 
-			{ sendMessage && <SendFormMessage isSend={isSendForm} setModal={ setModal } setSendMessage={ setSendMessage }/>}
+			{ isSendForm && <SendFormMessage isSend={isSendForm} />}
 		</form>
 	)
 }

@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ModalWindow = ({ children, setModal, ...props }) => {
+  const [isShow, setIsShow] = useState(false);
+
+  const handlerClose = setModal ? setModal : setIsShow;
+
   return (
-    <div {...props}>
-      { children }
-      <button type="button" onClick={() => setModal({isShow: false})} className="btn btn_close">X</button>
-    </div>
+    <>
+      {
+        isShow ? 
+        <div {...props}>
+          { children }
+          <button type="button" onClick={() => setModal({isShow: false})} className="btn btn_close">X</button>
+        </div>
+        :<></>
+      }
+    </>
   )
 }
 

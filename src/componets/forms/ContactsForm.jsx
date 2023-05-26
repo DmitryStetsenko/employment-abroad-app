@@ -99,8 +99,6 @@ const ContactsForm = ({ setModal, type, ...props }) => {
 				<button className="btn btn_form">Надіслати данні</button>
 				<button className="btn btn_form-stroke" onClick={ () => reset() }>Очистити форму</button>
 			</div>
-
-			{ sendMessage && <SendFormMessage isSend={ isSendForm } setModal={ setModal } setSendMessage={ setSendMessage }/>}
 		</form>
 	)
 }

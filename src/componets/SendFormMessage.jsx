@@ -1,4 +1,4 @@
-const SendFormMessage = ({setModal, setSendMessage, isSend}) => {
+const SendFormMessage = ({isSend, setModal, setSendMessage}) => {
     const resIcon = isSend
         ? <i className="send-form-message__icon send-form-message__icon_success fa-solid fa-envelope-circle-check"></i>
         : <i className="send-form-message__icon send-form-message__icon_fail fa-sharp fa-solid fa-circle-exclamation"></i>
@@ -24,11 +24,5 @@ const SendFormMessage = ({setModal, setSendMessage, isSend}) => {
         </button>
     );
 }
-
-
-SendFormMessage.defaultProps = {
-    setModal: null,
-    setSendMessage: null
-  };
 
 export default SendFormMessage;
