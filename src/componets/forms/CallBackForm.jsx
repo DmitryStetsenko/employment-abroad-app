@@ -2,9 +2,12 @@ import { useForm } from "react-hook-form";
 import { Input } from "../UI/form";
 import SendFormMessage from "../SendFormMessage";
 import useSubmit from "../../hooks/useSubmit";
+import FormResultWindow from "./FormResultWindow";
+import submitHandle from "./submitHandle";
 
 const CallBackForm = ({ setOuterState, type, ...props }) => {
-	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = useSubmit();
+	const submitData = useSubmit();
+	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = submitData;
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -13,30 +16,7 @@ const CallBackForm = ({ setOuterState, type, ...props }) => {
 
 	let formTypeClass = '';
 
-	const submitHandle = async data => {
-		console.log('callbackfrom');
-		// const mailData = new FormData();
-		// for (let name in data) {
-		// 	mailData.append(name, data[name]);
-		// }
-
-		// const response = await fetch(urls.mail, {
-		// 	method: 'POST',
-		// 	mode: "no-cors",
-		// 	body: mailData,
-		// });
-
-		// console.log(response);
-
-		// const result = await response.json();
-		// console.log(result);
-		
-		setSubmitSuccess(false);
-		console.log(data);
-
-		setIsSendForm(true);
-		submitSuccess && reset();
-	}
+	submitData.reset = reset;
 
 	switch (type) {
 		case 'medium':
@@ -48,13 +28,15 @@ const CallBackForm = ({ setOuterState, type, ...props }) => {
 		case 'full':
 			formTypeClass = 'form_full';
 			break;
+		default:
+			formTypeClass = '';
 	}
 
 	return (
 		<form
 			{...props}
 			className={`form form_contacts  ${formTypeClass}`}
-			onSubmit={handleSubmit(submitHandle)}
+			onSubmit={handleSubmit(data => submitHandle(data, submitData))}
 		>
 			<div className="form__title-block">
 				<h2 className="form__title">Замовити дзвінок</h2>

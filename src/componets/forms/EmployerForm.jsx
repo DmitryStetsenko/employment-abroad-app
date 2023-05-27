@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
 import { Input, TextArea } from "../UI/form";
-
+import SendFormMessage from "../SendFormMessage";
 import useSubmit from "../../hooks/useSubmit";
 import FormResultWindow from "./FormResultWindow";
+import submitHandle from "./submitHandle";
 
-const EmployerForm = ({ type }) => {
-	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = useSubmit();
+const EmployerForm = ({ setOuterState, type, ...props }) => {
+	const submitData = useSubmit();
+	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = submitData;
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -14,15 +16,7 @@ const EmployerForm = ({ type }) => {
 
 	let formTypeClass = '';
 
-	const submitHandle = data => {
-		console.log(isSendForm, submitSuccess);
-
-		setSubmitSuccess(false);
-		console.log(data);
-
-		setIsSendForm(true);
-		submitSuccess && reset();
-	}
+	submitData.reset = reset;
 
 	switch (type) {
 		case 'medium':
@@ -34,13 +28,15 @@ const EmployerForm = ({ type }) => {
 		case 'full':
 			formTypeClass = 'form_full';
 			break;
+		default:
+			formTypeClass = '';
 	}
 
 	return (
 		<>
 			<form
 				className={`form form_employer  ${formTypeClass}`}
-				onSubmit={handleSubmit(submitHandle)}
+				onSubmit={handleSubmit(data => submitHandle(data, submitData))}
 			>
 				<div className="form__title-block">
 					<h2 className="form__title">Заповніть форму для подання вакансії</h2>
