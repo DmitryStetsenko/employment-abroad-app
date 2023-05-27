@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const ModalWindow = ({ children, setModal, ...props }) => {
-  const [isShow, setIsShow] = useState(false);
+const ModalWindow = ({ children, setOuterState, ...props }) => {
+  const [isShow, setIsShow] = useState(true);
 
-  const handlerClose = setModal ? setModal : setIsShow;
+  const clickHandler = () => {
+    setIsShow(false);
+    setOuterState(false);
+  }
 
   return (
     <>
@@ -11,12 +14,16 @@ const ModalWindow = ({ children, setModal, ...props }) => {
         isShow ? 
         <div {...props}>
           { children }
-          <button type="button" onClick={() => setModal({isShow: false})} className="btn btn_close">X</button>
+          <button type="button" onClick={() => clickHandler()} className="btn btn_close">X</button>
         </div>
         :<></>
       }
     </>
   )
+}
+
+ModalWindow.defaultProps = {
+	setOuterState: (state) => state,
 }
 
 export default ModalWindow;

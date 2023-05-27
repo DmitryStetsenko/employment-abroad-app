@@ -11,11 +11,12 @@
   }
 
   &_center {
-    width: 300px;
-    height: 200px;
+    width: 320px;
+    height: 250px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, -50%);
+    box-shadow: 5px 5px 10px rgba(black, .5);
   }
 }
 

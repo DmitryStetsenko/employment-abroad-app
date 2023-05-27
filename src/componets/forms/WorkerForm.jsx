@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Input, TextArea } from "../UI/form";
 import ModalWindow from "../ModalWindow";
+import SendFormMessage from "../SendFormMessage";
+import useSubmit from "../../hooks/useSubmit";
 
 const WorkerForm = ({ type }) => {
+	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = useSubmit();
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -11,9 +14,14 @@ const WorkerForm = ({ type }) => {
 
 	let formTypeClass = '';
 
-	const submit = data => {
+	const submitHandle = data => {
+		console.log(isSendForm, submitSuccess);
+
+		setSubmitSuccess(false);
 		console.log(data);
-		reset();
+
+		setIsSendForm(true);
+		submitSuccess && reset();
 	}
 
 	switch (type) {
@@ -32,7 +40,7 @@ const WorkerForm = ({ type }) => {
 		<>
 			<form
 				className={`form form_worker ${formTypeClass}`}
-				onSubmit={handleSubmit(submit)}
+				onSubmit={handleSubmit(submitHandle)}
 			>
 				<div className="form__title-block">
 					<h2 className="form__title">Заповніть данні</h2>
@@ -186,6 +194,14 @@ const WorkerForm = ({ type }) => {
 					<button className="btn btn_form-stroke" onClick={() => reset()}>Очистити форму</button>
 				</div>
 			</form>
+			
+			{
+				isSendForm &&
+					<ModalWindow setOuterState={ setIsSendForm } className="modal-window modal-window_center">
+						<SendFormMessage setOuterState={ setIsSendForm } submitSuccess={ submitSuccess }/>
+					</ModalWindow>
+			}
+
 		</>
 
 	)
