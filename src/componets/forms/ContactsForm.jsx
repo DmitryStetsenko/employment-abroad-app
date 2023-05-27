@@ -1,11 +1,10 @@
 import { useForm } from "react-hook-form";
 import { Input, TextArea } from "../UI/form";
 import SendFormMessage from "../SendFormMessage";
-import { useState } from "react";
+import useSubmit from "../../hooks/useSubmit";
 
-const ContactsForm = ({ setModal, type, ...props }) => {
-	const [sendMessage, setSendMessage] = useState(false);
-	const [isSendForm, setIsSendForm] = useState(false);
+const ContactsForm = ({ setOuterState, type, ...props }) => {
+	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = useSubmit();
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -14,10 +13,13 @@ const ContactsForm = ({ setModal, type, ...props }) => {
 
 	let formTypeClass = '';
 
-	const submit = data => {
+	const submitHandle = data => {
 		// console.log(data);
-		setSendMessage(true);
-		isSendForm && reset();
+		setSubmitSuccess(false);
+		console.log(data);
+
+		setIsSendForm(true);
+		submitSuccess && reset();
 	}
 
 	switch (type) {
@@ -36,7 +38,7 @@ const ContactsForm = ({ setModal, type, ...props }) => {
 		<form
 			{...props}
 			className={`form form_contacts  ${ formTypeClass }`} 
-			onSubmit={handleSubmit(submit)}
+			onSubmit={handleSubmit(submitHandle)}
 		>
 			<div className="form__title-block">
 				<h2 className="form__title">Заповніть форму</h2>
@@ -99,6 +101,15 @@ const ContactsForm = ({ setModal, type, ...props }) => {
 				<button className="btn btn_form">Надіслати данні</button>
 				<button className="btn btn_form-stroke" onClick={ () => reset() }>Очистити форму</button>
 			</div>
+
+			{ 
+				isSendForm && 
+				<SendFormMessage 
+					submitSuccess={ submitSuccess } 
+					setOuterState={ setOuterState ? setOuterState : setIsSendForm } 
+				/>
+			}
+
 		</form>
 	)
 }

@@ -17,6 +17,19 @@ const VacancyAction = ({ id, vacancyTitle }) => {
     dispatch(fetchVacancyList(ids));
   }, [dispatch, ids]);
 
+  const vacancyFormHandle = () => {
+    const modalState = {
+      isShow: true, 
+      component: <VacancyForm
+                    setOuterState={ setModal }
+                    vacancyTitle={ vacancyTitle }  
+                    style={{position: 'static', transform: 'none'}} 
+                    type="full"/>
+      };
+
+    setModal(modalState);
+  }
+
   return (
     <>
       <ul className="vacancy-action">
@@ -30,17 +43,20 @@ const VacancyAction = ({ id, vacancyTitle }) => {
           </button>
         </li>
         <li className="vacancy-action__item">
-          <button 
-            onClick={ () => setModal({isShow: true, component: <VacancyForm vacancyTitle={ vacancyTitle }  style={{position: 'static', transform: 'none'}} type="full"/>}) } 
-            className="vacancy-action__btn"
-          >
+          <button onClick={ () => vacancyFormHandle() } className="vacancy-action__btn">
               <i className="fa-solid fa-envelope-circle-check"></i>
           </button>
         </li>
       </ul>
       {
-        modal.isShow && <ModalWindow className="modal-window" setModal={setModal}>{ modal.component }</ModalWindow>
-      }
+          modal.isShow && 
+          <ModalWindow 
+            setOuterState={setModal}
+            className="modal-window" 
+          >
+            { modal.component }
+          </ModalWindow>
+        }
     </>
   );
 };

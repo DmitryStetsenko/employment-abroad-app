@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { Input } from "../UI/form";
 import SendFormMessage from "../SendFormMessage";
-import { useState } from "react";
+import useSubmit from "../../hooks/useSubmit";
 
-const CallBackForm = ({ setModal, type, ...props }) => {
-	const [isSendForm, setIsSendForm] = useState(false);
+const CallBackForm = ({ setOuterState, type, ...props }) => {
+	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = useSubmit();
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -13,7 +13,7 @@ const CallBackForm = ({ setModal, type, ...props }) => {
 
 	let formTypeClass = '';
 
-	const submit = async data => {
+	const submitHandle = async data => {
 		console.log('callbackfrom');
 		// const mailData = new FormData();
 		// for (let name in data) {
@@ -31,8 +31,11 @@ const CallBackForm = ({ setModal, type, ...props }) => {
 		// const result = await response.json();
 		// console.log(result);
 		
+		setSubmitSuccess(false);
+		console.log(data);
+
 		setIsSendForm(true);
-		isSendForm && reset();
+		submitSuccess && reset();
 	}
 
 	switch (type) {
@@ -51,7 +54,7 @@ const CallBackForm = ({ setModal, type, ...props }) => {
 		<form
 			{...props}
 			className={`form form_contacts  ${formTypeClass}`}
-			onSubmit={handleSubmit(submit)}
+			onSubmit={handleSubmit(submitHandle)}
 		>
 			<div className="form__title-block">
 				<h2 className="form__title">Замовити дзвінок</h2>
@@ -95,7 +98,13 @@ const CallBackForm = ({ setModal, type, ...props }) => {
 				<button className="btn btn_form-stroke" onClick={() => reset()}>Очистити форму</button>
 			</div>
 
-			{ isSendForm && <SendFormMessage isSend={isSendForm} />}
+			{ 
+				isSendForm && 
+				<SendFormMessage 
+					submitSuccess={ submitSuccess } 
+					setOuterState={ setOuterState } 
+				/>
+			}
 		</form>
 	)
 }

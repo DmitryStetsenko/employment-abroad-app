@@ -1,7 +1,11 @@
 import { useForm } from "react-hook-form";
-import { Input, TextArea } from "../UI/form";
+import { Input } from "../UI/form";
 
-const VacancyForm = ({ type, vacancyTitle, ...props }) => {
+import SendFormMessage from "../SendFormMessage";
+import useSubmit from "../../hooks/useSubmit";
+
+const VacancyForm = ({ setOuterState, type, vacancyTitle, ...props }) => {
+	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = useSubmit();
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
 	});
@@ -10,9 +14,12 @@ const VacancyForm = ({ type, vacancyTitle, ...props }) => {
 
 	let formTypeClass = '';
 
-	const submit = data => {
+	const submitHandle = data => {
+		setSubmitSuccess(false);
 		console.log(data);
-		reset();
+
+		setIsSendForm(true);
+		submitSuccess && reset();
 	}
 
 	switch (type) {
@@ -31,7 +38,7 @@ const VacancyForm = ({ type, vacancyTitle, ...props }) => {
 		<form
 			{...props} 
 			className={`form form_contacts  ${ formTypeClass }`} 
-			onSubmit={handleSubmit(submit)}
+			onSubmit={handleSubmit(submitHandle)}
 		>
 			<div className="form__title-block">
 				<h2 className="form__title">{ vacancyTitle }</h2>
@@ -74,6 +81,15 @@ const VacancyForm = ({ type, vacancyTitle, ...props }) => {
 				<button className="btn btn_form">Запитати про вакансію</button>
 				<button className="btn btn_form-stroke" onClick={ () => reset() }>Очистити форму</button>
 			</div>
+
+			{ 
+				isSendForm && 
+				<SendFormMessage 
+					submitSuccess={ submitSuccess } 
+					setOuterState={ setOuterState } 
+				/>
+			}
+
 		</form>
 	)
 }

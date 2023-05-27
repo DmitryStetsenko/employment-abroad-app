@@ -15,7 +15,7 @@ const UserActionFixed = () => {
   const callBackHandler = () => {
     const modalState = {
       isShow: true,
-      component: <CallBackForm setModal={ setModal } style={{transform: 'none'}} type="full"/>
+      component: <CallBackForm setOuterState={ setModal } style={{transform: 'none'}} type="full"/>
     }
 
     setModal(modalState);
@@ -24,7 +24,7 @@ const UserActionFixed = () => {
   const contactsHandler = () => {
     const modalState = {
       isShow: true,
-      component: <ContactsForm setModal={ setModal } style={{transform: 'none'}} type="full"/>
+      component: <ContactsForm setOuterState={ setModal } style={{transform: 'none'}} type="full"/>
     }
 
     setModal(modalState);
@@ -43,15 +43,14 @@ const UserActionFixed = () => {
             <i className="fa-solid fa-envelope"></i>
         </button>
 
-        {/* <button onClick={ () => setModal({isShow: true, component: <CallBackForm setModal={ setModal } style={{transform: 'none'}} type="full"/>}) } className="user-action-fixed__item">
-            <i className="fa-solid fa-phone-volume"></i>
-        </button>
-        <button onClick={ () => setModal({isShow: true, component: <ContactsForm setModal={ setModal } style={{transform: 'none'}} type="full"/>}) } className="user-action-fixed__item">
-            <i className="fa-solid fa-envelope"></i>
-        </button> */}
-
         {
-          modal.isShow && <ModalWindow className="modal-window" setModal={setModal}>{ modal.component }</ModalWindow>
+          modal.isShow && 
+          <ModalWindow 
+            setOuterState={setModal}
+            className="modal-window" 
+          >
+            { modal.component }
+          </ModalWindow>
         }
     </div>
   );
