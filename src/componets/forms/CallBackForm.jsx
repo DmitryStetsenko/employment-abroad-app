@@ -1,36 +1,21 @@
-import { useForm } from "react-hook-form";
-import { Input, TextArea } from "../UI/form";
-import SendFormMessage from "../SendFormMessage";
-import useSubmit from "../../hooks/useSubmit";
-import FormResultWindow from "./FormResultWindow";
-import submitHandle from "./submitHandle";
+import { Input } from "../UI/form";
 
-const CallBackForm = ({ setOuterState, type, ...props }) => {
-	const submitData = useSubmit();
-	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = submitData;
-	const { register, handleSubmit, reset, formState: { errors } } = useForm({
-		mode: 'onBlur',
-	});
+const CallBackForm = ({ context }) => {
+	const {
+    props,
+    setOuterState,
+    submitData, // useSubmit
+    submitHandle,
 
-	const formProps = { register, errors }
+		// useForm
+    handleSubmit,
+    formProps,
 
-	let formTypeClass = '';
+    formTypeClass,
+    SendFormMessage,
+  } = context;
 
-	submitData.reset = reset;
-
-	switch (type) {
-		case 'medium':
-			formTypeClass = 'form_medium';
-			break;
-		case 'dark':
-			formTypeClass = 'form_dark';
-			break;
-		case 'full':
-			formTypeClass = 'form_full';
-			break;
-		default:
-			formTypeClass = '';
-	}
+	const { isSendForm, submitSuccess } = submitData;
 
 	return (
 		<form
@@ -77,7 +62,7 @@ const CallBackForm = ({ setOuterState, type, ...props }) => {
 
 			<div className="form__btns">
 				<button className="btn btn_form">Замовити дзвінок</button>
-				<button className="btn btn_form-stroke" onClick={() => reset()}>Очистити форму</button>
+				<button className="btn btn_form-stroke" onClick={() => submitData.reset()}>Очистити форму</button>
 			</div>
 
 			{ 

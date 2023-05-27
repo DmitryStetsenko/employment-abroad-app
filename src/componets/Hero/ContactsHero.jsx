@@ -1,4 +1,5 @@
 import ContactsForm from "../forms/ContactsForm";
+import Form from "../forms/Form";
 
 const ContactsHero = () => {
 	return (
@@ -6,7 +7,7 @@ const ContactsHero = () => {
 			<div className="hero-block__img">
 				<div className="hero-block__img-content">
 
-					<ContactsForm type="medium"/>
+				<Form type="medium"><ContactsForm /></Form>
 
 				</div>
 

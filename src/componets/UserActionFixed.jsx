@@ -6,7 +6,6 @@ import ContactsForm from './forms/ContactsForm';
 import CallBackForm from './forms/CallBackForm';
 import ModalWindow from "./ModalWindow";
 import Form from "./forms/Form";
-import CBForm from "./forms/CBForm";
 
 const UserActionFixed = () => {
   const { data, status } = useSelector(state => state.favVacancies);
@@ -14,21 +13,15 @@ const UserActionFixed = () => {
 
   const [modal, setModal] = useState({isShow: false, component: null});
 
-  const callBackHandler = () => {
+  const actionHandler = (component) => {
+    const formProps = {
+      style: {transform: 'none'},
+      type: 'full',
+    };
     const modalState = {
       isShow: true,
-      component: <Form setOuterState={ setModal } style={{transform: 'none'}} type="full"><CBForm/></Form>
+      component: <Form setOuterState={ setModal } {...formProps}>{ component }</Form>
     }
-
-    setModal(modalState);
-  }
-
-  const contactsHandler = () => {
-    const modalState = {
-      isShow: true,
-      component: <ContactsForm setOuterState={ setModal } style={{transform: 'none'}} type="full"/>
-    }
-
     setModal(modalState);
   }
 
@@ -37,11 +30,11 @@ const UserActionFixed = () => {
         <Link to="account" data-count={ count } className={`user-action-fixed__item ${ count && 'user-action-fixed__item_active'}`}>
           <i className="fa-solid fa-heart"></i>
         </Link>
-        <button onClick={ callBackHandler } className="user-action-fixed__item">
+        <button onClick={ () => actionHandler(<CallBackForm />) } className="user-action-fixed__item">
             <i className="fa-solid fa-phone-volume"></i>
         </button>
 
-        <button onClick={ contactsHandler } className="user-action-fixed__item">
+        <button onClick={ () => actionHandler(<ContactsForm />) } className="user-action-fixed__item">
             <i className="fa-solid fa-envelope"></i>
         </button>
 
