@@ -5,6 +5,8 @@ import { useState } from "react";
 import ContactsForm from './forms/ContactsForm';
 import CallBackForm from './forms/CallBackForm';
 import ModalWindow from "./ModalWindow";
+import Form from "./forms/Form";
+import CBForm from "./forms/CBForm";
 
 const UserActionFixed = () => {
   const { data, status } = useSelector(state => state.favVacancies);
@@ -15,7 +17,7 @@ const UserActionFixed = () => {
   const callBackHandler = () => {
     const modalState = {
       isShow: true,
-      component: <CallBackForm setOuterState={ setModal } style={{transform: 'none'}} type="full"/>
+      component: <Form setOuterState={ setModal } style={{transform: 'none'}} type="full"><CBForm/></Form>
     }
 
     setModal(modalState);
