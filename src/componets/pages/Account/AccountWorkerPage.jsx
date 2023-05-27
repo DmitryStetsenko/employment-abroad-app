@@ -6,6 +6,7 @@ import { fetchVacancyList } from "./../../../store/slices/favVacanciesSlice";
 
 import WorkerForm from "../../forms/WorkerForm";
 import { VacancyList } from "../../vacancy";
+import Form from "../../forms/Form";
 
 const AccountWorkerPage = () => {
   const { ids } = useSelector(state => state.favVacancies);
@@ -30,7 +31,9 @@ const AccountWorkerPage = () => {
           </div>
           <div className="account__content-block">
             <div className="form-block">
-              <WorkerForm type="medium"/>
+
+              <Form type="medium"><WorkerForm/></Form>
+
             </div>
           </div>
         </div>

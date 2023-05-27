@@ -1,13 +1,13 @@
 import { Children, cloneElement } from "react";
 import { useForm } from "react-hook-form";
 import SendFormMessage from "../SendFormMessage";
-import useSubmit from "../../hooks/useSubmit";
+import useFormSubmit from "../../hooks/useFormSubmit";
 import submitHandle from "./submitHandle";
 import FormResultWindow from "./FormResultWindow";
 
 
-const Form = ({children, setOuterState, type, ...props}) => {
-  const submitData = useSubmit();
+const Form = ({children, formTitle, setOuterState, type, ...props}) => {
+  const submitData = useFormSubmit();
 	// const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = submitData;
 	const { register, handleSubmit, reset, formState: { errors } } = useForm({
 		mode: 'onBlur',
@@ -35,6 +35,7 @@ const Form = ({children, setOuterState, type, ...props}) => {
 
   const context = {
     props,
+		formTitle,
     setOuterState,
     submitData, // useSubmit
     submitHandle,

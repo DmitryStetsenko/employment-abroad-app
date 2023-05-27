@@ -1,5 +1,6 @@
 import React from 'react';
 import EmployerForm from '../../forms/EmployerForm';
+import Form from '../../forms/Form';
 
 const AccountEmployerPage = () => {
   return (
@@ -14,7 +15,7 @@ const AccountEmployerPage = () => {
           </div>
           <div className="account__content-block">
             <div className="form-block">
-              <EmployerForm type="medium"/>
+              <Form type="medium"><EmployerForm/></Form>
             </div>
           </div>
         </div>

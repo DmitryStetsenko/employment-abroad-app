@@ -1,38 +1,22 @@
-import { useForm } from "react-hook-form";
 import { Input } from "../UI/form";
 
-import SendFormMessage from "../SendFormMessage";
-import useSubmit from "../../hooks/useSubmit";
+const VacancyForm = ({ context }) => {
+	const {
+    props,
+		formTitle,
+    setOuterState,
+    submitData, // useSubmit
+    submitHandle,
 
-const VacancyForm = ({ setOuterState, type, vacancyTitle, ...props }) => {
-	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = useSubmit();
-	const { register, handleSubmit, reset, formState: { errors } } = useForm({
-		mode: 'onBlur',
-	});
+		// useForm
+    handleSubmit,
+    formProps,
 
-	const formProps = { register, errors }
+    formTypeClass,
+    SendFormMessage,
+  } = context;
 
-	let formTypeClass = '';
-
-	const submitHandle = data => {
-		setSubmitSuccess(false);
-		console.log(data);
-
-		setIsSendForm(true);
-		submitSuccess && reset();
-	}
-
-	switch (type) {
-		case 'medium':
-			formTypeClass = 'form_medium';
-			break;
-		case 'dark':
-			formTypeClass = 'form_dark';
-			break;
-		case 'full':
-			formTypeClass = 'form_full';
-			break;
-	}
+	const { isSendForm, submitSuccess } = submitData;
 
 	return (
 		<form
@@ -41,7 +25,7 @@ const VacancyForm = ({ setOuterState, type, vacancyTitle, ...props }) => {
 			onSubmit={handleSubmit(submitHandle)}
 		>
 			<div className="form__title-block">
-				<h2 className="form__title">{ vacancyTitle }</h2>
+				<h2 className="form__title">{ formTitle }</h2>
 				<p className="form__subtitle">
 					Наш менеджер зв'яжеться з вами
 					протягом 30 хвилин.
@@ -79,7 +63,7 @@ const VacancyForm = ({ setOuterState, type, vacancyTitle, ...props }) => {
 
 			<div className="form__btns">
 				<button className="btn btn_form">Запитати про вакансію</button>
-				<button className="btn btn_form-stroke" onClick={ () => reset() }>Очистити форму</button>
+				<button className="btn btn_form-stroke" onClick={ () => submitData.reset() }>Очистити форму</button>
 			</div>
 
 			{ 

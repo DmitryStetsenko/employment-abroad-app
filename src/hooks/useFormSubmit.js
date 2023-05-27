@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useSubmit = () => {
+const useFormSubmit = () => {
   const [isSendForm, setIsSendForm] = useState(false);
 	const [submitSuccess, setSubmitSuccess] = useState(false);
 
@@ -10,4 +10,4 @@ const useSubmit = () => {
   }
 }
 
-export default useSubmit;
+export default useFormSubmit;

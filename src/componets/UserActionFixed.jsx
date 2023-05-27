@@ -15,12 +15,13 @@ const UserActionFixed = () => {
 
   const actionHandler = (component) => {
     const formProps = {
+      setOuterState: setModal,
       style: {transform: 'none'},
       type: 'full',
     };
     const modalState = {
       isShow: true,
-      component: <Form setOuterState={ setModal } {...formProps}>{ component }</Form>
+      component: <Form {...formProps}>{ component }</Form>
     }
     setModal(modalState);
   }

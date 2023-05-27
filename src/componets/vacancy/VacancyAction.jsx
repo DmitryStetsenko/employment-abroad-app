@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFavVacancy, delFavVacancy, fetchVacancyList } from '../../store/slices/favVacanciesSlice';
 import VacancyForm from '../forms/VacancyForm';
 import ModalWindow from '../ModalWindow';
+import Form from '../forms/Form';
 
 const VacancyAction = ({ id, vacancyTitle }) => {
   const dispatch = useDispatch();
@@ -18,13 +19,15 @@ const VacancyAction = ({ id, vacancyTitle }) => {
   }, [dispatch, ids]);
 
   const vacancyFormHandle = () => {
+    const formProps = {
+      setOuterState: setModal,
+      formTitle: vacancyTitle,
+      style: {position: 'static', transform: 'none'},
+      type: 'full',
+    };
     const modalState = {
       isShow: true, 
-      component: <VacancyForm
-                    setOuterState={ setModal }
-                    vacancyTitle={ vacancyTitle }  
-                    style={{position: 'static', transform: 'none'}} 
-                    type="full"/>
+      component: <Form {...formProps}><VacancyForm /></Form>
       };
 
     setModal(modalState);
