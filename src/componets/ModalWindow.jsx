@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const ModalWindow = ({ children, setOuterState, overlay, ...props }) => {
+  const isMobile = useMediaQuery({ maxWidth: 900 });
   const [isShow, setIsShow] = useState(true);
 
   const clickHandler = () => {
@@ -12,7 +14,7 @@ const ModalWindow = ({ children, setOuterState, overlay, ...props }) => {
     <>
       {
         isShow ?
-        <div className={`modal-window-overlay ${overlay ? 'modal-window-overlay_show' : ''}`}>
+        <div className={`modal-window-overlay ${overlay || isMobile ? 'modal-window-overlay_show' : ''}`}>
           <div {...props}>
             { children }
             <button type="button" onClick={() => clickHandler()} className="btn btn_close">X</button>

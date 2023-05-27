@@ -38,13 +38,10 @@
 
 @media (max-width: $bp3) {
   .modal-window {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(black, .8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 50%;
+    left: 50%;
+    bottom: initial;
+    right: initial;
+    transform: translate(-50%, -50%);
   }
 }
