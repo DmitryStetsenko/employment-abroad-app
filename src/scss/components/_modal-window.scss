@@ -1,3 +1,19 @@
+.modal-window-overlay {
+  width: 1px;
+  height: 1px;
+  &_show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 199;
+    background: rgba(black, .8);
+    width: initial;
+    height: initial;
+  }
+}
+
 .modal-window {
   position: fixed;
   bottom: 0;

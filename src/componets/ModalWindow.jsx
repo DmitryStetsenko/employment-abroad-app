@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const ModalWindow = ({ children, setOuterState, ...props }) => {
+const ModalWindow = ({ children, setOuterState, overlay, ...props }) => {
   const [isShow, setIsShow] = useState(true);
 
   const clickHandler = () => {
@@ -11,11 +11,14 @@ const ModalWindow = ({ children, setOuterState, ...props }) => {
   return (
     <>
       {
-        isShow ? 
-        <div {...props}>
-          { children }
-          <button type="button" onClick={() => clickHandler()} className="btn btn_close">X</button>
+        isShow ?
+        <div className={`modal-window-overlay ${overlay ? 'modal-window-overlay_show' : ''}`}>
+          <div {...props}>
+            { children }
+            <button type="button" onClick={() => clickHandler()} className="btn btn_close">X</button>
+          </div>
         </div>
+        
         :<></>
       }
     </>
@@ -24,6 +27,7 @@ const ModalWindow = ({ children, setOuterState, ...props }) => {
 
 ModalWindow.defaultProps = {
 	setOuterState: (state) => state,
+  overlay: false,
 }
 
 export default ModalWindow;

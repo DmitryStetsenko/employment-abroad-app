@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { Input, TextArea } from "../UI/form";
-import ModalWindow from "../ModalWindow";
-import SendFormMessage from "../SendFormMessage";
+
 import useSubmit from "../../hooks/useSubmit";
+import FormResultWindow from "./FormResultWindow";
 
 const WorkerForm = ({ type }) => {
 	const { isSendForm, setIsSendForm, submitSuccess, setSubmitSuccess } = useSubmit();
@@ -195,13 +195,14 @@ const WorkerForm = ({ type }) => {
 				</div>
 			</form>
 			
-			{
-				isSendForm &&
-					<ModalWindow setOuterState={ setIsSendForm } className="modal-window modal-window_center">
-						<SendFormMessage setOuterState={ setIsSendForm } submitSuccess={ submitSuccess }/>
-					</ModalWindow>
+			{ 
+				isSendForm && <FormResultWindow
+												overlay={ true }
+												submitSuccess={ submitSuccess }
+												setIsSendForm={ setIsSendForm }
+												className="modal-window modal-window_center" 
+											/> 
 			}
-
 		</>
 
 	)
