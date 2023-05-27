@@ -19,7 +19,7 @@ const WorkerForm = ({ context }) => {
 		<>
 			<form
 				className={`form form_worker ${formTypeClass}`}
-				onSubmit={handleSubmit(data => submitHandle(data, submitData))}
+				onSubmit={handleSubmit(data => submitHandle(data, submitData, 'Данні кандидата'))}
 			>
 				<div className="form__title-block">
 					<h2 className="form__title">Заповніть данні</h2>

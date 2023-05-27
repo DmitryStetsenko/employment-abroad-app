@@ -22,7 +22,7 @@ const VacancyForm = ({ context }) => {
 		<form
 			{...props} 
 			className={`form form_contacts  ${ formTypeClass }`} 
-			onSubmit={handleSubmit(submitHandle)}
+			onSubmit={handleSubmit(data => submitHandle(data, submitData, `Вакансія: ${formTitle}`))}
 		>
 			<div className="form__title-block">
 				<h2 className="form__title">{ formTitle }</h2>

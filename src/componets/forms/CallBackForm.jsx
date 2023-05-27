@@ -21,7 +21,7 @@ const CallBackForm = ({ context }) => {
 		<form
 			{...props}
 			className={`form form_contacts  ${formTypeClass}`}
-			onSubmit={handleSubmit(data => submitHandle(data, submitData))}
+			onSubmit={handleSubmit(data => submitHandle(data, submitData, 'Запит на дзвінок'))}
 		>
 			<div className="form__title-block">
 				<h2 className="form__title">Замовити дзвінок</h2>

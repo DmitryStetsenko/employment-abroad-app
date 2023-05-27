@@ -1,28 +1,29 @@
-const submitHandle = async (data, submitData) => {
+import { urls } from "../../store/urls";
+
+const submitHandle = async (data, submitData, header) => {
 	const { submitSuccess, setSubmitSuccess, setIsSendForm, reset } = submitData;
-	// console.log('callbackfrom');
-	// const mailData = new FormData();
-	// for (let name in data) {
-	// 	mailData.append(name, data[name]);
-	// }
+	const mailData = new FormData();
 
-	// const response = await fetch(urls.mail, {
-	// 	method: 'POST',
-	// 	mode: "no-cors",
-	// 	body: mailData,
-	// });
+	for (let name in data) {
+		mailData.append(name, data[name]);
+	}
 
-	// console.log(response);
+	mailData.append('header', header);
 
-	// const result = await response.json();
-	// console.log(result);
+	const response = await fetch(urls.mail, {
+		method: 'POST',
+		mode: "no-cors",
+		body: mailData,
+	});
 
-  console.log(data);
+	const result = await response.text();
 
-	setSubmitSuccess(false);
+	console.log(response);
+
+	setSubmitSuccess(true);
 
 	setIsSendForm(true);
-	submitSuccess && reset();
+	reset();
 }
 
 export default submitHandle;

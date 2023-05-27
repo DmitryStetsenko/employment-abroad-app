@@ -19,7 +19,7 @@ const EmployerForm = ({ context }) => {
 		<>
 			<form
 				className={`form form_employer  ${formTypeClass}`}
-				onSubmit={handleSubmit(data => submitHandle(data, submitData))}
+				onSubmit={handleSubmit(data => submitHandle(data, submitData, 'Данні роботодавця'))}
 			>
 				<div className="form__title-block">
 					<h2 className="form__title">Заповніть форму для подання вакансії</h2>
