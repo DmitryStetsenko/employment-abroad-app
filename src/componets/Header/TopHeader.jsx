@@ -38,21 +38,41 @@ const TopHeader = ({ routingData }) => {
       
       <div className="top-header__block">
         <div className="top-header__action">
-          <div className={`user-account action-item ${account.inPage && 'action-item_active'}`}>
+          <Link 
+            to={ account.link } 
+            target={ account.isOuter ? '_blank' : '_self' } 
+            className={`user-account action-item ${account.inPage && 'action-item_active'}`}
+          >
             <i className="fa-solid fa-right-to-bracket"></i>
-            {/* <Link to="/account">Личный кабинет</Link> */}
-            <Link to={ account.link } target={ account.isOuter ? '_blank' : '_self' }>Власний кабінет</Link>
-          </div>
-          <div className="top-header__addit-features">
-            <Link to="tel:+380663340226" className="phone action-item">+38 066 334 02 26</Link>
-            {/* <div className="notifications action-item">
+            <span>Власний кабінет</span>
+          </Link>
+
+          <Link 
+            to="tel:+380663340226"
+            target={ account.isOuter ? '_blank' : '_self' } 
+            className="phone action-item"
+          >
+            <i className="fa-solid fa-phone"></i>
+            <span>+38 066 334 02 26</span>
+          </Link>
+
+          {/* <Link 
+            to="tel:+380663340226"
+            target={ account.isOuter ? '_blank' : '_self' } 
+            className="phone action-item"
+          >
+            <i className="fa-solid fa-phone"></i>
+            <span>+38 066 334 02 26</span>
+
+            <div className="notifications action-item">
               <i className="fa-solid fa-bell"></i>
             </div>
             <div className="user-menu action-item">
               <i className="fa-solid fa-bars"></i>
               <ul className="user-menu-list"></ul>
-            </div> */}
-          </div>
+            </div>
+
+          </Link> */}
         </div>
       </div>
       
