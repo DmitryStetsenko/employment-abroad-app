@@ -32,6 +32,8 @@
     }
 
     &_footer {
+        width: 150px;
+        min-width: 150px;
         position: absolute;
         right: 0;
     }
@@ -160,6 +162,10 @@
     .logo {
         min-width: 100px;
         width: 100px;
+        &_footer {
+            width: 150px;
+            min-width: 150px;
+        }
     }
 }
 
@@ -174,6 +180,8 @@
         width: 35px;
         &_footer {
             position: static;
+            width: 150px;
+            min-width: 150px;
         }
     }
     .menu-footer {
