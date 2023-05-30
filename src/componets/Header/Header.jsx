@@ -1,9 +1,12 @@
 import { Menu, TopHeader } from './';
 import { Link, useLocation } from 'react-router-dom';
 import { SearchForm } from '../forms/SearchForm';
+import { useMediaQuery } from 'react-responsive';
 
 const Header = () => {
 	const { pathname } = useLocation();
+
+	const isMobile = useMediaQuery({ maxWidth: 550 });
 
 	const routingData = {
 		account: {
@@ -53,7 +56,11 @@ const Header = () => {
 				<div className="container">
 					<div className="menu-header">
 						<Link to="/" className="logo menu-header__item">
-							<img src="/img/logo-full-dark.svg" alt="logo liftron" />
+							{
+								!isMobile 
+									? <img src="/img/logo-full-dark.svg" alt="logo liftron" />
+									: <img src="/img/logo-full-img-only.svg" alt="logo liftron" />
+							}
 						</Link>
 						<div className="menu-header__search-block menu-header__item">
 							

@@ -156,24 +156,22 @@
     }
 }
 
+@media (max-width: $bp5) {
+    .logo {
+        min-width: 100px;
+        width: 100px;
+    }
+}
+
 @media (max-width: $bp6) {
     .menu-header {
         padding: 10px 0;
         flex-wrap: wrap;
         justify-content: center;
-        &__item {
-            &:first-child {
-                margin-right: 0;
-            }
-        }
     }
     .logo {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
-        img {
-            width: 150px;
-        }
+        min-width: 35px;
+        width: 35px;
         &_footer {
             position: static;
         }
