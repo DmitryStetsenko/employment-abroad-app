@@ -2,16 +2,16 @@ import { Input, TextArea } from "../UI/form";
 
 const WorkerForm = ({ context }) => {
 	const {
-    submitData, // useSubmit
-    submitHandle,
+		submitData, // useSubmit
+		submitHandle,
 
 		// useForm
-    handleSubmit,
-    formProps,
+		handleSubmit,
+		formProps,
 
-    formTypeClass,
+		formTypeClass,
 		FormResultWindow,
-  } = context;
+	} = context;
 
 	const { isSendForm, setIsSendForm, submitSuccess } = submitData;
 
@@ -30,8 +30,9 @@ const WorkerForm = ({ context }) => {
 				</div>
 
 				<fieldset className="form__fields">
+
 					<div className="form__data-block">
-						<h3 className="form__block-title">Дані для працевлаштування</h3>
+						<h3 className="form__block-title">Контактні дані</h3>
 
 						<Input
 							name="name" type="text" label="П.І.Б*" placeholder="П.І.Б"
@@ -39,6 +40,53 @@ const WorkerForm = ({ context }) => {
 							className="form-item"
 							formProps={formProps}
 						/>
+						<Input
+							name="phone" type="text" label="Телефон*" placeholder="лише цифри 0993332211"
+							validateOptions={{
+								required: "Заповніть поле",
+								pattern: {
+									message: "невірний формат",
+									value: /[0-9]/
+								},
+								minLength: {
+									message: "мін. 10 цифр",
+									value: 10
+								},
+								maxLength: {
+									message: "макс. 10 цифр",
+									value: 10
+								}
+							}}
+							className="form-item"
+							formProps={formProps}
+						/>
+						<Input
+							name="email" type="text" label="Електронна пошта*" placeholder="name@domain.com"
+							validateOptions={{
+								required: "Заповніть поле",
+								pattern: {
+									message: "невірний формат",
+									value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+								}
+							}}
+							className="form-item"
+							formProps={formProps}
+						/>
+
+						<TextArea
+							name="additInfo" label="Додаткові відомості*" placeholder="enter text"
+							validateOptions={{
+								required: "Заповніть поле",
+							}}
+							className="form-item"
+							formProps={formProps}
+						/>
+					</div>
+					
+					<div className="form__data-block">
+						<h3 className="form__block-title">Дані для працевлаштування</h3>
+
+
 						<Input
 							name="age" type="text" label="Вік*" placeholder="лише цифри 25"
 							validateOptions={{
@@ -122,50 +170,7 @@ const WorkerForm = ({ context }) => {
 							formProps={formProps}
 						/>
 					</div>
-					<div className="form__data-block">
-						<h3 className="form__block-title">Контактні дані</h3>
-						<Input
-							name="phone" type="text" label="Телефон*" placeholder="лише цифри 0993332211"
-							validateOptions={{
-								required: "Заповніть поле",
-								pattern: {
-									message: "невірний формат",
-									value: /[0-9]/
-								},
-								minLength: {
-									message: "мін. 10 цифр",
-									value: 10
-								},
-								maxLength: {
-									message: "макс. 10 цифр",
-									value: 10
-								}
-							}}
-							className="form-item"
-							formProps={formProps}
-						/>
-						<Input
-							name="email" type="text" label="Електронна пошта*" placeholder="name@domain.com"
-							validateOptions={{
-								required: "Заповніть поле",
-								pattern: {
-									message: "невірний формат",
-									value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-								}
-							}}
-							className="form-item"
-							formProps={formProps}
-						/>
 
-						<TextArea
-							name="additInfo" label="Додаткові відомості*" placeholder="enter text"
-							validateOptions={{
-								required: "Заповніть поле",
-							}}
-							className="form-item"
-							formProps={formProps}
-						/>
-					</div>
 				</fieldset>
 
 				<div className="form__btns">
@@ -173,14 +178,14 @@ const WorkerForm = ({ context }) => {
 					<button className="btn btn_form-stroke" onClick={() => submitData.reset()}>Очистити форму</button>
 				</div>
 			</form>
-			
-			{ 
+
+			{
 				isSendForm && <FormResultWindow
-												overlay={ true }
-												submitSuccess={ submitSuccess }
-												setIsSendForm={ setIsSendForm }
-												className="modal-window modal-window_center" 
-											/> 
+					overlay={true}
+					submitSuccess={submitSuccess}
+					setIsSendForm={setIsSendForm}
+					className="modal-window modal-window_center"
+				/>
 			}
 		</>
 

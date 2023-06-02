@@ -2,16 +2,16 @@ import { Input, TextArea } from "../UI/form";
 
 const EmployerForm = ({ context }) => {
 	const {
-    submitData, // useSubmit
-    submitHandle,
+		submitData, // useSubmit
+		submitHandle,
 
 		// useForm
-    handleSubmit,
-    formProps,
+		handleSubmit,
+		formProps,
 
-    formTypeClass,
+		formTypeClass,
 		FormResultWindow,
-  } = context;
+	} = context;
 
 	const { isSendForm, setIsSendForm, submitSuccess } = submitData;
 
@@ -30,6 +30,66 @@ const EmployerForm = ({ context }) => {
 				</div>
 
 				<fieldset className="form__fields">
+
+					<div className="form__data-block">
+						<h3 className="form__block-title">Контактні дані компанії</h3>
+
+						<Input
+							name="name" type="text" label="Назва компанії" placeholder="Введіть ім'я"
+							validateOptions={{}}
+							className="form-item"
+							formProps={formProps}
+						/>
+						<TextArea
+							name="company" label="Дані про компанію*" placeholder="enter text"
+							validateOptions={{
+								required: "Заповніть поле",
+							}}
+							className="form-item"
+							formProps={formProps}
+						/>
+						<Input
+							name="email" type="text" label="Електронна пошта*" placeholder="name@domain.com"
+							validateOptions={{
+								required: "Заповніть поле",
+								pattern: {
+									message: "невірний формат",
+									value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+								}
+							}}
+							className="form-item"
+							formProps={formProps}
+						/>
+						<Input
+							name="phone" type="text" label="Телефон*" placeholder="лише цифри 0993332211"
+							validateOptions={{
+								required: "Заповніть поле",
+								pattern: {
+									message: "невірний формат",
+									value: /[0-9]/
+								},
+								minLength: {
+									message: "мін. 10 цифр",
+									value: 10
+								},
+								maxLength: {
+									message: "макс. 10 цифр",
+									value: 10
+								}
+							}}
+							className="form-item"
+							formProps={formProps}
+						/>
+						<TextArea
+							name="additInfo" label="Додаткові відомості*" placeholder="enter text"
+							validateOptions={{
+								required: "Заповніть поле",
+							}}
+							className="form-item"
+							formProps={formProps}
+						/>
+					</div>
+					
 					<div className="form__data-block">
 						<h3 className="form__block-title">Дані про вакансію</h3>
 
@@ -112,64 +172,7 @@ const EmployerForm = ({ context }) => {
 							formProps={formProps}
 						/>
 					</div>
-					<div className="form__data-block">
-						<h3 className="form__block-title">Контактні дані компанії</h3>
 
-						<Input
-							name="name" type="text" label="Назва компанії" placeholder="Введіть ім'я"
-							validateOptions={{}}
-							className="form-item"
-							formProps={formProps}
-						/>
-						<TextArea
-							name="company" label="Дані про компанію*" placeholder="enter text"
-							validateOptions={{
-								required: "Заповніть поле",
-							}}
-							className="form-item"
-							formProps={formProps}
-						/>
-						<Input
-							name="email" type="text" label="Електронна пошта*" placeholder="name@domain.com"
-							validateOptions={{
-								required: "Заповніть поле",
-								pattern: {
-									message: "невірний формат",
-									value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-								}
-							}}
-							className="form-item"
-							formProps={formProps}
-						/>
-						<Input
-							name="phone" type="text" label="Телефон*" placeholder="лише цифри 0993332211"
-							validateOptions={{
-								required: "Заповніть поле",
-								pattern: {
-									message: "невірний формат",
-									value: /[0-9]/
-								},
-								minLength: {
-									message: "мін. 10 цифр",
-									value: 10
-								},
-								maxLength: {
-									message: "макс. 10 цифр",
-									value: 10
-								}
-							}}
-							className="form-item"
-							formProps={formProps}
-						/>
-						<TextArea
-							name="additInfo" label="Додаткові відомості*" placeholder="enter text"
-							validateOptions={{
-								required: "Заповніть поле",
-							}}
-							className="form-item"
-							formProps={formProps}
-						/>
-					</div>
 				</fieldset>
 
 				<div className="form__btns">
@@ -178,13 +181,13 @@ const EmployerForm = ({ context }) => {
 				</div>
 			</form>
 
-			{ 
+			{
 				isSendForm && <FormResultWindow
-												overlay={ true }
-												submitSuccess={ submitSuccess }
-												setIsSendForm={ setIsSendForm }
-												className="modal-window modal-window_center" 
-											/> 
+					overlay={true}
+					submitSuccess={submitSuccess}
+					setIsSendForm={setIsSendForm}
+					className="modal-window modal-window_center"
+				/>
 			}
 		</>
 
