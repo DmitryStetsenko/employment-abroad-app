@@ -33,7 +33,7 @@ const EmployerHero = () => {
                             </div>
                         </div>
                         <div className="hero__action-block">
-                            <Link to="/account" className="btn btn_start">Розмістити вакансію</Link>
+                            <Link to="/account/employer" className="btn btn_start">Розмістити вакансію</Link>
                         </div>
                     </div>
                 </div>
