@@ -18,6 +18,10 @@ textarea {
   resize: none;
 }
 
+textarea::placeholder {
+  font-family: sans-serif;
+}
+
 fieldset {
   border: none;
 }

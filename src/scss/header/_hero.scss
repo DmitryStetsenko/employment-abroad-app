@@ -251,7 +251,7 @@
 
 .social {
   $iconSize: 20px;
-  @include flex;
+  @include flex(flex-start, center);
 
   &__item {
     font-size: $iconSize;

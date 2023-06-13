@@ -26,7 +26,7 @@ const ContactsHero = () => {
 										<div className="contacts__phone-block contacts__item">
 											<span className="contacts__block-text">Phone</span>
 											<div className="contacts__phone">
-												<a href="tel:+4915170038949">+4915170038949</a>
+												{/* <a href="tel:+4915170038949">+4915170038949</a> */}
 												<a href="tel:+380663340226">+380663340226</a>
 											</div>
 										</div>
