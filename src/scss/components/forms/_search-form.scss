@@ -7,6 +7,12 @@
   z-index: 10;
   background: white;
 
+  &:hover {
+    #{$parent}__icon {
+      color: $color2;
+    }
+  }
+
   &__field {
     @include flex(center, center);
     border: 1px solid $color5;

@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import { useMediaQuery } from "react-responsive";
 import HeroTabs from './HeroTabs';
 
 import { WorkerHero, ContactsHero, AboutUsHero, EmployerHero } from './index'
@@ -6,19 +7,25 @@ import { WorkerHero, ContactsHero, AboutUsHero, EmployerHero } from './index'
 const Hero = () => {
   const { pathname } = useLocation();
 
+  const isMobile = useMediaQuery({ maxWidth: 800 });
+
   let component = null;
   let workerOrEmployer = true;
   let heroBlockModifClassName = '';
   let showHero = true;
 
+  let heroMobileBgClass = '';
+
   switch (pathname) {
     case '/':
       component = <WorkerHero />;
       heroBlockModifClassName = 'hero-block_worker';
+      heroMobileBgClass = 'hero-block_worker-mobile-bg';
       break;
     case '/employer':
       component = <EmployerHero />;
       heroBlockModifClassName = 'hero-block_employer';
+      heroMobileBgClass = 'hero-block_employer-mobile-bg';
       break;
     case '/contacts':
       component = <ContactsHero />;
@@ -52,7 +59,14 @@ const Hero = () => {
     <>
       {
         showHero &&
-        <div className={`hero-block ${heroBlockModifClassName}`}>
+        <div 
+          className={
+            `
+            hero-block ${heroBlockModifClassName}
+            ${isMobile ? heroMobileBgClass : ''}
+            `
+          }
+        >
 
           { component }
 

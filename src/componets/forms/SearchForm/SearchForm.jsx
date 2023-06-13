@@ -45,7 +45,7 @@ const SearchForm = () => {
         onOutsideClick={ closeSearchResultWindow }
         className={`search-form ${ isNarrow && 'search-form_narrow'}`}
       >
-        <div
+        <label
           onClick={ () => setIsActive(!isActive) }
           className={`search-form__field ${isActive ? 'search-form__field_active' : ''}`}
         >
@@ -58,7 +58,7 @@ const SearchForm = () => {
             className="search-form__input"
             placeholder="почніть пошук..."
           />
-        </div>
+        </label>
         <div className="search-form__results">
           
           { 

@@ -1,6 +1,14 @@
 .hero-block {
   background-color: $color1;
-  background-image: radial-gradient(circle, rgba(173, 173, 173, 0.5) 0.6px, rgba(255, 255, 255, 0) 0.78px), radial-gradient(circle, rgba(197, 197, 197, 0.5) 0.6px, rgba(255, 255, 255, 0) 0.78px);
+  background-image: 
+    radial-gradient(
+      circle, 
+        rgba(173, 173, 173, 0.5) 0.6px, 
+        rgba(255, 255, 255, 0) 0.78px), 
+    radial-gradient(
+      circle, 
+        rgba(197, 197, 197, 0.5) 0.6px, 
+        rgba(255, 255, 255, 0) 0.78px);
 
   background-size: 0 0, 4px 4px;
   background-repeat: repeat;
@@ -53,6 +61,34 @@
   &_other {
     background-color: $color1;
   }
+
+  &_worker-mobile-bg {
+    background-image: 
+    radial-gradient(
+      circle, 
+        rgba(173, 173, 173, 0.5) 0.6px, 
+        rgba(255, 255, 255, 0) 0.78px), 
+    radial-gradient(
+      circle, 
+        rgba(197, 197, 197, 0.5) 0.6px, 
+        rgba(255, 255, 255, 0) 0.78px),
+    linear-gradient(90deg, rgba($color1, 0.7) 0%, rgba($color1, 0.7) 100%),
+    url(./../../../public/img/main-bg.jpg);
+  }
+
+  &_employer-mobile-bg {
+    background-image: 
+    radial-gradient(
+      circle, 
+        rgba(173, 173, 173, 0.5) 0.6px, 
+        rgba(255, 255, 255, 0) 0.78px), 
+    radial-gradient(
+      circle, 
+        rgba(197, 197, 197, 0.5) 0.6px, 
+        rgba(255, 255, 255, 0) 0.78px),
+    linear-gradient(90deg, rgba($color3, 0.7) 0%, rgba($color3, 0.7) 100%),
+    url(./../../../public/img/hero-employer-bg.jpg);
+  }
 }
 
 .hero {
@@ -65,6 +101,8 @@
   &__content {
     width: 50%;
     max-width: 500px;
+    height: 100%;
+    padding-top: 150px;
   }
 
   &__title-block {
@@ -333,6 +371,11 @@
     @include flex;
     flex-direction: column;
     height: initial;
+
+    background-size: 0 0, 4px 4px, cover, cover;
+    // background-position: center;
+    background-repeat: repeat;
+
     &__main {
       padding: 70px 15px 30px;
       order: -1;
@@ -367,6 +410,8 @@
       flex-direction: column;
 
       width: initial;
+      height: initial;
+      padding-top: 0;
     }
     &__title-block {
       &::before {
