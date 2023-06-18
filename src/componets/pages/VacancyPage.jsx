@@ -93,8 +93,8 @@ const VacancyPage = () => {
                   { metaItemList }
                 </ul>
               </div>
-              <div className="vacancy-single__text">
-                {description}
+              <div className="vacancy-single__text" dangerouslySetInnerHTML={{ __html: description }}>
+                {/* {description} */}
               </div>
             </div>
           </div>

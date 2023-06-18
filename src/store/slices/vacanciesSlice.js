@@ -23,6 +23,7 @@ export const fetchVacancies = createAsyncThunk(
       );
 
       const body = await response.json();
+      
       return { body, contentRange };
 
     } catch(error) {

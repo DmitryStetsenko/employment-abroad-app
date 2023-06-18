@@ -104,3 +104,10 @@ export function getVacancyMetaItemsList(metaDataList, dataUIlist, showType, rend
 
   return itemList;
 }
+
+export const sanitizedText = (htmlString) => {
+	const div = document.createElement('div');
+
+	div.innerHTML = htmlString;
+	return div.innerText;
+}

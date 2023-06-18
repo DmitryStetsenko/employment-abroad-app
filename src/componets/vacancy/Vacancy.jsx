@@ -1,4 +1,4 @@
-import React from 'react';
+import { sanitizedText } from '../../store/functions';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ const Vacancy = ({ data, type }) => {
 	const noImg = `${imgPath}/no-img.jpg`;
 
 	const dispatch = useDispatch();
-	const { 
+	let { 
 		created, 
 		title, 
 		description, 
@@ -20,6 +20,8 @@ const Vacancy = ({ data, type }) => {
 		additionally,
 		thumbnails,
 	} = data;
+
+	description = sanitizedText(description);
 
 	const id = Number(data.id);
 
@@ -48,7 +50,7 @@ const Vacancy = ({ data, type }) => {
 	const isMobile = useMediaQuery({ maxWidth: 550 });
 
 	return (
-		<div className={`vacancy ${type == 'slim' ? 'vacancy_slim' : ''}`}>
+		<div className={`vacancy ${type === 'slim' ? 'vacancy_slim' : ''}`}>
 			<div className="vacancy__content-block">
 				<div className="vacancy__thumbnail">
 					<img src={ thumbnails ? `${imgPath}/${thumbnails}` : noImg } alt={ title } />
