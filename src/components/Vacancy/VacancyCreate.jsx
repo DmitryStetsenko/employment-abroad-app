@@ -1,11 +1,12 @@
 import { Create, ImageInput, ReferenceInput, SimpleForm, TextInput } from 'react-admin';
 import { LanguageRefInput } from '../RefInput';
+import { RichTextInput } from 'ra-input-rich-text';
 
 const VacancyCreate = () => (
     <Create>
         <SimpleForm>
             <TextInput source="title" fullWidth required />
-            <TextInput source="description" multiline rows={5} fullWidth required />
+            <RichTextInput source="description" multiline rows={5} fullWidth required />
             <TextInput source="additionally" fullWidth/>
             <ImageInput source="thumbnails" />
             <TextInput source="salary"required/>

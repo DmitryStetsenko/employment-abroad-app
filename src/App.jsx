@@ -18,8 +18,8 @@ import { FiltertableList } from "./components/Filtertable";
 import { RoleList } from "./components/Role";
 import { UserList, UserEdit } from "./components/User";
 
-const dataProvider = simpleRestProvider('http://api.liftron.com.ua');
-// const dataProvider = simpleRestProvider('http://rest-api-simple.local');
+// const dataProvider = simpleRestProvider('https://api.liftron.com.ua');
+const dataProvider = simpleRestProvider('http://rest-api-simple.local');
 
 const App = () => (
   // authProvider={authProvider}

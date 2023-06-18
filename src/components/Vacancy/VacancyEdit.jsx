@@ -1,4 +1,5 @@
 import { Edit, SimpleForm, TextInput, ReferenceInput, choices, FileInput, ImageInput, ImageField } from 'react-admin';
+import { RichTextInput } from 'ra-input-rich-text';
 
 import RecordTitle from '../RecordTitle';
 import { LanguageRefInput } from '../RefInput';
@@ -8,8 +9,8 @@ const VacancyEdit = () => (
         <SimpleForm>
             <TextInput source="id" disabled/>
             <TextInput required source="title" fullWidth/>
-            <TextInput required source="description" multiline rows={5} fullWidth/>
-            <ImageInput source="thumbnails">
+            <RichTextInput required source="description" multiline rows={5} fullWidth/>
+            <ImageInput required source="thumbnails">
                 <ImageField source="src" title="title" />
             </ImageInput>
             <TextInput source="additionally" fullWidth/>
