@@ -278,9 +278,10 @@
             border-bottom: 3px solid $color6;
         }
         li {
-            margin-bottom: 5px;
-            padding: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
             background: $color6;
+            border-left: 5px solid grey;
             &:last-child {
                 margin-bottom: 0;
             }
