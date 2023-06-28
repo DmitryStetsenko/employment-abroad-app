@@ -10,7 +10,7 @@ const VacancyEdit = () => (
             <TextInput source="id" disabled/>
             <TextInput required source="title" fullWidth/>
             <RichTextInput required source="description" multiline rows={5} fullWidth/>
-            <ImageInput required source="thumbnails">
+            <ImageInput required source="thumbnails" maxSize={ 500000 }>
                 <ImageField source="src" title="title" />
             </ImageInput>
             <TextInput source="additionally" fullWidth/>

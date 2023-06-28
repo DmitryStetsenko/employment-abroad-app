@@ -8,7 +8,7 @@ const VacancyCreate = () => (
             <TextInput source="title" fullWidth required />
             <RichTextInput source="description" multiline rows={5} fullWidth required />
             <TextInput source="additionally" fullWidth/>
-            <ImageInput source="thumbnails" />
+            <ImageInput source="thumbnails" maxSize={ 500000 }/>
             <TextInput source="salary"required/>
 
             <ReferenceInput source="employer_id" reference="employer" required />
