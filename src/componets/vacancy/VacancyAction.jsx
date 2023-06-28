@@ -37,7 +37,7 @@ const VacancyAction = ({ id, vacancyTitle }) => {
     <>
       <ul className="vacancy-action">
         <li className="vacancy-action__item">
-          <button onClick={ () => dispatch(favVacancyAction({ id })) } className={`vacancy-action__btn ${isFav && 'vacancy-action__btn_active'}`}>
+          <button onClick={ () => dispatch(favVacancyAction({ id })) } className={`vacancy-action__btn ${isFav && 'vacancy-action__btn_active'}`} title="Додати вакансію до обраних">
             {
               isFav
               ? <i className="fa-solid fa-heart-circle-minus"></i>
@@ -46,7 +46,7 @@ const VacancyAction = ({ id, vacancyTitle }) => {
           </button>
         </li>
         <li className="vacancy-action__item">
-          <button onClick={ () => vacancyFormHandle() } className="vacancy-action__btn">
+          <button onClick={ () => vacancyFormHandle() } className="vacancy-action__btn" title="Надіслати запит на дану вакансію по EMAIL">
               <i className="fa-solid fa-envelope-circle-check"></i>
           </button>
         </li>

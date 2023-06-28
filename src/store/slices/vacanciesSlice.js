@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getContentRangeHeaderValue } from './../functions';
+
 import { urls } from './../urls';
 
 const vacancyUrls = urls.vacancy; 

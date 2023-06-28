@@ -11,3 +11,7 @@ export const urls = {
   },
   mail: mailUrl,
 };
+
+// GPT
+// export const gptApiKey = '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';
+// export const gptApiUrl = 'https://api.openai.com/v1/engines/text-davinci-003/completions';

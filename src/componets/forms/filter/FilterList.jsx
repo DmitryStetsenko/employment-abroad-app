@@ -27,7 +27,7 @@ const FilterList = ({ setIsActive }) => {
   return (
     <div className="filter section__sidebar" >
       <div className="filter__btn-block">
-        <button className="btn btn_filter filter__all-btn" onClick={ btnClickHandler }>Все вакансии</button>
+        <button className="btn btn_filter filter__all-btn" onClick={ btnClickHandler }>Всі вакансії</button>
 
         {
           isMobile &&

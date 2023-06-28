@@ -11,43 +11,43 @@ const UserActionFixed = () => {
   const { data, status } = useSelector(state => state.favVacancies);
   const count = data.contentRange?.count;
 
-  const [modal, setModal] = useState({isShow: false, component: null});
+  const [modal, setModal] = useState({ isShow: false, component: null });
 
   const actionHandler = (component) => {
     const formProps = {
       setOuterState: setModal,
-      style: {transform: 'none'},
+      style: { transform: 'none' },
       type: 'full',
     };
     const modalState = {
       isShow: true,
-      component: <Form {...formProps}>{ component }</Form>
+      component: <Form {...formProps}>{component}</Form>
     }
     setModal(modalState);
   }
 
   return (
     <div className="user-action-fixed">
-        <Link to="account" data-count={ count } className={`user-action-fixed__item ${ count && 'user-action-fixed__item_active'}`}>
-          <i className="fa-solid fa-heart"></i>
-        </Link>
-        <button onClick={ () => actionHandler(<CallBackForm />) } className="user-action-fixed__item">
-            <i className="fa-solid fa-phone-volume"></i>
-        </button>
+      <Link to="account" data-count={count} className={`user-action-fixed__item ${count && 'user-action-fixed__item_active'}`} title="Переглянути улюблені вакансії">
+        <i className="fa-solid fa-heart"></i>
+      </Link>
+      <button onClick={() => actionHandler(<CallBackForm />)} className="user-action-fixed__item" title="Замовити дзвінок">
+        <i className="fa-solid fa-phone-volume"></i>
+      </button>
 
-        <button onClick={ () => actionHandler(<ContactsForm />) } className="user-action-fixed__item">
-            <i className="fa-solid fa-envelope"></i>
-        </button>
+      <button onClick={() => actionHandler(<ContactsForm />)} className="user-action-fixed__item" title="Надіслати листа">
+        <i className="fa-solid fa-envelope"></i>
+      </button>
 
-        {
-          modal.isShow && 
-          <ModalWindow 
-            setOuterState={setModal}
-            className="modal-window" 
-          >
-            { modal.component }
-          </ModalWindow>
-        }
+      {
+        modal.isShow &&
+        <ModalWindow
+          setOuterState={setModal}
+          className="modal-window"
+        >
+          {modal.component}
+        </ModalWindow>
+      }
     </div>
   );
 };

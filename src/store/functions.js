@@ -48,22 +48,22 @@ export function strToSlug(str) {
   if (!str) {
     return '';
   }
-  
+
   str = str.replace(/^\s+|\s+$/g, ''); // trim
   str = str.toLowerCase();
-  
+
   // remove accents, swap ñ for n, etc
   let from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
-  let to   = "aaaaeeeeiiiioooouuuunc------";
-  for (let i=0, l=from.length ; i<l ; i++) {
-      str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+  let to = "aaaaeeeeiiiioooouuuunc------";
+  for (let i = 0, l = from.length; i < l; i++) {
+    str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
   }
 
   str = str
-  .replace(/[^а-яa-z0-9 -]/g, '') // remove invalid chars
-      .replace(/\s+/g, '-') // collapse whitespace and replace by -
-      .replace(/-+/g, '-'); // collapse dashes
-  
+    .replace(/[^а-яa-z0-9 -]/g, '') // remove invalid chars
+    .replace(/\s+/g, '-') // collapse whitespace and replace by -
+    .replace(/-+/g, '-'); // collapse dashes
+
   return str;
 }
 
@@ -106,8 +106,55 @@ export function getVacancyMetaItemsList(metaDataList, dataUIlist, showType, rend
 }
 
 export const sanitizedText = (htmlString) => {
-	const div = document.createElement('div');
+  const div = document.createElement('div');
 
-	div.innerHTML = htmlString;
-	return div.innerText;
+  div.innerHTML = htmlString;
+  return div.innerText;
+}
+
+// GPT
+export async function translateText(textData, targetLanguage, apiKey, apiUrl) {
+  const prompt = `Translate the following TEXT to ${targetLanguage}: ${textData}`;
+
+  const requestBody = {
+    prompt: prompt,
+    max_tokens: 2000,
+    temperature: 0,
+    n: 1,
+    stop: null
+  };
+
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify(requestBody)
+  };
+
+  // Отправляем запрос к API
+  const response = await fetch(apiUrl, requestOptions);
+  const data = await response.json();
+
+  // Получаем переведенный текст из ответа API
+  const translation = data.choices[0].text.trim();
+
+  return translation;
+}
+
+export function keyValueArrToObj(keyArr, valueArr) {
+  const obj = keyArr.reduce((acc, key, index) => {
+    acc[key] = valueArr[index];
+    return acc;
+  }, {});
+  return obj;  
+}
+
+export function splitArray(array, chunkSize) {
+  const result = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    result.push(array.slice(i, i + chunkSize));
+  }
+  return result;
 }
