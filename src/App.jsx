@@ -1,10 +1,9 @@
 import { Admin, Resource } from "react-admin";
+import { myDataProvider } from "./providers";
 
 import { vacancy, employer, country, housing, speciality, role, user, filter, filtertable, expirience, language } from './components/icons.js';
 
 import Dashboard from "./components/Dashboard";
-// import { authProvider } from "./providers";
-import simpleRestProvider from 'ra-data-simple-rest';
 
 import { VacancyList, VacancyEdit, VacancyCreate } from "./components/Vacancy";
 import { EmployerList, EmployerEdit, EmployerCreate } from "./components/Employer";
@@ -18,12 +17,15 @@ import { FiltertableList } from "./components/Filtertable";
 import { RoleList } from "./components/Role";
 import { UserList, UserEdit } from "./components/User";
 
+// import { authProvider } from "./providers";
+// import simpleRestProvider from 'ra-data-simple-rest';
+
 // const dataProvider = simpleRestProvider('https://api.liftron.com.ua');
-const dataProvider = simpleRestProvider('http://rest-api-simple.local');
+// const dataProvider = simpleRestProvider('http://rest-api-simple.local');
 
 const App = () => (
   // authProvider={authProvider}
-  <Admin dataProvider={dataProvider} dashboard={Dashboard}>
+  <Admin dataProvider={myDataProvider} dashboard={Dashboard}>
     <Resource name="employer" list={EmployerList} edit={EmployerEdit} create={EmployerCreate} recordRepresentation="name" icon={employer}/>
     <Resource name="vacancy" list={VacancyList} edit={VacancyEdit} create={VacancyCreate} icon={vacancy} />
     <Resource name="country" list={CountryList} edit={CountryEdit} create={CountryCreate} recordRepresentation="name" icon={country}/>

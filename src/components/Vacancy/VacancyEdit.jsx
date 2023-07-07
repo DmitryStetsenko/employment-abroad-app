@@ -3,6 +3,7 @@ import { RichTextInput } from 'ra-input-rich-text';
 
 import RecordTitle from '../RecordTitle';
 import { LanguageRefInput } from '../RefInput';
+import ImageUpload from '../ImageUpload/ImageUpload';
 
 const VacancyEdit = () => (
     <Edit title={<RecordTitle />}>
@@ -10,9 +11,17 @@ const VacancyEdit = () => (
             <TextInput source="id" disabled/>
             <TextInput required source="title" fullWidth/>
             <RichTextInput required source="description" multiline rows={5} fullWidth/>
-            <ImageInput required source="thumbnails" maxSize={ 500000 }>
+            <ImageUpload />
+            {/* <ImageInput
+                source="thumbnails"
+                accept="image/*"
+                multiple={false}
+                placeholder={<p>Move image here. Max size 500kb</p>}
+                required 
+                maxSize={ 500000 }
+            >
                 <ImageField source="src" title="title" />
-            </ImageInput>
+            </ImageInput> */}
             <TextInput source="additionally" fullWidth/>
 
             <ReferenceInput source="employer_id" reference="employer" required />

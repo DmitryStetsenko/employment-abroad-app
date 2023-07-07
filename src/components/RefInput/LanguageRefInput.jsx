@@ -3,8 +3,6 @@ import { ReferenceInput, SelectInput, useGetList } from 'react-admin';
 const LanguageRefInput = () => {
     const { data } = useGetList("language", {}, { field: "name", order: "ASC" });
 
-    console.log(data);
-
     const getOptionText = record => `${record.name} ${record.level}`;
 
     return (
