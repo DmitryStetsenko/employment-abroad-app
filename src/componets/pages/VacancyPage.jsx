@@ -61,7 +61,7 @@ const VacancyPage = () => {
           <div className="vacancy-single__content-block">
             <div className="vacancy-single__thumbnail-block">
               <div className="vacancy-single__thumbnail">
-                <img src={ thumbnails ? `${imgPath}/${thumbnails}` : noImg } alt={ title } />
+                <img src={ thumbnails ? `${thumbnails}` : noImg } alt={ title } />
               </div>
               <div className="vacancy-single__action">
                 

@@ -53,7 +53,7 @@ const Vacancy = ({ data, type }) => {
 		<div className={`vacancy ${type === 'slim' ? 'vacancy_slim' : ''}`}>
 			<div className="vacancy__content-block">
 				<div className="vacancy__thumbnail">
-					<img src={ thumbnails ? `${imgPath}/${thumbnails}` : noImg } alt={ title } />
+					<img src={ thumbnails ? `${thumbnails}` : noImg } alt={ title } />
 				</div>
 				<div className="vacancy__content">
 					<h3 className="vacancy__title">
