@@ -1,4 +1,4 @@
-import { ImageInput, ImageField, SimpleForm } from 'react-admin';
+import { ImageInput, ImageField } from 'react-admin';
 
 const ImageUpload = () => (
   <ImageInput

@@ -7,26 +7,37 @@ const restUrl = 'http://rest-api-simple.local';
 const myDataProvider = withLifecycleCallbacks(simpleRestProvider(restUrl), [
   {
     resource: 'vacancy',
-    beforeUpdate: (params, dataProvider) => {
-
-      console.log(params);
-      console.log(params.id);
-
+    beforeUpdate: async (params) => {
       const newPictures = params.data.thumbnails;
+      const src = await convertFileToBase64(newPictures);
 
-      return convertFileToBase64(newPictures)
-        .then(src =>
-          dataProvider.update('vacancy', {
-            id: params.id,
-            data: {
-              ...params.data,
-              thumbnails: {
-                src,
-                title: params.data.thumbnails.title
-              }
-            },
-          })
-        );
+      return {
+        id: params.id,
+        data: {
+          ...params.data,
+          thumbnails: {
+            src,
+            title: params.data.thumbnails.title
+          }
+        },
+      }
+    }
+  },
+  {
+    resource: 'vacancy',
+    beforeCreate: async (params) => {
+      const newPictures = params.data.thumbnails;
+      const src = await convertFileToBase64(newPictures);
+
+      return {
+        data: {
+          ...params.data,
+          thumbnails: {
+            src,
+            title: params.data.thumbnails.title
+          }
+        },
+      }
     }
   }
 ]);
@@ -34,6 +45,11 @@ const myDataProvider = withLifecycleCallbacks(simpleRestProvider(restUrl), [
 const convertFileToBase64 = file =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
+
+    if (!file.rawFile) {
+      resolve(file.src);
+    }
+
     reader.onload = () => resolve(reader.result);
     reader.onerror = reject;
 

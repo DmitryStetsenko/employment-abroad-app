@@ -1,4 +1,4 @@
-import { Edit, SimpleForm, TextInput, ReferenceInput, choices, FileInput, ImageInput, ImageField } from 'react-admin';
+import { Edit, SimpleForm, TextInput, ReferenceInput } from 'react-admin';
 import { RichTextInput } from 'ra-input-rich-text';
 
 import RecordTitle from '../RecordTitle';
