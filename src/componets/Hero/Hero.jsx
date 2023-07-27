@@ -59,14 +59,7 @@ const Hero = () => {
     <>
       {
         showHero &&
-        <div 
-          className={
-            `
-            hero-block ${heroBlockModifClassName}
-            ${isMobile ? heroMobileBgClass : ''}
-            `
-          }
-        >
+        <div className={`hero-block ${heroBlockModifClassName} ${isMobile ? heroMobileBgClass : ''}`}>
 
           { component }
 

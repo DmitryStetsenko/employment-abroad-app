@@ -114,7 +114,7 @@ const Vacancy = ({ data, type }) => {
 					</div>
 					{/* <div className="vacancy__salary">USD: { salary }</div> */}
 					<div className="vacancy__salary">договірна</div>
-					<Link to={`/vacancy/${title}`} state={ id } className="vacancy__details btn btn_detail">Датальніше</Link>
+					<Link to={`/vacancy/${title}`} state={ id } className="vacancy__details btn btn_detail">Детальніше</Link>
 				</div>
 			}
 

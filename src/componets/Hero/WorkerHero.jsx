@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
+import { VideoBtn, VideoContentWindow } from "../Video";
 import Slogan from "./Slogan";
 
 const WorkerHero = () => {
     const isMobile = useMediaQuery({ maxWidth: 900 });
+    const [showVideo, setShowVideo] = useState(false);
 
     return (
         <>
@@ -25,6 +28,8 @@ const WorkerHero = () => {
                 <div className="hero">
                     <div className="hero__content">
                         <div className="hero__title-block">
+                            <VideoBtn onClick={ () => setShowVideo(!showVideo) }/>
+
                             <h1 className="hero__title" translate="no">Liftron</h1>
                             <div className="hero__subtitle-block">
                                 <p className="hero__subtitle" translate="no">Recruting company</p>
@@ -51,6 +56,8 @@ const WorkerHero = () => {
                     </div>
                 </div>
             </div>
+
+            { showVideo && <VideoContentWindow setShowVideo={ setShowVideo }/> }
         </>
     )
 }
