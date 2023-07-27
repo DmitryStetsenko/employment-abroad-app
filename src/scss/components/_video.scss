@@ -80,6 +80,18 @@ $height: $width / $ratio;
   }
 }
 
+@media (max-width: 600px) {
+  .video-content {
+    padding: 0;
+    &__close-btn {
+      transform: translateY(-100%);
+    }
+    &__preload {
+      padding: 0;
+    }
+  }
+}
+
 @media (max-width: 550px) {
   .video-btn {
     position: absolute;
