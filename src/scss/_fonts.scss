@@ -1,5 +1,7 @@
 $fontPathBase: '/fonts';
 
+@import "./../fonts/awesome/css/all";
+
 @include addFont($fontPathBase + '/theseasons/TheSeasonsRegular', 'Seasons');
 @include addFont($fontPathBase + '/moontime/MoonTime-Regular', 'MoonTime');
 
