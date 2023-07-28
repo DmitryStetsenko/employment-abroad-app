@@ -106,10 +106,32 @@ export function getVacancyMetaItemsList(metaDataList, dataUIlist, showType, rend
 }
 
 export const sanitizedText = (htmlString) => {
+
   const div = document.createElement('div');
 
   div.innerHTML = htmlString;
   return div.innerText;
+}
+
+// video
+export const getShortYoutubeUrl = (url) => {
+  if (!url) {
+    return {
+      res: 'TmmppbnrLvs',
+      url: 'https://www.youtube.com/embed/TmmppbnrLvs'
+    }
+  }
+
+  const 
+    videoUrl = new URL(url),
+    vParam = videoUrl.searchParams.get('v'),
+    res =  vParam ? vParam : videoUrl.pathname.split('/')[2],
+    shortUrl = `https://www.youtube.com/embed/${res}`;
+
+    return {
+      res,
+      url: shortUrl
+    }
 }
 
 // GPT

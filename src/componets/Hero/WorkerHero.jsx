@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 import { Video } from "../Video";
@@ -6,7 +5,6 @@ import Slogan from "./Slogan";
 
 const WorkerHero = () => {
     const isMobile = useMediaQuery({ maxWidth: 900 });
-    const [showVideo, setShowVideo] = useState(false);
 
     return (
         <>

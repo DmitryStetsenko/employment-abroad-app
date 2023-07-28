@@ -6,6 +6,7 @@ import { strToSlug, getMetaDataList, getVacancyMetaItemsList } from '../../store
 import { delFavVacancy } from '../../store/slices/favVacanciesSlice';
 import { vacancyUIinfoList } from '../../store/vacancyUIinfoList';
 import VacancyAction from './VacancyAction';
+import { Video } from '../Video';
 
 const Vacancy = ({ data, type }) => {
 	const imgPath = '/img/vacancies';
@@ -54,6 +55,8 @@ const Vacancy = ({ data, type }) => {
 			<div className="vacancy__content-block">
 				<div className="vacancy__thumbnail">
 					<img src={ thumbnails ? `${thumbnails}` : noImg } alt={ title } />
+
+					<Video vacancy={true}/>
 				</div>
 				<div className="vacancy__content">
 					<h3 className="vacancy__title">

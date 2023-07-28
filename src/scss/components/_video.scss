@@ -2,6 +2,17 @@ $width: 70vw;
 $ratio: 16 / 9;
 $height: $width / $ratio;
 
+.video {
+  &_vacancy {
+    .video-btn {
+      width: 50px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
 .video-btn {
   position: absolute;
   z-index: 2;
