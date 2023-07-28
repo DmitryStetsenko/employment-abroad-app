@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
-import { VideoBtn, VideoContentWindow } from "../Video";
+import { Video } from "../Video";
 import Slogan from "./Slogan";
 
 const WorkerHero = () => {
@@ -28,7 +28,7 @@ const WorkerHero = () => {
                 <div className="hero">
                     <div className="hero__content">
                         <div className="hero__title-block">
-                            <VideoBtn onClick={ () => setShowVideo(!showVideo) }/>
+                            <Video src='https://www.youtube.com/embed/TmmppbnrLvs'/>
 
                             <h1 className="hero__title" translate="no">Liftron</h1>
                             <div className="hero__subtitle-block">
@@ -56,8 +56,6 @@ const WorkerHero = () => {
                     </div>
                 </div>
             </div>
-
-            { showVideo && <VideoContentWindow setShowVideo={ setShowVideo }/> }
         </>
     )
 }
