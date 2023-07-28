@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 const VideoContentWindow = ({ src, setShowVideo }) => {
@@ -24,6 +25,14 @@ const VideoContentWindow = ({ src, setShowVideo }) => {
 
     </div>
   ), portal);
+
+  useEffect(()  => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.removeAttribute('style');
+    };
+  });
 
   return component;
 };
