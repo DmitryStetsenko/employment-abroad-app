@@ -20,6 +20,7 @@ const Vacancy = ({ data, type }) => {
 		salary,
 		additionally,
 		thumbnails,
+		video
 	} = data;
 
 	description = sanitizedText(description);
@@ -56,7 +57,7 @@ const Vacancy = ({ data, type }) => {
 				<div className="vacancy__thumbnail">
 					<img src={ thumbnails ? `${thumbnails}` : noImg } alt={ title } />
 
-					<Video vacancy={true}/>
+					{ video && <Video vacancy={true} src={ video }/> }
 				</div>
 				<div className="vacancy__content">
 					<h3 className="vacancy__title">
