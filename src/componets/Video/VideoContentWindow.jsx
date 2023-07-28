@@ -1,7 +1,8 @@
-import React from 'react';
+import ReactDOM from 'react-dom';
 
 const VideoContentWindow = ({ src, setShowVideo }) => {
-  return (
+  const portal = document.getElementById('portal');
+  const component = ReactDOM.createPortal((
     <div className="video-popup">
 
       <div className="video-content">
@@ -20,9 +21,11 @@ const VideoContentWindow = ({ src, setShowVideo }) => {
 
         <button className="video-content__close-btn btn btn_close" onClick={ () => setShowVideo(false) }>X</button>
       </div>
-      
+
     </div>
-  );
+  ), portal);
+
+  return component;
 };
 
 export default VideoContentWindow;
