@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { sanitizedText } from '../../store/functions';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
@@ -10,6 +11,8 @@ import { Video } from '../Video';
 import { VacancyAction, SalaryInfo } from './';
 
 const Vacancy = ({ data, type }) => {
+	const [showSalaryInfo, setShowSalaryInfo] = useState(false);
+
 	const imgPath = '/img/vacancies';
 	const noImg = `${imgPath}/no-img.jpg`;
 
@@ -125,9 +128,24 @@ const Vacancy = ({ data, type }) => {
 
 					</div>
 					<div className="vacancy__salary">
-						<span>USD: { salary }</span>
+						<div className="vacancy__salary-value">
+							USD: { salary }
+							<button
+								onClick={ () => setShowSalaryInfo(!showSalaryInfo) }
+								className="vacancy__salary-value-info"
+								title="Детальніше про оплату"
+							>
+									i
+							</button>
+						</div>
 
-						<SalaryInfo salaryinfo={ salaryinfo } className="salary-info"/>
+						{ showSalaryInfo && 
+							<SalaryInfo 
+								salaryinfo={ salaryinfo } 
+								setShowSalaryInfo={ setShowSalaryInfo } 
+								className="salary-info"
+							/>
+						}
 						
 					</div>
 					{/* <div className="vacancy__salary">договірна</div> */}

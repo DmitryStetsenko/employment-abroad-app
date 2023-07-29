@@ -110,6 +110,38 @@
     }
     &__salary {
         margin-bottom: 10px;
+        width: 100%;
+        &-value {
+            $parent: ".vacancy__salary-value";
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            &:hover {
+                #{$parent}-info {
+                    cursor: pointer;
+                    border-color: $color2;
+                    color: $color2;
+                }
+            }
+            &-info {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                color: $color1;
+                position: absolute;
+                right: 0;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 1px solid $color1;
+
+                font-size:16px;
+                font-weight: bold;
+            }
+        }
     }
     
     &__details {
