@@ -2,4 +2,6 @@ import VacancyList from "./VacancyList";
 import Vacancy from "./Vacancy";
 import VacancyAction from "./VacancyAction";
 
-export { VacancyList, Vacancy, VacancyAction };
+import SalaryInfo from "./SalaryInfo";
+
+export { VacancyList, Vacancy, VacancyAction, SalaryInfo };

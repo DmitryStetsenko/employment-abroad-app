@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 import { strToSlug, getMetaDataList, getVacancyMetaItemsList } from '../../store/functions';
 import { delFavVacancy } from '../../store/slices/favVacanciesSlice';
 import { vacancyUIinfoList } from '../../store/vacancyUIinfoList';
-import VacancyAction from './VacancyAction';
 import { Video } from '../Video';
+
+import { VacancyAction, SalaryInfo } from './';
 
 const Vacancy = ({ data, type }) => {
 	const imgPath = '/img/vacancies';
@@ -22,6 +23,13 @@ const Vacancy = ({ data, type }) => {
 		thumbnails,
 		video
 	} = data;
+
+	const currency = 'USD';
+	const salaryinfo = `
+	<p>Перші 3 місяці: <span>17.50</span> зл netto</p>
+	<p>Після 3 місяців: <span>18.50</span> злотих netto</p>`;
+
+	console.log(salary);
 
 	description = sanitizedText(description);
 
@@ -116,8 +124,13 @@ const Vacancy = ({ data, type }) => {
 							<VacancyAction id={ id } vacancyTitle={ title }/>
 
 					</div>
-					{/* <div className="vacancy__salary">USD: { salary }</div> */}
-					<div className="vacancy__salary">договірна</div>
+					<div className="vacancy__salary">
+						<span>USD: { salary }</span>
+
+						<SalaryInfo salaryinfo={ salaryinfo } className="salary-info"/>
+						
+					</div>
+					{/* <div className="vacancy__salary">договірна</div> */}
 					<Link to={`/vacancy/${title}`} state={ id } className="vacancy__details btn btn_detail">Детальніше</Link>
 				</div>
 			}
