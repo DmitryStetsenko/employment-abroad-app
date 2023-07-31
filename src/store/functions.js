@@ -125,13 +125,13 @@ export const getShortYoutubeUrl = (url) => {
   const 
     videoUrl = new URL(url),
     vParam = videoUrl.searchParams.get('v'),
-    res =  vParam ? vParam : videoUrl.pathname.split('/')[2],
+    res =  vParam ? vParam : videoUrl.pathname.split('/')[1],
     shortUrl = `https://www.youtube.com/embed/${res}`;
 
-    return {
-      res,
-      url: shortUrl
-    }
+  return {
+    res,
+    url: shortUrl
+  }
 }
 
 // GPT

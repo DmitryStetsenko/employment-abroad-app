@@ -32,8 +32,6 @@ const Vacancy = ({ data, type }) => {
 	<p>Перші 3 місяці: <span>17.50</span> зл netto</p>
 	<p>Після 3 місяців: <span>18.50</span> злотих netto</p>`;
 
-	console.log(salary);
-
 	description = sanitizedText(description);
 
 	const id = Number(data.id);
@@ -135,7 +133,7 @@ const Vacancy = ({ data, type }) => {
 								className="vacancy__salary-value-info"
 								title="Детальніше про оплату"
 							>
-									<i class="fa-solid fa-circle-info"></i>
+									<i className="fa-solid fa-circle-info"></i>
 							</button>
 						</div>
 

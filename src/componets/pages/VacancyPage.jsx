@@ -8,6 +8,7 @@ import { fetchSingleVacancy, fetchVacancies } from './../../store/slices/vacanci
 import { getMetaDataList, getVacancyMetaItemsList } from '../../store/functions';
 import { vacancyUIinfoList } from '../../store/vacancyUIinfoList';
 import { VacancyAction } from '../vacancy';
+import { Video } from '../Video';
 
 const VacancyPage = () => {
   const location = useLocation();
@@ -30,6 +31,7 @@ const VacancyPage = () => {
     salary,
     additionally,
     thumbnails,
+    video,
   } = singleData;
 
   const currency = 'USD';
@@ -67,6 +69,7 @@ const VacancyPage = () => {
             <div className="vacancy-single__thumbnail-block">
               <div className="vacancy-single__thumbnail">
                 <img src={ thumbnails ? `${thumbnails}` : noImg } alt={ title } />
+                { video && <Video vacancy={true} src={ video }/> }
               </div>
               <div className="vacancy-single__action">
                 
