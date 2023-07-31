@@ -11,9 +11,14 @@ const VacancyEdit = () => (
             <TextInput source="id" disabled/>
             <TextInput required source="title" fullWidth/>
             <RichTextInput required source="description" multiline rows={5} fullWidth/>
+            <TextInput source="additionally" fullWidth/>
+
+            <TextInput source="salary" required />
+			<RichTextInput source="salaryinfo" multiline rows={5} fullWidth />
+            <ReferenceInput source="currency_id" reference="currency" required />
+
             <ImageUpload />
             <TextInput source="video" fullWidth />
-            <TextInput source="additionally" fullWidth/>
 
             <ReferenceInput source="employer_id" reference="employer" required />
             <ReferenceInput source="speciality_id" reference="speciality" required />

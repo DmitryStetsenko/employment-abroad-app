@@ -1,5 +1,5 @@
 import React from 'react';
-import { Datagrid, DateField, EditButton, List, ReferenceField, ReferenceInput, TextField } from 'react-admin';
+import { Datagrid, DateField, EditButton, List, ReferenceField, ReferenceInput, RichTextField, TextField } from 'react-admin';
 
 const vacancyFilters = [
   // <TextInput source="q" label="Search" alwaysOn />,
@@ -10,22 +10,27 @@ const VacancyList = () => {
   return (
     <List filters={vacancyFilters}>
       <Datagrid rowClick="expand">
-            <TextField source="id" />
-            <TextField source="title" />
-            {/* <TextField source="description" /> */}
-            <DateField source="created" />
-            <TextField source="additionally" />
-            <TextField source="video" />
+        <TextField source="id" />
+        <TextField source="title" />
+        {/* <TextField source="description" /> */}
+        <DateField source="created" />
+        <TextField source="additionally" />
 
-            <ReferenceField source="speciality_id" reference="speciality" />
-            <ReferenceField source="language_id" reference="language" />
-            <ReferenceField source="country_id" reference="country" />
-            <ReferenceField source="housing_id" reference="housing" />
-            <ReferenceField source="employer_id" reference="employer" />
-            <ReferenceField source="expirience_id" reference="expirience" />
+        <TextField source="salary" />
+        <ReferenceField source="currency_id" reference="currency" />
+        <RichTextField source="salaryinfo" />
 
-            <EditButton />
-          </Datagrid>
+        <TextField source="video" />
+
+        <ReferenceField source="speciality_id" reference="speciality" />
+        <ReferenceField source="language_id" reference="language" />
+        <ReferenceField source="country_id" reference="country" />
+        <ReferenceField source="housing_id" reference="housing" />
+        <ReferenceField source="employer_id" reference="employer" />
+        <ReferenceField source="expirience_id" reference="expirience" />
+
+        <EditButton />
+      </Datagrid>
     </List>
   );
 };

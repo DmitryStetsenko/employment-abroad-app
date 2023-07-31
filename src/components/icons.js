@@ -9,5 +9,6 @@ import filter from '@mui/icons-material/FilterAlt';
 import filtertable from '@mui/icons-material/FilterList';
 import expirience from '@mui/icons-material/PersonAdd';
 import language from '@mui/icons-material/GTranslate';
+import currency from '@mui/icons-material/Paid';
 
-export {vacancy, employer, country, housing, speciality, role, user, filter, filtertable, expirience, language};
+export {vacancy, employer, country, housing, speciality, role, user, filter, filtertable, expirience, language, currency};

@@ -9,10 +9,14 @@ const VacancyCreate = () => (
 			<TextInput source="title" fullWidth required />
 			<RichTextInput source="description" multiline rows={5} fullWidth required />
 			<TextInput source="additionally" fullWidth />
+			
+			<TextInput source="salary" required />
+			<RichTextInput source="salaryinfo" multiline rows={5} fullWidth />
+			<ReferenceInput source="currency_id" reference="currency" required />
+			
 			<ImageUpload />
 			<TextInput source="video" fullWidth />
-			<TextInput source="salary" required />
-
+			
 			<ReferenceInput source="employer_id" reference="employer" required />
 			<ReferenceInput source="speciality_id" reference="speciality" required />
 			<LanguageRefInput />
