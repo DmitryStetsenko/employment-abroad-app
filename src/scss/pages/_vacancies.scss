@@ -394,6 +394,29 @@
         font-weight: bold;
         font-size: 1.2rem;
     }
+    &__salary-value {
+        @include flex(flex-start, flex-start);
+
+        span:first-child {
+            min-width: 150px;
+        }
+    }
+    &__salary-info {
+        padding-top: 10px;
+        margin-top: 10px;
+        border-top: 1px solid silver;
+        font-size: 16px;
+        font-weight: 400;
+        p {
+            margin-bottom: 5px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        span {
+            font-weight: bold;
+        }
+    }
     &__details {
     }
 }

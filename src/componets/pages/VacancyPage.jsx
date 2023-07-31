@@ -76,7 +76,14 @@ const VacancyPage = () => {
             </div>
             <div className="vacancy-single__content">
               <h1 className="vacancy-single__title">{title}</h1>
-              <div className="vacancy-single__salary">Зарплата: договірна</div>
+              <div className="vacancy-single__salary">
+                <p className="vacancy-single__salary-value">
+                  <span>Зарплата:</span>
+                  <span>{ salary }</span>
+                  <span>{ currency }</span>
+                </p>
+                <div className="vacancy-single__salary-info" dangerouslySetInnerHTML={{ __html: salaryinfo }}></div>
+              </div>
 
               {
                 additionally &&
