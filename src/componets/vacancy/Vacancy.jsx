@@ -129,13 +129,13 @@ const Vacancy = ({ data, type }) => {
 					</div>
 					<div className="vacancy__salary">
 						<div className="vacancy__salary-value">
-							USD: { salary }
+							{ currency }: { salary }
 							<button
 								onClick={ () => setShowSalaryInfo(!showSalaryInfo) }
 								className="vacancy__salary-value-info"
 								title="Детальніше про оплату"
 							>
-									i
+									<i class="fa-solid fa-circle-info"></i>
 							</button>
 						</div>
 

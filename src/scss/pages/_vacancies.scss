@@ -118,28 +118,29 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            &:hover {
-                #{$parent}-info {
-                    cursor: pointer;
-                    border-color: $color2;
-                    color: $color2;
-                }
-            }
+            
             &-info {
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
                 color: $color1;
+                opacity: .5;
                 position: absolute;
                 right: 0;
                 width: 20px;
                 height: 20px;
-                border-radius: 50%;
-                border: 1px solid $color1;
+                transition: color .3s, opacity .3s;
 
-                font-size:16px;
+                font-size: 20px;
                 font-weight: bold;
+
+                &:hover {
+                    cursor: pointer;
+                    border-color: $color2;
+                    color: $color2;
+                    opacity: 1;
+                }
             }
         }
     }
@@ -279,6 +280,8 @@
     }
 }
 .additionally {
+    $parent: ".additionally";
+
     @include flex(flex-start, center);
     font-weight: bold;
     font-size: 14px;
@@ -301,6 +304,11 @@
         color: white;
         padding: 10px;
         margin-bottom: 20px;
+        #{$parent}__item {
+            &:nth-child(2) {
+                min-width: 150px;
+            }
+        }
     }
 }
 
