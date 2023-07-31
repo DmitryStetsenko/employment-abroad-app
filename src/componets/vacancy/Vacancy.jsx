@@ -22,15 +22,18 @@ const Vacancy = ({ data, type }) => {
 		title, 
 		description, 
 		salary,
+		salaryinfo,
 		additionally,
 		thumbnails,
 		video
 	} = data;
 
 	const currency = 'USD';
-	const salaryinfo = `
-	<p>Перші 3 місяці: <span>17.50</span> зл netto</p>
-	<p>Після 3 місяців: <span>18.50</span> злотих netto</p>`;
+	// salaryinfo = `
+	// <p>Перші 3 місяці: <span>17.50</span> зл netto</p>
+	// <p>Після 3 місяців: <span>18.50</span> злотих netto</p>`;
+
+	console.log(data);
 
 	description = sanitizedText(description);
 
@@ -128,21 +131,28 @@ const Vacancy = ({ data, type }) => {
 					<div className="vacancy__salary">
 						<div className="vacancy__salary-value">
 							{ currency }: { salary }
-							<button
-								onClick={ () => setShowSalaryInfo(!showSalaryInfo) }
-								className="vacancy__salary-value-info"
-								title="Детальніше про оплату"
-							>
-									<i className="fa-solid fa-circle-info"></i>
-							</button>
+
+							{
+								salaryinfo &&
+									<button
+									onClick={ () => setShowSalaryInfo(!showSalaryInfo) }
+									className="vacancy__salary-value-info"
+									title="Детальніше про оплату"
+									>
+										<i className="fa-solid fa-circle-info"></i>
+									</button>
+							}
+							
 						</div>
 
-						{ showSalaryInfo && 
-							<SalaryInfo 
-								salaryinfo={ salaryinfo } 
-								setShowSalaryInfo={ setShowSalaryInfo } 
-								className="salary-info"
-							/>
+						{ 
+							salaryinfo &&
+							showSalaryInfo && 
+								<SalaryInfo 
+									salaryinfo={ salaryinfo } 
+									setShowSalaryInfo={ setShowSalaryInfo } 
+									className="salary-info"
+								/>
 						}
 						
 					</div>

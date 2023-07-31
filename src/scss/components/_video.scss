@@ -53,6 +53,7 @@ $height: $width / $ratio;
   position: relative;
 
   border: 2px solid $color2;
+  background: rgba($color1, .7);
 
   width: $width;
   height: $height;

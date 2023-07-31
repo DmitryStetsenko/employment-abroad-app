@@ -112,7 +112,6 @@
         margin-bottom: 10px;
         width: 100%;
         &-value {
-            $parent: ".vacancy__salary-value";
             font-weight: bold;
             display: flex;
             justify-content: center;
@@ -169,6 +168,12 @@
         #{$parent}__content-block {
             align-items: center;
         }
+
+        .video_vacancy {
+            .video-btn {
+                width: 30px;
+            }
+        }
     }
 }
 
@@ -180,6 +185,8 @@
     box-shadow: 2px 2px 5px rgba(black, .3);
     top: 0;
     right: 0;
+    z-index: 2;
+
     max-height: 100%;
     overflow: hidden;
 
@@ -478,7 +485,6 @@
     }
 
     .vacancy {
-        $parent: &;
         flex-direction: column;
         &__title {
 
@@ -574,6 +580,9 @@
                 margin-bottom: 10px;
             }
         }
+        &__salary-value-info {
+            top: -20px;
+        }
     }
     .vacancy-action {
         &__btn {
@@ -592,6 +601,7 @@
             }
         }
     }
+
     .vacancy-single {
         &__content {
             font-size: 0.9rem;

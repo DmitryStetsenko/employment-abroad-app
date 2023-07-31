@@ -26,7 +26,7 @@ const WorkerHero = () => {
                 <div className="hero">
                     <div className="hero__content">
                         <div className="hero__title-block">
-                            <Video src='https://www.youtube.com/embed/TmmppbnrLvs'/>
+                            <Video src='https://www.youtube.com/TmmppbnrLvs'/>
 
                             <h1 className="hero__title" translate="no">Liftron</h1>
                             <div className="hero__subtitle-block">

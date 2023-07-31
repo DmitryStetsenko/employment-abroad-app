@@ -29,15 +29,16 @@ const VacancyPage = () => {
     title,
     description,
     salary,
+    salaryinfo,
     additionally,
     thumbnails,
     video,
   } = singleData;
 
   const currency = 'USD';
-	const salaryinfo = `
-	<p>Перші 3 місяці: <span>17.50</span> зл netto</p>
-	<p>Після 3 місяців: <span>18.50</span> злотих netto</p>`;
+	// salaryinfo = `
+	// <p>Перші 3 місяці: <span>17.50</span> зл netto</p>
+	// <p>Після 3 місяців: <span>18.50</span> злотих netto</p>`;
 
   const metaDataList = getMetaDataList(singleData);
   const metaItemList = getVacancyMetaItemsList(metaDataList, vacancyUIinfoList, 'single', (dataObj) => {
@@ -66,26 +67,31 @@ const VacancyPage = () => {
       <div className="container">
         <div className="vacancy-single">
           <div className="vacancy-single__content-block">
+
             <div className="vacancy-single__thumbnail-block">
               <div className="vacancy-single__thumbnail">
                 <img src={ thumbnails ? `${thumbnails}` : noImg } alt={ title } />
                 { video && <Video vacancy={true} src={ video }/> }
               </div>
               <div className="vacancy-single__action">
-                
                 <VacancyAction id={ vacancyId } vacancyTitle={ title }/>
-
               </div>
             </div>
+
             <div className="vacancy-single__content">
               <h1 className="vacancy-single__title">{title}</h1>
+
               <div className="vacancy-single__salary">
                 <p className="vacancy-single__salary-value">
                   <span>Зарплата:</span>
                   <span>{ salary }</span>
                   <span>{ currency }</span>
                 </p>
-                <div className="vacancy-single__salary-info" dangerouslySetInnerHTML={{ __html: salaryinfo }}></div>
+
+                {
+                  salaryinfo &&
+                  <div className="vacancy-single__salary-info" dangerouslySetInnerHTML={{ __html: salaryinfo }}></div>
+                }
               </div>
 
               {
@@ -102,15 +108,17 @@ const VacancyPage = () => {
                   </div>
                 </div>
 						  }
+
               <div className="vacancy-single__meta">
                 <ul className="single-meta-info">
                   { metaItemList }
                 </ul>
               </div>
-              <div className="vacancy-single__text" dangerouslySetInnerHTML={{ __html: description }}>
-                {/* {description} */}
-              </div>
+
+              <div className="vacancy-single__text" dangerouslySetInnerHTML={{ __html: description }}></div>
+            
             </div>
+
           </div>
         </div>
       </div>

@@ -118,7 +118,7 @@ export const getShortYoutubeUrl = (url) => {
   if (!url) {
     return {
       res: 'TmmppbnrLvs',
-      url: 'https://www.youtube.com/embed/TmmppbnrLvs'
+      url: 'https://www.youtube.com/TmmppbnrLvs'
     }
   }
 
