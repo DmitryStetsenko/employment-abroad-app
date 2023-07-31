@@ -12,16 +12,7 @@ const VacancyEdit = () => (
             <TextInput required source="title" fullWidth/>
             <RichTextInput required source="description" multiline rows={5} fullWidth/>
             <ImageUpload />
-            {/* <ImageInput
-                source="thumbnails"
-                accept="image/*"
-                multiple={false}
-                placeholder={<p>Move image here. Max size 500kb</p>}
-                required 
-                maxSize={ 500000 }
-            >
-                <ImageField source="src" title="title" />
-            </ImageInput> */}
+            <TextInput source="video" fullWidth />
             <TextInput source="additionally" fullWidth/>
 
             <ReferenceInput source="employer_id" reference="employer" required />
