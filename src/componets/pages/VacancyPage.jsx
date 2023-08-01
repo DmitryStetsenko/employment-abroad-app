@@ -33,9 +33,9 @@ const VacancyPage = () => {
     additionally,
     thumbnails,
     video,
+    currency_short
   } = singleData;
 
-  const currency = 'USD';
 	// salaryinfo = `
 	// <p>Перші 3 місяці: <span>17.50</span> зл netto</p>
 	// <p>Після 3 місяців: <span>18.50</span> злотих netto</p>`;
@@ -85,7 +85,7 @@ const VacancyPage = () => {
                 <p className="vacancy-single__salary-value">
                   <span>Зарплата:</span>
                   <span>{ salary }</span>
-                  <span>{ currency }</span>
+                  <span>{ currency_short }</span>
                 </p>
 
                 {

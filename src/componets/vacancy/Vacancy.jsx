@@ -25,10 +25,10 @@ const Vacancy = ({ data, type }) => {
 		salaryinfo,
 		additionally,
 		thumbnails,
-		video
+		video,
+		currency_short,
 	} = data;
 
-	const currency = 'USD';
 	// salaryinfo = `
 	// <p>Перші 3 місяці: <span>17.50</span> зл netto</p>
 	// <p>Після 3 місяців: <span>18.50</span> злотих netto</p>`;
@@ -130,7 +130,7 @@ const Vacancy = ({ data, type }) => {
 					</div>
 					<div className="vacancy__salary">
 						<div className="vacancy__salary-value">
-							{ currency }: { salary }
+							{ currency_short }: { salary }
 
 							{
 								salaryinfo &&
