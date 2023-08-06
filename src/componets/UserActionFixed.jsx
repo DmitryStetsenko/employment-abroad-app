@@ -9,7 +9,8 @@ import Form from "./forms/Form";
 
 const UserActionFixed = () => {
   const { data, status } = useSelector(state => state.favVacancies);
-  const count = data.contentRange?.count;
+  // const count = data.contentRange?.count;
+  const count = data.body?.length;
 
   const [modal, setModal] = useState({ isShow: false, component: null });
 
@@ -25,6 +26,8 @@ const UserActionFixed = () => {
     }
     setModal(modalState);
   }
+
+  console.log(data);
 
   return (
     <div className="user-action-fixed">

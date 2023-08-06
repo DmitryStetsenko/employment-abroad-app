@@ -6,6 +6,7 @@ const VacancyList = ({ slice, type }) => {
 	const sliceName = slice ? slice : 'vacancies';
 	const fetchData = useSelector(state => state[sliceName]);
 	const { data, status, error } = fetchData;
+	const count = data.body?.length;
 
 	return (
 		<>
@@ -17,7 +18,7 @@ const VacancyList = ({ slice, type }) => {
 					<div className="vacancies__header">
 						<div className="vacancies__info-block">
 							<p className="vacancies__info">
-								<span>{ data.contentRange?.count }</span>
+								<span>{ count }</span>
 								вакансій
 								{/* по зароботной плате от 450$ к 7000$ */}
 							</p>

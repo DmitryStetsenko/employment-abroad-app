@@ -29,12 +29,6 @@ const Vacancy = ({ data, type }) => {
 		currency_short,
 	} = data;
 
-	// salaryinfo = `
-	// <p>Перші 3 місяці: <span>17.50</span> зл netto</p>
-	// <p>Після 3 місяців: <span>18.50</span> злотих netto</p>`;
-
-	console.log(data);
-
 	description = sanitizedText(description);
 
 	const id = Number(data.id);
